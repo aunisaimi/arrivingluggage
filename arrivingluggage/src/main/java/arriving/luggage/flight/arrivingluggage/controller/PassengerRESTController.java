@@ -19,7 +19,7 @@ import arriving.luggage.flight.arrivingluggage.repository.PassengerRepository;
 import arriving.luggage.flight.arrivingluggage.model.Passenger;
 
 
-/*
+
 @RestController
 @RequestMapping("/api/passengers")
 public class PassengerRESTController 
@@ -61,4 +61,4 @@ public class PassengerRESTController
 	
 	
 }
-*/
+
