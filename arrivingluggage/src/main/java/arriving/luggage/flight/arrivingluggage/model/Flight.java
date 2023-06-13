@@ -20,6 +20,9 @@ public class Flight
 	
 	@Column(name="FlightName")
 	private String FlightName;
+	
+	private List<Passenger> passenger;
+	
 	//private Date ArrivalTime;
 	
 	
