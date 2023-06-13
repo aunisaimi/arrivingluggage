@@ -45,29 +45,29 @@ public class LuggageMENUController
 		// Attach a list to model as attribute
 		model.addAttribute("luggages", luggageList);
 		
-		return "luggages";
+		return "luggage";
 		
 	}
 	
 	/**
 	 * This method will update or add luggage
 	 * 
-	 * @param luggage
+	 * @param luggages
 	 * @return
 	 */
 	
 	@RequestMapping("/arriving/save")
-	public String updateLuggage(@ModelAttribute Luggage luggage)
+	public String updateLuggage(@ModelAttribute Luggage luggages)
 	{
 		// Create a new RestTemplate
 				RestTemplate restTemplate = new RestTemplate();
 				
 				// Create request body
-				HttpEntity<Luggage> request =new HttpEntity<Luggage>(luggage);
+				HttpEntity<Luggage> request =new HttpEntity<Luggage>(luggages);
 				
 				String luggageResponse = " ";
 				
-				if (luggage.getLuggageId() > 0)
+				if (luggages.getLuggageId() > 0)
 				{
 					// This block update an new luggage id and
 					
