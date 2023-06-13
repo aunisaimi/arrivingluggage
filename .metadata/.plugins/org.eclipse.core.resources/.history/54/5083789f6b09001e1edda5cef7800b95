@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel = "stylesheet" href = "homepage.css">
+	<marquee direction = "right" scrollamount = "15"> Airport Luggage Handling System Group 6 </marquee>
+	<title> Arriving Flight Luggage Handling System</title>
+	<br>
+  </head>
+  <body>
+	<div class="topnav">
+		<a class=:Home" href="#home">Home</a>
+		<a href="#Checkpoint1.html">Checkpoint One</a>
+		<a href="#Checkpoint2.html">Checkpoint Two</a>
+		<a href="#Checkpoint3.html">Checkpoint Three</a>
+		<a href="#Checkpoint4.html">Checkpoint Four</a>
+	    </div>
+	    <br>
+	    <img src="https://www.utem.edu.my/en/corporate-info/logo.html" alt="Logo Utem" class="center">
+	<h1>Airport Luggage Handling System</h1>
+	<h4 id="luggage">
+		<label for="Luggage">Choose a LuggageId:</label>
+		<select name="Luggage" id="Luggage">
+		<option value="Checkpoint1">Checkpoint One</option>
+		<option value="Checkpoint2">Checkpoint Two</option>
+		<option value="Checkpoint3">Checkpoint Three</option>
+		<option value="Checkpoint4">Checkpoint Four</option>
+		</select>
+		<br>
+		<br>
+		<label>Passenger ID :</label>
+		<input name="Enter your name" id="PassengerIC" placeholder="Enter Luggage Number">
+
+
+	</h4>
+
+<p>
+
+<button onclick="Submit()">Submit</button>
+
+<script>

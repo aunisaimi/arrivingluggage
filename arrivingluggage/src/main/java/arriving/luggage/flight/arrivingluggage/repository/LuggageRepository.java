@@ -8,5 +8,4 @@ import arriving.luggage.flight.arrivingluggage.model.Luggage;
 public interface LuggageRepository extends JpaRepository<Luggage, Long> 
 {
 
-	
 }

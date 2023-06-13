@@ -1,0 +1,40 @@
+package arriving.luggage.flight.arrivingluggage.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import arriving.luggage.flight.arrivingluggage.repository.LuggageRepository;
+import arriving.luggage.flight.arrivingluggage.model.Luggage;
+
+
+@RestController
+@RequestMapping("/api/luggages")
+public class LuggageRESTController 
+{
+	@Autowired
+	private LuggageRepository luggageRepository;
+	@GetMapping
+	public List<Luggage> getLuggage(){
+		return luggageRepository.findAll();
+		
+	}
+	
+	@GetMapping
+	public Luggage getLuggage(@PathVariable long LuggageId)
+	{
+		Luggage luggage = luggageRepository.findById(LuggageId);
+		return luggage;
+		
+	}
+	
+	
+	
+	
+}

@@ -1,0 +1,5 @@
+package arriving.luggage.flight.arrivingluggage.repository;
+
+public record Int() {
+
+}

@@ -1,0 +1,5 @@
+package arriving.luggage.flight.arrivingluggage.controller;
+
+public class PassengerController {
+
+}
