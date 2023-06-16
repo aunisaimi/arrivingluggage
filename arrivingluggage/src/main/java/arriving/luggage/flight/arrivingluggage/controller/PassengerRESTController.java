@@ -1,4 +1,4 @@
-/*package arriving.luggage.flight.arrivingluggage.controller;
+package arriving.luggage.flight.arrivingluggage.controller;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
-import arriving.luggage.flight.arrivingluggage.repository.PassengerRepository;
 import arriving.luggage.flight.arrivingluggage.model.Passenger;
+import arriving.luggage.flight.arrivingluggage.repository.PassengerRepository;
 
 
 
@@ -32,7 +32,8 @@ public class PassengerRESTController
 		return passengerRepository.findAll();
 	}
 	
-	@GetMapping
+	
+	@GetMapping("{PassengerId}")
 	public Passenger getPassenger(@PathVariable long PassengerId)
 	{
 		Passenger passenger = passengerRepository.findById(PassengerId).get();
@@ -40,17 +41,20 @@ public class PassengerRESTController
 		
 	}
 	
+	
 	@PostMapping()
 	public Passenger insertPassenger (@RequestBody Passenger passenger)
 	{		
 		return passengerRepository.save(passenger);
 	}
 	
+	
 	@PutMapping()
 	public Passenger updatePassenger(@RequestBody Passenger passenger)
 	{
 		return passengerRepository.save(passenger);
 	}
+	
 	
 	@DeleteMapping("{PassengerId}")
 	public ResponseEntity<HttpStatus> deletePassenger(@PathVariable long PassengerId)
@@ -61,4 +65,4 @@ public class PassengerRESTController
 	
 	
 }
-*/
+

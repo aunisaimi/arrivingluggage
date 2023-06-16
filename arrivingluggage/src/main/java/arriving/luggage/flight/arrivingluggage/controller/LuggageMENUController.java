@@ -37,10 +37,10 @@ public class LuggageMENUController
 		ResponseEntity<Luggage[]> response = restTemplate.getForEntity(uri, Luggage[].class);
 		
 		//parse JSON data to array of object
-		Luggage luggage[] = response.getBody();
+		Luggage luggages[] = response.getBody();
 		
 		// parse an array to a list object
-		List<Luggage> luggageList = Arrays.asList(luggage);
+		List<Luggage> luggageList = Arrays.asList(luggages);
 		
 		// Attach a list to model as attribute
 		model.addAttribute("luggages", luggageList);
@@ -57,17 +57,17 @@ public class LuggageMENUController
 	 */
 	
 	@RequestMapping("/arriving/save")
-	public String updateLuggage(@ModelAttribute Luggage luggages)
+	public String updateLuggage(@ModelAttribute Luggage luggage)
 	{
 		// Create a new RestTemplate
 				RestTemplate restTemplate = new RestTemplate();
 				
 				// Create request body
-				HttpEntity<Luggage> request =new HttpEntity<Luggage>(luggages);
+				HttpEntity<Luggage> request =new HttpEntity<Luggage>(luggage);
 				
 				String luggageResponse = " ";
 				
-				if (luggages.getLuggageId() > 0)
+				if (luggage.getLuggageId() > 0)
 				{
 					// This block update an new luggage id and
 					
@@ -117,6 +117,7 @@ public class LuggageMENUController
 		}
 		
 		// Attach value to pass to front end
+		//model.addAttribute("luggage", luggage);
 		model.addAttribute("luggage", luggage);
 		model.addAttribute("pageTitle", pageTitle);
 		

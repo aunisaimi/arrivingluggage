@@ -1,8 +1,10 @@
 package arriving.luggage.flight.arrivingluggage.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import arriving.luggage.flight.arrivingluggage.model.Passenger;
 import org.springframework.stereotype.Repository;
+
+import arriving.luggage.flight.arrivingluggage.model.Passenger;
+
 
 
 @Repository

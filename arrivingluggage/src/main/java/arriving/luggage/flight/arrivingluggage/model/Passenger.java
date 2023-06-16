@@ -19,13 +19,13 @@ public class Passenger
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name = "PassengerId")
-	private int passengerId;
+	private int PassengerId;
 	
 	@Column (name = "PassengerName")
-	private String passengerName;
+	private String PassengerName;
 	
-	@Column (name = "PassengerIC")
-	private int passengerIC;
+	@Column (name = "PassengerIc")
+	private String PassengerIc;
 	
 	
 	/*
@@ -35,27 +35,27 @@ public class Passenger
 	*/
 	
 	public int getPassengerId() {
-		return passengerId;
+		return PassengerId;
 	}
 	
 	public void setPassengerId(int passengerId) {
-		this.passengerId = passengerId;
+		this.PassengerId = passengerId;
 	}
 	
 	public String getPassengerName() {
-		return passengerName;
+		return PassengerName;
 	}
 	
 	public void setPassengerName(String passengerName) {
-		this.passengerName = passengerName;
+		this.PassengerName = passengerName;
 	}
 	
-	public int getPassengerIC() {
-		return passengerIC;
+	public String getPassengerIC() {
+		return PassengerIc;
 	}
 	
-	public void setPassengerIC(int passengerIC) {
-		this.passengerIC = passengerIC;
+	public void setPassengerIC(String PassengerIc) {
+		this.PassengerIc = PassengerIc;
 	}
 	
 	/*
@@ -66,7 +66,6 @@ public class Passenger
 	public void setFlight(Flight flight) {
 		this.flight = flight;
 	}
-	*/
-	
-}
 
+	*/
+}
