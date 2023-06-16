@@ -56,7 +56,7 @@ public class LuggageMENUController
 	 * @return
 	 */
 	
-	@RequestMapping("/arriving/save")
+	@RequestMapping("/luggage/save")
 	public String updateLuggage(@ModelAttribute Luggage luggage)
 	{
 		// Create a new RestTemplate
@@ -86,7 +86,7 @@ public class LuggageMENUController
 				System.out.println(luggageResponse);
 				
 				// Redirect request to display a list of order type
-				return "redirect:/arriving/list";
+				return "redirect:/luggage/list";
 	}
 	
 	/**
@@ -96,7 +96,7 @@ public class LuggageMENUController
 	 * @param model
 	 * @return
 	 */
-	@GetMapping("/arriving/{LuggageId}")
+	@GetMapping("/luggage/{LuggageId}")
 	public String getLuggage (@PathVariable Integer LuggageId, Model model) {
 		
 		String pageTitle = "New Luggage";
@@ -131,7 +131,7 @@ public class LuggageMENUController
 	 * @param LuggageId
 	 * @return
 	 */
-	@RequestMapping("/arriving/delete/{LuggageId}")
+	@RequestMapping("/luggage/delete/{LuggageId}")
 	public String deleteLuggage(@PathVariable Integer LuggageId)
 	{
 		// Generate new URI, similar to the mapping in LuggageRESTController
@@ -141,7 +141,7 @@ public class LuggageMENUController
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.delete(uri, Map.of("LuggageId", Integer.toString(LuggageId)));
 		
-		return "redirect:/arriving/list";
+		return "redirect:/luggage/list";
 	}
 	
 
