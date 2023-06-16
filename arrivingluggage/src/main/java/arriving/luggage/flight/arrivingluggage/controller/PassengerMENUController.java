@@ -49,7 +49,7 @@ public class PassengerMENUController
 		//Attach list to model as attributes
 		model.addAttribute("passengers", passengerList);
 		
-		return "passengers";
+		return "passenger";
 		
 	}
 	
@@ -129,7 +129,7 @@ public class PassengerMENUController
 		}
 		
 		// Attach value to pass to front end
-		model.addAttribute("passenger",passenger);
+		model.addAttribute("passengers",passenger);
 		model.addAttribute("pageTitle", pageTitle);
 		
 		return "passengerinfo";

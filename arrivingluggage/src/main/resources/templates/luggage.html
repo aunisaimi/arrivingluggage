@@ -60,18 +60,16 @@
         <tbody>
           <tr th:each="luggages : ${luggages}">
             <th scope="row">[[${luggages.LuggageId}]]</th>
-			
-           
             <td>[[${luggages.LuggageStatus}]]</td>
             <td>
      			  <!-- A link to edit a luggage detail -->
-              <a th:href="@{'/luggages/' + ${luggages.LuggageId}}" 
+              <a th:href="@{'/luggage/' + ${luggages.LuggageId}}" 
               	title="Edit this Luggage detail"
                 class="fa-regular fa-pen-to-square icon-dark"></a>
               &nbsp;
               
                   <!-- A link to delete a luggage detail -->
-              <a th:href="@{'/luggages/delete/' + ${luggages.LuggageId}}" 
+              <a th:href="@{'/luggage/delete/' + ${luggages.LuggageId}}" 
               th:LuggageId="${luggages.LuggageId}" id="btnDelete"
                 title="Delete this Luggage" 
                 class="fa-regular fa-trash-can icon-dark btn-delete"></a>
@@ -119,7 +117,7 @@
 
         LuggageId = link.attr("LuggageId");
         $("#yesBtn").attr("href", link.attr("href"));
-        $("#confirmText").html("Do you want to delete the  \<strong\>" + luggageCode + "\<\/strong\>?");
+        $("#confirmText").html("Do you want to delete the  \<strong\>" + LuggageId + "\<\/strong\>?");
         $("#confirmModal").modal();
       });
 

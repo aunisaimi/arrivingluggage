@@ -118,7 +118,7 @@ public class LuggageMENUController
 		
 		// Attach value to pass to front end
 		//model.addAttribute("luggage", luggage);
-		model.addAttribute("luggage", luggage);
+		model.addAttribute("luggages", luggage);
 		model.addAttribute("pageTitle", pageTitle);
 		
 		return "luggageinfo";

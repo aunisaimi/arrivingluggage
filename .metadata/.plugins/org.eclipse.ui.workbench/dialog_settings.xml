@@ -11,8 +11,8 @@
 		<item key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
 		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID" value="false"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
-			<item value="C:\Users\oni\Desktop\KELAS SEM 4\DAD\backup project\arrivingluggage\arrivingluggage\src\main\java\arriving\luggage\flight\arrivingluggage\controller"/>
 			<item value="C:\Users\oni\Desktop\KELAS SEM 4\DAD\html project"/>
+			<item value="C:\Users\oni\Desktop\KELAS SEM 4\DAD\backup project\arrivingluggage\arrivingluggage\src\main\java\arriving\luggage\flight\arrivingluggage\controller"/>
 		</list>
 	</section>
 </section>
