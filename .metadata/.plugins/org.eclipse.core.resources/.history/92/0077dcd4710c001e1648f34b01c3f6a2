@@ -7,7 +7,7 @@
   <title>REST Consumer</title>
 
   <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-  <link rel="stylesheet" type="text/css" th:href="@{/css/homepage.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
   <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
@@ -19,14 +19,14 @@
     <h2 class="text-center">[[${pageTitle}]]</h2>
 
     <div class="my-3">
-      <form th:action="@{/luggage/save}" method="post" enctype="multipart/form-data" th:object="${luggages}"
+      <form th:action="@{/luggage/save}" method="post" enctype="multipart/form-data" th:object="${Luggage}"
         style="max-width: 550px; margin: 0 auto">
 
         <input type="hidden" th:field="*{LuggageId}" />
 
         <div class="p-3">
           <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="LuggageId">luggageId</label>
+            <label class="col-sm-3 col-form-label" for="LuggageId">LuggageId</label>
             <div class="col-sm-9">
               <input type="text" th:field="*{LuggageId}" required minlength="3" maxlength="3" class="form-control"
                 id="LuggageId" />
@@ -34,10 +34,10 @@
           </div>
 
           <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="LuggageStatus">luggageStatus</label>
+            <label class="col-sm-3 col-form-label" for="status">Status</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{LuggageStatus}" minlength="2" maxlength="256" class="form-control"
-                id="LuggageStatus" />
+              <input type="text" th:field="*{status}" minlength="2" maxlength="256" class="form-control"
+                id="status" />
             </div>
           </div>
 

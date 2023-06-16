@@ -7,7 +7,7 @@
   <title>REST Consumer</title>
 
   <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-  <link rel="stylesheet" type="text/css" th:href="@{/css/homepage.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
   <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
@@ -19,7 +19,7 @@
     <h2 class="text-center">[[${pageTitle}]]</h2>
 
     <div class="my-3">
-      <form th:action="@{/luggage/save}" method="post" enctype="multipart/form-data" th:object="${luggages}"
+      <form th:action="@{/luggage/save}" method="post" enctype="multipart/form-data" th:object="${orderType}"
         style="max-width: 550px; margin: 0 auto">
 
         <input type="hidden" th:field="*{LuggageId}" />
