@@ -1,4 +1,4 @@
-package arriving.luggage.flight.arrivingluggage.controller;
+/*package arriving.luggage.flight.arrivingluggage.controller;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class PassengerRESTController
 	@Autowired
 	private PassengerRepository passengerRepository;
 	@GetMapping
-	public List<Passenger> getPassenger()
+	public List<Passenger> getPassengers()
 	{
 		return passengerRepository.findAll();
 	}
@@ -61,4 +61,4 @@ public class PassengerRESTController
 	
 	
 }
-
+*/

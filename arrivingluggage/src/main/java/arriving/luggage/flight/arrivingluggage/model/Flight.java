@@ -1,4 +1,4 @@
-package arriving.luggage.flight.arrivingluggage.model;
+/*package arriving.luggage.flight.arrivingluggage.model;
 
 import java.util.List;
 
@@ -62,3 +62,4 @@ public class Flight
 	
 	
 }
+*/
