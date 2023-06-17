@@ -47,6 +47,16 @@
       </form>
     </div> -->
 
+	<input type="button" value="Add Passenger" id="btnAdd" class="btn btn-success btn-sm" />
+
+	<script type="text/javascript">
+    $(document).ready(function () {
+      $("#btnAdd").on("click", function () {
+        window.location = "[[@{/passenger/0}]]";
+      });
+    });
+  </script>
+
     <div th:if="${passengers.size() > 0}">
       <table class="table table-hover table-responsive-xl">
         <thead class="thead-light">
@@ -60,23 +70,23 @@
         </thead>
         <tbody>
           <tr th:each="passenger : ${passengers}">
-            <th scope="row">[[${passengers.PassengerId}]]</th>
+            <th scope="row">[[${passenger.getPassengerId()}]]</th>
 			
 
-            <td>[[${passengers.PassengerName}]]</td>
-            <td>[[${passengers.PassengerIC}]]</td>
+            <td>[[${passenger.getPassengerName()}]]</td>
+            <td>[[${passenger.getPassengerIc()}]]</td>
             
             
             <td>
      			  <!-- A link to edit a passenger detail -->
-              <a th:href="@{'/passenger/' + ${passengers.PassengerId}}" 
+              <a th:href="@{'/passenger/' + ${passenger.PassengerId}}" 
               	title="Edit this Passenger detail"
                 class="fa-regular fa-pen-to-square icon-dark"></a>
               &nbsp;
               
                   <!-- A link to delete a Passenger detail -->
-              <a th:href="@{'/passenger/delete/' + ${passengers.PassengerId}}" 
-              th:PassengerId="${passengers.PassengerId}" id="btnDelete"
+              <a th:href="@{'/passenger/delete/' + ${passenger.PassengerId}}" 
+              th:PassengerId="${passenger.PassengerId}" id="btnDelete"
                 title="Delete this Passenger" 
                 class="fa-regular fa-trash-can icon-dark btn-delete"></a>
 

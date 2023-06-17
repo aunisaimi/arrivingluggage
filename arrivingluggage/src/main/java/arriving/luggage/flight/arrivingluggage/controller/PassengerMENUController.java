@@ -77,7 +77,7 @@ public class PassengerMENUController
 			
 			// send request as PUT
 			
-			restTemplate.put(defaultURI, request, Passenger.class);
+			restTemplate.put("http://localhost:8080/arriving/api/passengers", request, Passenger.class);
 			
 			
 		}
@@ -87,7 +87,7 @@ public class PassengerMENUController
 			// This block will add new passenger and
 			
 			// Send Request as POST
-			passengerResponse = restTemplate.postForObject(defaultURI, request, String.class);
+			passengerResponse = restTemplate.postForObject("http://localhost:8080/arriving/api/passengers", request, String.class);
 			
 		}
 		

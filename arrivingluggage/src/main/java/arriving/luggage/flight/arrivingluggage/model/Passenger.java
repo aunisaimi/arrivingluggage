@@ -39,7 +39,7 @@ public class Passenger
 	}
 	
 	public void setPassengerId(int passengerId) {
-		this.PassengerId = passengerId;
+		PassengerId = passengerId;
 	}
 	
 	public String getPassengerName() {
@@ -47,16 +47,18 @@ public class Passenger
 	}
 	
 	public void setPassengerName(String passengerName) {
-		this.PassengerName = passengerName;
+		PassengerName = passengerName;
 	}
 	
-	public String getPassengerIC() {
+	
+	public String getPassengerIc() {
 		return PassengerIc;
 	}
 	
-	public void setPassengerIC(String PassengerIc) {
-		this.PassengerIc = PassengerIc;
+	public void setPassengerIc(String passengerIc) {
+		PassengerIc = passengerIc;
 	}
+	
 	
 	/*
 	public Flight getFlight() {
