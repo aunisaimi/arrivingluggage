@@ -1,4 +1,4 @@
-/*package arriving.luggage.flight.arrivingluggage.model;
+package arriving.luggage.flight.arrivingluggage.model;
 
 import java.util.List;
 
@@ -34,8 +34,8 @@ public class Flight
 	/*
 	@ManyToOne
 	@JoinColumn (name="PassengerId")
-	private List<Passenger> PassengerId;
-	
+	private Passenger PassengerId;
+	*/
 
 	@Column(name = "ArrivalTime")
 	private String ArrivalTime;
@@ -45,6 +45,15 @@ public class Flight
 		return FlightId;
 	}
 	
+
+	public String getArrivalTime() {
+		return ArrivalTime;
+	}
+
+	public void setArrivalTime(String arrivalTime) {
+		ArrivalTime = arrivalTime;
+	}
+
 	public void setFlightId(int flightId) {
 		FlightId = flightId;
 	}
@@ -57,7 +66,15 @@ public class Flight
 		FlightName = flightName;
 	}
 	
+	/*
+	public Passenger getPassengerId() {
+		return PassengerId;
+	}
+
+	public void setPassengerId(Passenger passengerId) {
+		PassengerId = passengerId;
+	}
+	*/
 	
 }
 
-*/

@@ -1,0 +1,1 @@
+SELECT * FROM lsmr_database.checkpoint1;
