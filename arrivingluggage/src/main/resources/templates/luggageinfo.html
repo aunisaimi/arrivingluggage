@@ -28,7 +28,7 @@
           <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="LuggageId">luggageId</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{LuggageId}" required minlength="3" maxlength="3" class="form-control"
+              <input type="text" th:field="*{LuggageId}" required minlength="1" maxlength="3" class="form-control"
                 id="LuggageId" />
             </div>
           </div>
@@ -36,8 +36,40 @@
           <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="LuggageStatus">luggageStatus</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{LuggageStatus}" minlength="2" maxlength="256" class="form-control"
+              <input type="text" th:field="*{LuggageStatus}" minlength="1" maxlength="256" class="form-control"
                 id="LuggageStatus" />
+            </div>
+          </div>
+          
+           <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="PassengerId">passengerId</label>
+            <div class="col-sm-9">
+              <input type="text" th:field="*{PassengerId}" minlength="1" maxlength="256" class="form-control"
+                id="PassengerId" />
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="TruckId">truckId</label>
+            <div class="col-sm-9">
+              <input type="text" th:field="*{TruckId}" minlength="1" maxlength="256" class="form-control"
+                id="TruckId" />
+            </div>
+          </div>
+          
+           <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="DateC1">DateC1</label>
+            <div class="col-sm-9">
+              <input type="text" th:field="*{DateC1}" minlength="1" maxlength="256" class="form-control"
+                id="DateC1" />
+            </div>
+          </div>
+          
+           <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="TimeC1">TimeC1</label>
+            <div class="col-sm-9">
+              <input type="text" th:field="*{TimeC1}" minlength="1" maxlength="256" class="form-control"
+                id="TimeC1" />
             </div>
           </div>
 

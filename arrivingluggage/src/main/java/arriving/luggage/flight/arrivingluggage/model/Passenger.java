@@ -5,9 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-//import jakarta.persistence.JoinColumn;
-//import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+//import arriving.luggage.flight.arrivingluggage.model.Flight;
 
 
 
@@ -30,9 +31,10 @@ public class Passenger
 	
 	/*
 	@ManyToOne
-	@JoinColumn(name = "Flight")
+	@JoinColumn(name = "FlightId")
 	private Flight flight;
 	*/
+
 	
 	public int getPassengerId() {
 		return PassengerId;
@@ -58,8 +60,7 @@ public class Passenger
 	public void setPassengerIc(String passengerIc) {
 		PassengerIc = passengerIc;
 	}
-	
-	
+
 	/*
 	public Flight getFlight() {
 		return flight;
@@ -69,5 +70,11 @@ public class Passenger
 		this.flight = flight;
 	}
 
+
 	*/
+	
+	
+	
+
+	
 }

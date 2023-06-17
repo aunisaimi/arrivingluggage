@@ -1,5 +1,7 @@
-package arriving.luggage.flight.arrivingluggage.model;
+/*package arriving.luggage.flight.arrivingluggage.model;
 
-public class TrackingSheet {
-
+public class TrackingSheet
+{
+	
 }
+*/

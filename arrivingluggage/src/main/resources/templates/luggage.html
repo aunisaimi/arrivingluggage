@@ -63,7 +63,10 @@
           <tr>
              <th scope="col">Luggage ID</th>
             <th scope="col">Status</th>
-            
+            <th scope="col">TruckID</th>
+              <th scope="col">PassengerID</th>
+              <th scope="col">DateC1</th>
+              <th scope="col">TimeC1</th>
              <th scope="col">Action</th>
 
           </tr>
@@ -72,6 +75,11 @@
           <tr th:each="luggages : ${luggages}">
             <th scope="row">[[${luggages.LuggageId}]]</th>
             <td>[[${luggages.LuggageStatus}]]</td>
+            <td>[[${luggages.getPassengerId().getPassengerId()}]]</td>
+            <td>[[${luggages.getDateC1()}]]</td>
+            <td>[[${luggages.getTimeC1()}]]</td>
+            <td>[[${luggages.getTruckId().getTruckId()}]]</td>
+          
             <td>
      			  <!-- A link to edit a luggage detail -->
               <a th:href="@{'/luggage/' + ${luggages.LuggageId}}" 

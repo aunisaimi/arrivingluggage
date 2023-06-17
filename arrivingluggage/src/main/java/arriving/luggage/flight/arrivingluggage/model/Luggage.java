@@ -1,12 +1,18 @@
 package arriving.luggage.flight.arrivingluggage.model;
 
+import java.sql.Date;
 import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
@@ -26,15 +32,9 @@ public class Luggage
 	@Column (name = "LuggageStatus")
 	private String LuggageStatus;
 	
-
-	@ManyToOne
-	@JoinColumn(name = "FlightId")
-	private int FlightId;
-	
-	/*
 	@ManyToOne
 	@JoinColumn(name = "TruckId")
-	private int TruckId;
+	private Truck TruckId;
 	
 	@Column(name= "DateC1")
 	@Temporal(TemporalType.DATE)
@@ -44,6 +44,12 @@ public class Luggage
 	@Column(name = "TimeC1")
 	private String TimeC1;
 	
+	/*
+	@ManyToOne
+	@JoinColumn(name = "FlightId")
+	private int FlightId;
+	
+
 	@Column(name= "DateC2")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -80,7 +86,8 @@ public class Luggage
 	
 	@ManyToOne
 	@JoinColumn(name = "PassengerId")
-	private List<Passenger> PassengerId;
+	private Passenger PassengerId;
+	
 	
 	
 	public int getLuggageId() {
@@ -101,6 +108,51 @@ public class Luggage
 	public void setLuggageStatus(String luggageStatus) {
 		LuggageStatus = luggageStatus;
 	}
+
+
+	public Passenger getPassengerId() {
+		return PassengerId;
+	}
+
+
+	public void setPassengerId(Passenger passengerId) {
+		PassengerId = passengerId;
+	}
 	
+
+	public Truck getTruckId() {
+		return TruckId;
+	}
+
+
+	public void setTruckId(Truck truckId) {
+		TruckId = truckId;
+	}
+
+	
+
+	public Date getDateC1() {
+		return DateC1;
+	}
+
+
+	public void setDateC1(Date dateC1) {
+		DateC1 = dateC1;
+	}
+
+
+	public String getTimeC1() {
+		return TimeC1;
+	}
+
+
+	public void setTimeC1(String timeC1) {
+		TimeC1 = timeC1;
+	}
+
+
+
 	
 }
+
+

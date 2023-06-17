@@ -43,6 +43,7 @@ public class LuggageMENUController
 		List<Luggage> luggageList = Arrays.asList(luggages);
 		
 		// Attach a list to model as attribute
+		
 		model.addAttribute("luggages", luggageList);
 		
 		return "luggage";
@@ -117,7 +118,7 @@ public class LuggageMENUController
 		}
 		
 		// Attach value to pass to front end
-		//model.addAttribute("luggage", luggage);
+		
 		model.addAttribute("luggages", luggage);
 		model.addAttribute("pageTitle", pageTitle);
 		
