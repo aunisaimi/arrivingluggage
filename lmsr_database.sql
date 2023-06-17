@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
--- Host: localhost    Database: luggagedb
+-- Host: localhost    Database: lmsr_database
 -- ------------------------------------------------------
 -- Server version	8.0.32
 
@@ -126,7 +126,6 @@ CREATE TABLE `luggage` (
   `TruckId` int NOT NULL,
   `FlightId` int NOT NULL,
   `PassengerId` int NOT NULL,
-  `luggagecol` varchar(45) DEFAULT NULL,
   `DateC1` varchar(45) NOT NULL,
   `TimeC1` varchar(45) NOT NULL,
   `DateC2` varchar(45) NOT NULL,
@@ -138,7 +137,16 @@ CREATE TABLE `luggage` (
   `ConveyerLaneId` int NOT NULL,
   `StaffId` int NOT NULL,
   PRIMARY KEY (`LuggageId`),
-  KEY `LuggageId_refer_TruckId_idx` (`TruckId`)
+  KEY `LuggageId_refer_TruckId_idx` (`TruckId`),
+  KEY `FlightId_idx` (`FlightId`),
+  KEY `Luggage_Conveyerlane_FK_idx` (`ConveyerLaneId`),
+  KEY `Luggage_Passenger_FK_idx` (`PassengerId`),
+  KEY `Luggage_Staff_FK_idx` (`StaffId`),
+  CONSTRAINT `Luggage_Conveyerlane_FK` FOREIGN KEY (`ConveyerLaneId`) REFERENCES `conveyerlane` (`ConveyerLaneId`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `Luggage_Flight_FK` FOREIGN KEY (`FlightId`) REFERENCES `flight` (`FlightId`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `Luggage_Passenger_FK` FOREIGN KEY (`PassengerId`) REFERENCES `passenger` (`PassengerId`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `Luggage_Staff_FK` FOREIGN KEY (`StaffId`) REFERENCES `staff` (`StaffId`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `Luggage_Truck_FK` FOREIGN KEY (`TruckId`) REFERENCES `truck` (`TruckId`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -148,7 +156,7 @@ CREATE TABLE `luggage` (
 
 LOCK TABLES `luggage` WRITE;
 /*!40000 ALTER TABLE `luggage` DISABLE KEYS */;
-INSERT INTO `luggage` VALUES (1,'Collected',1,2,1,NULL,'','','','','','','','',0,0),(2,'Collected',0,1,0,NULL,'','','','','','','','',0,0),(3,'Collected',0,0,0,NULL,'','','','','','','','',0,0),(4,'Unclaim',0,0,0,NULL,'','','','','','','','',0,0),(5,'Collected',0,0,0,NULL,'','','','','','','','',0,0),(6,'Collected',0,0,0,NULL,'','','','','','','','',0,0),(7,'Unclaim',0,0,0,NULL,'','','','','','','','',0,0),(8,'Unclaim',0,0,0,NULL,'','','','','','','','',0,0),(9,'Unclaim',0,0,0,NULL,'','','','','','','','',0,0),(10,'Collected',0,0,0,NULL,'','','','','','','','',0,0);
+INSERT INTO `luggage` VALUES (1,'Collected',1,1,1,'2023/05/06','13:00','2023/05/06','13:20','2023/05/06','13:45','2023/05/06','14:00',1,1),(2,'Collected',2,1,2,'2023/05/06','13:00','2023/05/06','13:20','2023/05/06','13:45','2023/05/06','14:00',2,2),(3,'Collected',3,1,3,'2023/05/07','15:15','2023/05/07','15:30','2023/05/07','15:45','2023/05/07','16:00',3,3);
 /*!40000 ALTER TABLE `luggage` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -261,4 +269,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-17  2:00:19
+-- Dump completed on 2023-06-17 14:05:29

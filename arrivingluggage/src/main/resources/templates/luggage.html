@@ -46,6 +46,16 @@
         </div>
       </form>
     </div> -->
+    
+    <input type="button" value="Add Luggage" id="btnAdd" class="btn btn-success btn-sm" />
+
+	<script type="text/javascript">
+    $(document).ready(function () {
+      $("#btnAdd").on("click", function () {
+        window.location = "[[@{/luggage/0}]]";
+      });
+    });
+  </script>
 
     <div th:if="${luggages.size() > 0}">
       <table class="table table-hover table-responsive-xl">
@@ -53,6 +63,7 @@
           <tr>
              <th scope="col">Luggage ID</th>
             <th scope="col">Status</th>
+            
              <th scope="col">Action</th>
 
           </tr>
