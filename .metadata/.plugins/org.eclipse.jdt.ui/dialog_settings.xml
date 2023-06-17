@@ -54,7 +54,7 @@
 	</section>
 	<section name="DialogBounds_SuperInterfaceSelectionDialog">
 		<item key="DIALOG_X_ORIGIN" value="131"/>
-		<item key="DIALOG_Y_ORIGIN" value="-30"/>
+		<item key="DIALOG_Y_ORIGIN" value="-26"/>
 		<item key="DIALOG_WIDTH" value="531"/>
 		<item key="DIALOG_HEIGHT" value="750"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|10.2|0|WINDOWS|1|-17|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

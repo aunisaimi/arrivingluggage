@@ -1,7 +1,7 @@
 package arriving.luggage.flight.arrivingluggage.model;
 
 import java.sql.Date;
-import java.util.List;
+//import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -36,6 +36,12 @@ public class Luggage
 	@JoinColumn(name = "TruckId")
 	private Truck TruckId;
 	
+	
+	/*
+	@ManyToOne
+	@JoinColumn(name = "FlightId")
+	private int FlightId;
+	
 	@Column(name= "DateC1")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -44,12 +50,6 @@ public class Luggage
 	@Column(name = "TimeC1")
 	private String TimeC1;
 	
-	/*
-	@ManyToOne
-	@JoinColumn(name = "FlightId")
-	private int FlightId;
-	
-
 	@Column(name= "DateC2")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -129,7 +129,7 @@ public class Luggage
 		TruckId = truckId;
 	}
 
-	
+	/*
 
 	public Date getDateC1() {
 		return DateC1;
@@ -150,7 +150,7 @@ public class Luggage
 		TimeC1 = timeC1;
 	}
 
-
+*/
 
 	
 }
