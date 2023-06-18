@@ -46,22 +46,7 @@ public class Checkpoint1
 	
 	public int getCheckpoint1Id() {
 		return Checkpoint1Id;
-	
 	}
-	
-	public Truck getTruckId() {
-		return TruckId;
-	}
-	public void setTruckId(Truck truckId) {
-		TruckId = truckId;
-	}
-	public Luggage getLuggageId() {
-		return LuggageId;
-	}
-	public void setLuggageId(Luggage luggageId) {
-		LuggageId = luggageId;
-	}
-	
 	public void setCheckpoint1Id(int checkpoint1Id) {
 		Checkpoint1Id = checkpoint1Id;
 	}
@@ -77,7 +62,18 @@ public class Checkpoint1
 	public void setCheckpoint1Time(String checkpoint1Time) {
 		Checkpoint1Time = checkpoint1Time;
 	}
-	
+	public Truck getTruckId() {
+		return TruckId;
+	}
+	public void setTruckId(Truck truckId) {
+		TruckId = truckId;
+	}
+	public Luggage getLuggage() {
+		return luggage;
+	}
+	public void setLuggage(Luggage luggage) {
+		this.luggage = luggage;
+	}
 	
 	
 	

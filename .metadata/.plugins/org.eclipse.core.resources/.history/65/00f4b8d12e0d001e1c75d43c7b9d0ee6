@@ -20,18 +20,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 import arriving.luggage.flight.arrivingluggage.model.Checkpoint1;
-
+import arriving.luggage.flight.arrivingluggage.model.Luggage;
 
 @Controller
 public class Checkpoint1MENUController
 {
-	private String defaultURI = "http://localhost:8080/arriving/api/checkpoint1s";
+	private String defaultURI = "http://localhost:8080/arriving/api/checkpoints1";
 	
 	@GetMapping("/checkpoint1/list")
 	public String getCheckpoint1(Model model)
 	{
 		// The URI to GET the checkpoint1
-		String uri =  "http://localhost:8080/arriving/api/checkpoint1s";
+		String uri =  "http://localhost:8080/arriving/api/checkpoints1";
 		
 		// get a list of checkpoint1 from web services
 		RestTemplate restTemplate = new RestTemplate();

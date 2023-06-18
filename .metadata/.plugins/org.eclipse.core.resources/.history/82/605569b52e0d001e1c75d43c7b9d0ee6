@@ -31,7 +31,7 @@ public class Checkpoint1RESTController
 		return checkpoint1Repository.findAll();
 		
 	}
-	
+	/*
 	
 	@GetMapping("{Checkpoint1Id}")
 	public Checkpoint1 getCheckpoint1(@PathVariable long Checkpoint1Id)
@@ -59,6 +59,6 @@ public class Checkpoint1RESTController
 		checkpoint1Repository.deleteById(Checkpoint1Id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
+	*/
 	
 }

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 import arriving.luggage.flight.arrivingluggage.model.Checkpoint1;
-
+import arriving.luggage.flight.arrivingluggage.model.Luggage;
 
 @Controller
 public class Checkpoint1MENUController
