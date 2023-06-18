@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+  <title>REST Consumer</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/homepage.css}" />
+  <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+  <div th:replace="fragments/header :: header"></div>
+
+  <div class="container-fluid">
+    <h2 class="text-center">[[${pageTitle}]]</h2>
+
+    <div class="my-3">
+      <form th:action="@{/checkpoint1/save}" method="post" enctype="multipart/form-data" th:object="${checkpoint1s}"
+        style="max-width: 550px; margin: 0 auto">
+
+        <input type="hidden" th:field="*{Checkpoint1Id}" />
+
+        <div class="p-3">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="Checkpoint1Id">checkpoint1Id</label>
+            <div class="col-sm-9">
+              <input type="int" th:field="*{Checkpoint1Id}" required minlength="1" maxlength="3" class="form-control"
+                id="Checkpoint1Id" />
+            </div>
+          </div>
+
+	 <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="TruckId">truckId</label>
+            <div class="col-sm-9">
+              <input type="int" th:field="*{TruckId}" minlength="1" maxlength="256" class="form-control"
+                id="TruckId" />
+            </div>
+          </div>
+
+	<div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="PassengerId">passengerId</label>
+            <div class="col-sm-9">
+              <input type="int" th:field="*{PassengerId}" minlength="1" maxlength="256" class="form-control"
+                id="PassengerId" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="Checkpoint1Date">checkpoint1Date</label>
+            <div class="col-sm-9">
+              <input type="Date" th:field="*{Checkpoint1Date}" minlength="1" maxlength="256" class="form-control"
+                id="Checkpoint1Date" />
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="Checkpoint1Time">checkpoint1Time</label>
+            <div class="col-sm-9">
+              <input type="Time" th:field="*{Checkpoint1Time}" minlength="1" maxlength="256" class="form-control"
+                id="Checkpoint1Time" />
+            </div>
+          </div>
+          
+
+          <div class="text-center">
+            <input type="submit" value="Save" class="btn btn-primary btn-sm mr-2" />
+            <input type="button" value="Cancel" id="btnCancel" class="btn btn-secondary btn-sm" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div th:replace="fragments/footer :: footer"></div>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#btnCancel").on("click", function () {
+        window.location = "[[@{/checkpoint1/list}]]";
+      });
+    });
+  </script>
+
+</body>
+
+</html>
