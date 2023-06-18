@@ -13,14 +13,9 @@
           <a class="nav-link" th:href="@{/luggage/list}">Luggages</a>
         </li>
         
-        <!-- A menu link to add a new passenger detail -->
+        <!-- A menu link to add a new luggage detail -->
          <li class="nav-item">
           <a class="nav-link" th:href="@{/passenger/list}">Passengers</a>
-        </li> 
-        
-          <!-- A menu link to add a new checkpoint1 detail -->
-         <li class="nav-item">
-          <a class="nav-link" th:href="@{/checkpoint1/list}">Checkpoint1</a>
         </li> 
         
       </ul>

@@ -4437,3 +4437,7 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2023-06-18 09:31:18,421 [Worker-111: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
 2023-06-18 09:31:51,402 [Worker-111: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
 2023-06-18 09:31:51,403 [Worker-111: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-06-18 09:42:45,950 [Worker-114: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-06-18 09:42:45,951 [Worker-114: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-06-18 09:43:45,140 [Worker-115: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-06-18 09:43:45,140 [Worker-115: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
