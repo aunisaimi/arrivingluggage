@@ -13,7 +13,6 @@
     <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.repository.PassengerRepository"/>
     <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.model.Flight"/>
     <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.model.Truck"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Temporal"/>
     <fullyQualifiedTypeName name="jakarta.persistence.TemporalType"/>
@@ -21,5 +20,10 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Temporal"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="jakarta.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.model.Conveyerlane"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.model.Checkpoint2"/>
+    <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.model.Checkpoint1"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 </qualifiedTypeNameHistroy>

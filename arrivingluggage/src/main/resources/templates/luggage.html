@@ -64,31 +64,33 @@
              <th scope="col">Luggage ID</th>
             <th scope="col">Status</th>
             <th scope="col">TruckID</th>
-              <th scope="col">PassengerID</th>
-          
+            <th scope="col">FlightID</th>
+            <th scope="col">PassengerID</th>
+           <th scope="col">ConveyerLaneId</th>
+           <th scope="col">StaffID</th>
              <th scope="col">Action</th>
 
           </tr>
         </thead>
         <tbody>
-          <tr th:each="luggages : ${luggages}">
-            <th scope="row">[[${luggages.LuggageId}]]</th>
-            <td>[[${luggages.LuggageStatus}]]</td>
-             <td>[[${luggages.getTruckId().getTruckId()}]]</td>
-            <td>[[${luggages.getPassengerId().getPassengerId()}]]</td>
+          <tr th:each="luggage : ${luggages}">
+            <td>[[${luggage.getLuggageId()}]]</th>
+            <td>[[${luggage.LuggageStatus}]]</td>
+       
+            <td>[[${luggage.getPassengerId().getPassengerId()}]]</td>
             
            
           
             <td>
      			  <!-- A link to edit a luggage detail -->
-              <a th:href="@{'/luggage/' + ${luggages.LuggageId}}" 
+              <a th:href="@{'/luggage/' + ${luggage.LuggageId}}" 
               	title="Edit this Luggage detail"
                 class="fa-regular fa-pen-to-square icon-dark"></a>
               &nbsp;
               
                   <!-- A link to delete a luggage detail -->
-              <a th:href="@{'/luggage/delete/' + ${luggages.LuggageId}}" 
-              th:LuggageId="${luggages.LuggageId}" id="btnDelete"
+              <a th:href="@{'/luggage/delete/' + ${luggage.LuggageId}}" 
+              th:LuggageId="${luggage.LuggageId}" id="btnDelete"
                 title="Delete this Luggage" 
                 class="fa-regular fa-trash-can icon-dark btn-delete"></a>
 

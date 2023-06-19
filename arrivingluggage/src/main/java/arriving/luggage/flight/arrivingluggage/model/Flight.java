@@ -1,6 +1,6 @@
 package arriving.luggage.flight.arrivingluggage.model;
 
-import java.util.List;
+
 
 
 
@@ -9,17 +9,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Table;
-//import jakarta.persistence.Temporal;
-//import jakarta.persistence.TemporalType;
-
-
 
 
 @Entity
-@Table(name = "Flight")
+@Table(name = "flight")
 public class Flight
 {
 	//primary key here
@@ -31,12 +26,6 @@ public class Flight
 	@Column(name="FlightName")
 	private String FlightName;
 	
-	/*
-	@ManyToOne
-	@JoinColumn (name="PassengerId")
-	private Passenger PassengerId;
-	*/
-
 	@Column(name = "ArrivalTime")
 	private String ArrivalTime;
 	
@@ -66,15 +55,6 @@ public class Flight
 		FlightName = flightName;
 	}
 	
-	/*
-	public Passenger getPassengerId() {
-		return PassengerId;
-	}
-
-	public void setPassengerId(Passenger passengerId) {
-		PassengerId = passengerId;
-	}
-	*/
 	
 }
 

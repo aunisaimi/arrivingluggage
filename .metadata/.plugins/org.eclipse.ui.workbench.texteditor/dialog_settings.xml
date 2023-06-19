@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="li"/>
 			<item value="arriving.luggage.flight.arrivingluggage.model.Luggage.PassengerId"/>
 			<item value="passenger"/>
 			<item value="ordertype"/>

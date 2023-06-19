@@ -5,22 +5,23 @@ import java.sql.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import arriving.luggage.flight.arrivingluggage.model.Truck;
+
 import jakarta.persistence.GenerationType;
-import arriving.luggage.flight.arrivingluggage.model.Luggage;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+//import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 
 @Entity
-@Table(name= "Checkpoint1")
+@Table(name= "checkpoint1")
 public class Checkpoint1
 {	
 	@Id
@@ -36,11 +37,11 @@ public class Checkpoint1
 	@Column(name="Checkpoint1Time")
 	private String Checkpoint1Time;
 	
-	@ManyToOne
+	//@ManyToOne
 	@JoinColumn(name="TruckId")
 	private Truck TruckId;
 	
-	@ManyToOne
+	//@ManyToOne
 	@JoinColumn(name="LuggageId")
 	private Luggage LuggageId;
 	
@@ -59,7 +60,7 @@ public class Checkpoint1
 		return LuggageId;
 	}
 	public void setLuggageId(Luggage luggageId) {
-		LuggageId = luggageId;
+		this.LuggageId = luggageId;
 	}
 	
 	public void setCheckpoint1Id(int checkpoint1Id) {

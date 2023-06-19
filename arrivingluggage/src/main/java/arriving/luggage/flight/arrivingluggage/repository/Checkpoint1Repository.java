@@ -6,6 +6,7 @@ import arriving.luggage.flight.arrivingluggage.model.Checkpoint1;
 
 
 @Repository
-public interface Checkpoint1Repository extends JpaRepository<Checkpoint1, Long> {
+public interface Checkpoint1Repository extends JpaRepository<Checkpoint1, Long> 
+{
 
 }

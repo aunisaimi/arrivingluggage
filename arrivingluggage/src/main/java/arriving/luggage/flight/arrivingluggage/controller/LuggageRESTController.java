@@ -26,6 +26,7 @@ public class LuggageRESTController
 {
 	@Autowired
 	private LuggageRepository luggageRepository;
+	
 	@GetMapping
 	public List<Luggage> getLuggage(){
 		return luggageRepository.findAll();
@@ -42,7 +43,7 @@ public class LuggageRESTController
 	}
 	
 	@PostMapping()
-	public Luggage insertLuggage (@RequestBody Luggage luggage)
+	public Luggage insertLuggage(@RequestBody Luggage luggage)
 	{		
 		return luggageRepository.save(luggage);
 	}

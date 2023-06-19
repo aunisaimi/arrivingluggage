@@ -102,7 +102,7 @@ public class Checkpoint1MENUController
 	 * @return
 	 */
 	
-	@GetMapping("/checkpoint/{Checkpoint1Id}")
+	@GetMapping("/checkpoint1/{Checkpoint1Id}")
 	public String getCheckpoint1 (@PathVariable Integer Checkpoint1Id, Model model)
 	{
 		String pageTitle = "New Checkpoint1";

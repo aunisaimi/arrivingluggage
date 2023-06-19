@@ -24,15 +24,6 @@
 
         <input type="hidden" th:field="*{LuggageId}" />
 
-        <div class="p-3">
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="LuggageId">luggageId</label>
-            <div class="col-sm-9">
-              <input type="int" th:field="*{LuggageId}" required minlength="1" maxlength="3" class="form-control"
-                id="LuggageId" />
-            </div>
-          </div>
-
           <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="LuggageStatus">luggageStatus</label>
             <div class="col-sm-9">
@@ -40,6 +31,8 @@
                 id="LuggageStatus" />
             </div>
           </div>
+          
+       
           
            <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="PassengerId">passengerId</label>
@@ -49,31 +42,8 @@
             </div>
           </div>
           
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="TruckId">truckId</label>
-            <div class="col-sm-9">
-              <input type="int" th:field="*{TruckId}" minlength="1" maxlength="256" class="form-control"
-                id="TruckId" />
-            </div>
-          </div>
           
-          <!--
-           <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="DateC1">Date</label>
-            <div class="col-sm-9">
-              <input type="Date" th:field="*{DateC1}" minlength="10" maxlength="10" class="form-control"
-                id="DateC1" />
-            </div>
-          </div> -->
-          
-          <!-- <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="TimeC1">TimeC1</label>
-            <div class="col-sm-9">
-              <input type="Time" th:field="*{TimeC1}" minlength="4" maxlength="8" class="form-control"
-                id="TimeC1" />
-            </div>
-          </div> -->
-
+        
           <div class="text-center">
             <input type="submit" value="Save" class="btn btn-primary btn-sm mr-2" />
             <input type="button" value="Cancel" id="btnCancel" class="btn btn-secondary btn-sm" />

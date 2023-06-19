@@ -73,7 +73,7 @@ public class LuggageMENUController
 					// This block update an new luggage id and
 					
 					// Send request as PUT
-					restTemplate.put(defaultURI, request, Luggage.class);
+					restTemplate.put("http://localhost:8080/arriving/api/luggages", request, Luggage.class);
 				}
 				else
 				{
@@ -81,13 +81,13 @@ public class LuggageMENUController
 					
 					// send request as POST
 					luggageResponse = restTemplate.postForObject(
-							defaultURI, request, String.class);
+							"http://localhost:8080/arriving/api/luggages", request, String.class);
 				}
 				
 				System.out.println(luggageResponse);
 				
 				// Redirect request to display a list of order type
-				return "redirect:/luggage/list";
+				return "redirect:/luggage";
 	}
 	
 	/**
@@ -107,7 +107,7 @@ public class LuggageMENUController
 		if (LuggageId > 0) {
 
 			// Generate new URI and append LuggageId to it
-			String uri = defaultURI + "/" + LuggageId;
+			String uri = "http://localhost:8080/arriving/api/luggages/" + LuggageId;
 			
 			// Get an order type from the web service
 			RestTemplate restTemplate = new RestTemplate();
