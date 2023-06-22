@@ -20,6 +20,15 @@
 
   <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
     <h2 class="text-center">List of Checkpoint1</h2>
+    
+    <html>
+	<body>
+
+	<h2>HTML Image</h2>
+	<img src="img/FWlv1IYaUAArxMi.jpeg" alt="Ateez" width="500" height="333">
+
+	</body>
+	</html>
 
     <div th:if="${message != null}" class="alert alert-success alert-dismissible fade show text-center message"
       role="alert">
@@ -74,10 +83,11 @@
         <tbody>
           <tr th:each="checkpoint1 : ${checkpoint1s}">
             <th scope="row">[[${checkpoint1.Checkpoint1Id}]]</th>
-             <td>[[${checkpoint1.getTruckId().getTruckId()}]]</td>
-            <td>[[${checkpoint1.getLuggageId().getLuggageId()}]]</td>
-	    <td>[[${checkpoint1.Checkpoint1Date}]]</td>
-	    <td>[[${checkpoint1.Checkpoint1Time}]]</td>
+             <td>[[${checkpoint1.getTruck()?.getTruckId()}]]</td>
+            <td>[[${checkpoint1.getLuggage()?.getLuggageId()}]]</td>
+            
+	    <td>[[${checkpoint1.getCheckpoint1Date()}]]</td>
+	    <td>[[${checkpoint1.getCheckpoint1Time()}]]</td>
             
            
           

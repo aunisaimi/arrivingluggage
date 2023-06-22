@@ -18,14 +18,14 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import arriving.luggage.flight.arrivingluggage.model.Checkpoint1;
+//import arriving.luggage.flight.arrivingluggage.model.Checkpoint1;
 import arriving.luggage.flight.arrivingluggage.model.Checkpoint2;
 
 
 @Controller
 public class Checkpoint2MENUController 
 {
-private String defaultURI = "http://localhost:8080/arriving/api/checkpoint2s";
+	private String defaultURI = "http://localhost:8080/arriving/api/checkpoint2s";
 	
 	@GetMapping("/checkpoint2/list")
 	public String getCheckpoint1(Model model)
@@ -72,7 +72,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/checkpoint2s";
 		
 		String checkpoint2Response = " ";
 		
-		if (checkpoint2.getCheckPoint2Id() > 0)
+		if (checkpoint2.getCheckpoint2Id() > 0)
 		{
 			// This block adds new checkpoint
 			
@@ -102,17 +102,17 @@ private String defaultURI = "http://localhost:8080/arriving/api/checkpoint2s";
 	 * @return
 	 */
 	
-	@GetMapping("/checkpoint2/{CheckPoint2Id}")
-	public String getCheckpoint2 (@PathVariable Integer CheckPoint2Id, Model model)
+	@GetMapping("/checkpoint2/{Checkpoint2Id}")
+	public String getCheckpoint2 (@PathVariable Integer Checkpoint2Id, Model model)
 	{
 		String pageTitle = "New Checkpoint2";
 		Checkpoint2 checkpoint2 = new Checkpoint2();
 		
 		// This block gets Checkpoint2 to be updated
-		if(CheckPoint2Id > 0) {
+		if(Checkpoint2Id > 0) {
 			
 			//Generate new URI and append Checkpoint2Id to it
-			String uri = defaultURI + "/" + CheckPoint2Id;
+			String uri = defaultURI + "/" + Checkpoint2Id;
 			
 			//Get a Checkpoint1 from web service
 			RestTemplate restTemplate = new RestTemplate();
@@ -139,17 +139,17 @@ private String defaultURI = "http://localhost:8080/arriving/api/checkpoint2s";
 	 * @return
 	 */
 	
-	@RequestMapping("/checkpoint2/delete/{CheckPoint2Id}")
-	public String deleteCheckpoint2 (@PathVariable Integer CheckPoint2Id)
+	@RequestMapping("/checkpoint2/delete/{Checkpoint2Id}")
+	public String deleteCheckpoint2 (@PathVariable Integer Checkpoint2Id)
 	{
 		//Generate new URI
-		String uri = defaultURI + "/{CheckPoint2Id}";
+		String uri = defaultURI + "/{Checkpoint2Id}";
 		
 		//Send a DELETE request and attach the value of CheckPoint1Id into URI
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete(uri, Map.of("CheckPoint2Id", Integer.toString(CheckPoint2Id)));
+		restTemplate.delete(uri, Map.of("Checkpoint2Id", Integer.toString(Checkpoint2Id)));
 		
-		return "redirect:/chekcpoint2/list";
+		return "redirect:/checkpoint2/list";
 	}
 	
 }

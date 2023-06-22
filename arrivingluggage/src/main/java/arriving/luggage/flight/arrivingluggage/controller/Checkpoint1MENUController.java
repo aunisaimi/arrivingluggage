@@ -91,7 +91,7 @@ public class Checkpoint1MENUController
 		System.out.println(checkpoint1Response);
 		
 		// Redirect request to display a list of checkpoint1
-		return "redirect:/checkpoint1/list";
+		return "redirect:/checkpoint1/menu";
 	}
 	
 	/**
@@ -150,6 +150,14 @@ public class Checkpoint1MENUController
 		restTemplate.delete(uri, Map.of("Checkpoint1Id", Integer.toString(Checkpoint1Id)));
 		
 		return "redirect:/chekcpoint1/list";
+	}
+	
+	@GetMapping("/menu/list")
+	public String getMenu (Model model)
+	{
+	
+		return "Menu";
+		
 	}
 	
 }

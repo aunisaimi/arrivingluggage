@@ -22,24 +22,24 @@
       <form th:action="@{/checkpoint2/save}" method="post" enctype="multipart/form-data" th:object="${checkpoint2s}"
         style="max-width: 550px; margin: 0 auto">
 
-        <input type="hidden" th:field="*{CheckPoint2Id}" />
+        <input type="hidden" th:field="*{Checkpoint2Id}" />
 
         <div class="p-3">
          
 
 	 <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="ConveyerLane2Id">conveyerLane2Id</label>
+            <label class="col-sm-3 col-form-label" for="ConveyerLaneId">conveyerLaneId</label>
             <div class="col-sm-9">
-              <input type="int" th:field="*{ConveyerLane2Id}" minlength="1" maxlength="256" class="form-control"
-                id="ConveyerLane2Id" />
+              <input type="int" th:field="*{ConveyerLane}" minlength="1" maxlength="256" class="form-control"
+                id="ConveyerLane" />
             </div>
           </div>
           
          <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="LuggageId">luggageId</label>
+            <label class="col-sm-3 col-form-label" for="Luggage">luggageId</label>
             <div class="col-sm-9">
-              <input type="int" th:field="*{LuggageId}" minlength="1" maxlength="256" class="form-control"
-                id="LuggageId" />
+              <input type="int" th:field="*{Luggage}" minlength="1" maxlength="256" class="form-control"
+                id="Luggage" />
             </div>
           </div>
 

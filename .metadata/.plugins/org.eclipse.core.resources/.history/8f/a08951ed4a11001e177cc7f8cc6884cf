@@ -1,0 +1,105 @@
+package arriving.luggage.flight.arrivingluggage.model;
+
+import java.sql.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+
+@Entity
+@Table(name = "checkpoint4")
+public class Checkpoint4 {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "CheckPoint4Id")
+	private int CheckPoint4Id;
+	
+	@ManyToOne
+	@JoinColumn(name = "StaffId")
+	private Staff Staff;
+	
+	@OneToOne
+	@JoinColumn(name = "LuggageId")
+	private Luggage luggage;
+	
+	@JoinColumn(name = "LuggageStatus")
+	private String LuggageStats;
+	
+	@Column(name = "Checkpoint4Date")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date Checkpoint4Date;
+	
+	@Column(name = "Checkpoint4Time")
+	private String Checkpoint4Time;
+	
+
+	public Checkpoint4() {
+        // Default constructor logic
+    }
+
+    public Checkpoint4(int checkpoint4Id) {
+        this.CheckPoint4Id = checkpoint4Id;
+    }
+
+	public int getCheckPoint4Id() {
+		return CheckPoint4Id;
+	}
+
+	public void setCheckPoint4Id(int checkPoint4Id) {
+		CheckPoint4Id = checkPoint4Id;
+	}
+
+	
+
+	public Staff getStaff() {
+		return Staff;
+	}
+
+	public void setStaff(Staff staff) {
+		Staff = staff;
+	}
+
+	public Luggage getLuggage() {
+		return luggage;
+	}
+
+	public void setLuggage(Luggage luggage) {
+		this.luggage = luggage;
+	}
+
+	public String getLuggageStats() {
+		return LuggageStats;
+	}
+
+	public void setLuggageStats(String luggageStats) {
+		LuggageStats = luggageStats;
+	}
+
+	public Date getCheckpoint4Date() {
+		return Checkpoint4Date;
+	}
+
+	public void setCheckpoint4Date(Date checkpoint4Date) {
+		Checkpoint4Date = checkpoint4Date;
+	}
+
+	public String getCheckpoint4Time() {
+		return Checkpoint4Time;
+	}
+
+	public void setCheckpoint4Time(String checkpoint4Time) {
+		Checkpoint4Time = checkpoint4Time;
+	}
+}

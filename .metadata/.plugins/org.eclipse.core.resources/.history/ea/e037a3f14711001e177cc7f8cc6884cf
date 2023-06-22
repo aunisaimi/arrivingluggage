@@ -1,0 +1,49 @@
+<header th:fragment="header">
+	 <nav class="navbar navbar-expand-md bg-dark navbar-dark ">	
+    <a class="navbar-brand" th:href="@{/luggage/list}">
+      Master Information
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="topNavbar">
+      <ul class="navbar-nav">
+      	<!-- A menu link to lists luggage details -->
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/luggage/list}">Luggages</a>
+        </li>
+        
+        <!-- A menu link to add a new passenger detail -->
+         <li class="nav-item">
+          <a class="nav-link" th:href="@{/passenger/list}">Passengers</a>
+        </li> 
+        
+          <!-- A menu link to add a new checkpoint1 detail -->
+         <li class="nav-item">
+          <a class="nav-link" th:href="@{/checkpoint1/list}">Checkpoint1</a>
+        </li> 
+        
+                  <!-- A menu link to add a new checkpoint2 detail -->
+         <li class="nav-item">
+          <a class="nav-link" th:href="@{/checkpoint2/list}">Checkpoint2</a>
+        </li> 
+        
+                          <!-- A menu link to add a new checkpoint3 detail -->
+         <li class="nav-item">
+          <a class="nav-link" th:href="@{/checkpoint3/list}">Checkpoint3</a>
+        </li> 
+        
+          <!-- A menu link to add a new checkpoint4 detail -->
+         <li class="nav-item">
+          <a class="nav-link" th:href="@{/checkpoint4/list}">Checkpoint4</a>
+        </li> 
+        
+         <!-- A menu link to add a tracking record detail -->
+         <li class="nav-item">
+          <a class="nav-link" th:href="@{/trackingsheet/list}">Trackingsheet</a>
+        </li> 
+        
+      </ul>
+    </div>
+  </nav>
+</header>

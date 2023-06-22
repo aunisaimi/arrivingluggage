@@ -73,24 +73,24 @@
         </thead>
         <tbody>
           <tr th:each="checkpoint2 : ${checkpoint2s}">
-            <th scope="row">[[${checkpoint2.CheckPoint2Id}]]</th>
-             <td>[[${checkpoint2.getTruckId().getTruckId()}]]</td>
-            <td>[[${checkpoint2.getLuggageId().getLuggageId()}]]</td>
-	    <td>[[${checkpoint2.Checkpoint1Date}]]</td>
-	    <td>[[${checkpoint2.Checkpoint1Time}]]</td>
+            <th scope="row">[[${checkpoint2.Checkpoint2Id}]]</th>
+             <td>[[${checkpoint2.getConveyerLane()?.getConveyerLaneId()}]]</td>
+            <td>[[${checkpoint2.getLuggage()?.getLuggageId()}]]</td>
+	    <td>[[${checkpoint2.Checkpoint2Date}]]</td>
+	    <td>[[${checkpoint2.Checkpoint2Time}]]</td>
             
            
           
             <td>
      			  <!-- A link to edit a checkpoint2 detail -->
-              <a th:href="@{'/checkpoint2/' + ${checkpoint2.CheckPoint2Id}}" 
+              <a th:href="@{'/checkpoint2/' + ${checkpoint2.Checkpoint2Id}}" 
               	title="Edit this checkpoint detail"
                 class="fa-regular fa-pen-to-square icon-dark"></a>
               &nbsp;
               
                   <!-- A link to delete a checkpoint detail -->
               <a th:href="@{'/checkpoint2/delete/' + ${checkpoint2.Checkpoint2Id}}" 
-              th:CheckPoint2Id="${checkpoint2.CheckPoint2Id}" id="btnDelete"
+              th:Checkpoint2Id="${checkpoint2.Checkpoint2Id}" id="btnDelete"
                 title="Delete this Checkpoint2" 
                 class="fa-regular fa-trash-can icon-dark btn-delete"></a>
 

@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 import arriving.luggage.flight.arrivingluggage.model.Luggage;
+//import arriving.luggage.flight.arrivingluggage.model.Flight;
+//import arriving.luggage.flight.arrivingluggage.model.Passenger;
+
 
 @Controller
 public class LuggageMENUController 
@@ -87,7 +90,7 @@ public class LuggageMENUController
 				System.out.println(luggageResponse);
 				
 				// Redirect request to display a list of order type
-				return "redirect:/luggage";
+				return "redirect:/luggage/list";
 	}
 	
 	/**
@@ -107,7 +110,7 @@ public class LuggageMENUController
 		if (LuggageId > 0) {
 
 			// Generate new URI and append LuggageId to it
-			String uri = "http://localhost:8080/arriving/api/luggages/" + LuggageId;
+			String uri = defaultURI + "/" + LuggageId;
 			
 			// Get an order type from the web service
 			RestTemplate restTemplate = new RestTemplate();
@@ -115,11 +118,37 @@ public class LuggageMENUController
 			
 			//Give a new title to the page
 			pageTitle = "Edit Luggage";
+			
+			
 		}
+		
+		/*RestTemplate restTemplateFlight = new RestTemplate();
+		ResponseEntity<Flight[]> responseFlight = 
+				restTemplateFlight.getForEntity("http://localhost:8080/luggagehandling/api/flights", Flight[].class);
+		
+		Flight flightArray[] = responseFlight.getBody();	
+		
+		// Parse an array to a list object
+		List<Flight> flightList = Arrays.asList(flightArray);
+		
+		
+		RestTemplate restTemplatePassenger = new RestTemplate();
+		ResponseEntity<Passenger[]> responsePassenger = 
+				restTemplatePassenger.getForEntity("http://localhost:8080/luggagehandling/api/passengers", Passenger[].class);
+		
+		Passenger passengerArray[] = responsePassenger.getBody();	
+		
+		// Parse an array to a list object
+		List<Passenger> passengerList = Arrays.asList(passengerArray);
+		
+		*/
+		
 		
 		// Attach value to pass to front end
 		
 		model.addAttribute("luggages", luggage);
+		//model.addAttribute("flight", flightList);
+		//model.addAttribute("passenger", passengerList);
 		model.addAttribute("pageTitle", pageTitle);
 		
 		return "luggageinfo";

@@ -20,10 +20,10 @@ import arriving.luggage.flight.arrivingluggage.model.Checkpoint2;
 
 @RestController
 @RequestMapping("/api/checkpoint2s")
-public class Checkpoint2RESTController
-{
+public class Checkpoint2RESTController {
+	
 	@Autowired
-private Checkpoint2Repository checkpoint2Repository;
+	private Checkpoint2Repository checkpoint2Repository;
 	
 	@GetMapping
 	public List<Checkpoint2> getCheckpoint2(){
@@ -31,33 +31,30 @@ private Checkpoint2Repository checkpoint2Repository;
 		
 	}
 	
-//	
-//	@GetMapping("{Checkpoint2Id}")
-//	public Checkpoint2 getCheckpoint2(@PathVariable long Checkpoint2Id)
-//	{
-//		Checkpoint2 checkpoint2 = checkpoint2Repository.findById(Checkpoint2Id).get();
-//		return checkpoint2;
-//		
-//	}
-//	
-//	@PostMapping()
-//	public Checkpoint2 insertCheckpoint2 (@RequestBody Checkpoint2 checkpoint2)
-//	{		
-//		return checkpoint2Repository.save(checkpoint2);
-//	}
-//	
-//	@PutMapping()
-//	public Checkpoint2 updateCheckpoint2(@RequestBody Checkpoint2 checkpoint2)
-//	{
-//		return checkpoint2Repository.save(checkpoint2);
-//	}
-//	
-//	@DeleteMapping("{Checkpoint2Id}")
-//	public ResponseEntity<HttpStatus> deleteCheckpoint2(@PathVariable long Checkpoint2Id)
-//	{
-//		checkpoint2Repository.deleteById(Checkpoint2Id);
-//		return new ResponseEntity<>(HttpStatus.OK);
-//	}
-//	
+	@GetMapping("{Checkpoint2Id}")
+	public Checkpoint2 getCheckpoint2(@PathVariable long Checkpoint2Id)
+	{
+		Checkpoint2 checkpoint2 = checkpoint2Repository.findById(Checkpoint2Id).get();
+		return checkpoint2;
+		
+	}
 	
+	@PostMapping()
+	public Checkpoint2 insertCheckpoint2 (@RequestBody Checkpoint2 checkpoint2)
+	{		
+		return checkpoint2Repository.save(checkpoint2);
+	}
+	
+	@PutMapping()
+	public Checkpoint2 updateCheckpoint2(@RequestBody Checkpoint2 checkpoint2)
+	{
+		return checkpoint2Repository.save(checkpoint2);
+	}
+	
+	@DeleteMapping("{Checkpoint2Id}")
+	public ResponseEntity<HttpStatus> deleteCheckpoint2 (@PathVariable long Checkpoint2Id)
+	{
+		checkpoint2Repository.deleteById(Checkpoint2Id);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}	
 }

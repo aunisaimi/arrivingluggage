@@ -62,12 +62,10 @@
         <thead class="thead-light">
           <tr>
              <th scope="col">Luggage ID</th>
-            <th scope="col">Status</th>
-            <th scope="col">TruckID</th>
+        
             <th scope="col">FlightID</th>
             <th scope="col">PassengerID</th>
-           <th scope="col">ConveyerLaneId</th>
-           <th scope="col">StaffID</th>
+      
              <th scope="col">Action</th>
 
           </tr>
@@ -75,9 +73,9 @@
         <tbody>
           <tr th:each="luggage : ${luggages}">
             <td>[[${luggage.getLuggageId()}]]</th>
-            <td>[[${luggage.LuggageStatus}]]</td>
-       
-            <td>[[${luggage.getPassengerId().getPassengerId()}]]</td>
+           
+        <td>[[${luggage.getFlight()?.getFlightId()}]]</td>
+            <td>[[${luggage.getPassenger()?.getPassengerId()}]]</td>
             
            
           
