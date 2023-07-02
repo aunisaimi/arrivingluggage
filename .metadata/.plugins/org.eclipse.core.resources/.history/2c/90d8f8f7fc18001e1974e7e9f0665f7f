@@ -68,7 +68,7 @@ public class Checkpoint4 {
 	}
 
 	public void setStaff(Staff staff) {
-		this.Staff = staff;
+		Staff = staff;
 	}
 
 	public Luggage getLuggage() {

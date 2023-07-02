@@ -30,7 +30,7 @@
 <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="Staff">staffId</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{Staff.StaffId}" minlength="1" maxlength="256" class="form-control"
+              <input type="text" th:field="*{Staff}" minlength="1" maxlength="256" class="form-control"
                 id="Staff" />
             </div>
           </div>
@@ -38,7 +38,7 @@
            <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="luggage">luggageId</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{Luggage.LuggageId}" minlength="1" maxlength="256" class="form-control"
+              <input type="text" th:field="*{Luggage}" minlength="1" maxlength="256" class="form-control"
                 id="Luggage" />
             </div>
           </div>

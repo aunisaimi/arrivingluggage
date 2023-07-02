@@ -18,7 +18,7 @@ public class Staff
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="StaffId")
-	private int StaffId;
+	private String StaffId;
 	
 	@Column (name="StaffName")
 	private String StaffName;
@@ -27,10 +27,10 @@ public class Staff
 	private String StaffIc;
 	
 	
-	public int getStaffId() {
+	public String getStaffId() {
 		return StaffId;
 	}
-	public void setStaffId(int staffId) {
+	public void setStaffId(String staffId) {
 		this.StaffId = staffId;
 	}
 	public String getStaffName() {
@@ -46,6 +46,9 @@ public class Staff
 		this.StaffIc = staffIc;
 	}
 	
-	
+	@Override
+	public String toString() {
+	    return "Staff [StaffId=" + StaffId + ", name=" + StaffName + ", ic=" + StaffIc + "]";
+	}
 	
 }

@@ -37,13 +37,13 @@ public class Staff
 		return StaffName;
 	}
 	public void setStaffName(String staffName) {
-		this.StaffName = staffName;
+		StaffName = staffName;
 	}
 	public String getStaffIc() {
 		return StaffIc;
 	}
 	public void setStaffIc(String staffIc) {
-		this.StaffIc = staffIc;
+		StaffIc = staffIc;
 	}
 	
 	

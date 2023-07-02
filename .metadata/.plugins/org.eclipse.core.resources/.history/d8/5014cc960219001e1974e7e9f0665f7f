@@ -19,19 +19,7 @@
   <div th:replace="fragments/header :: header"></div>
 
   <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
-    <h2 class="text-center">List of Checkpoint2</h2>
-
-    <html>
-	<body>
-
-		<div class="center">
-<th>	<img src="https://www.utem.edu.my/templates/yootheme/cache/8e/LogoUTeM-8ec6c416.png" alt="Ateez" width="200" height="150"> </th>
-		</div>
-		
-		
-	</body>
-	</html>
-	
+    <h2 class="text-center">List of Passenger</h2>
 
     <div th:if="${message != null}" class="alert alert-success alert-dismissible fade show text-center message"
       role="alert">
@@ -57,53 +45,49 @@
           </div>
         </div>
       </form>
-    </div> 
-    
-    <input type="button" value="Add Checkpoint2" id="btnAdd" class="btn btn-success btn-sm" />
+    </div> -->
+
+	<input type="button" value="Add Passenger" id="btnAdd" class="btn btn-success btn-sm" />
 
 	<script type="text/javascript">
     $(document).ready(function () {
       $("#btnAdd").on("click", function () {
-        window.location = "[[@{/checkpoint2/0}]]";
+        window.location = "[[@{/passenger/0}]]";
       });
     });
-  </script> -->
+  </script>
 
-    <div th:if="${checkpoint2s.size() > 0}">
+    <div th:if="${passengers.size() > 0}">
       <table class="table table-hover table-responsive-xl">
         <thead class="thead-light">
           <tr>
-             <th scope="col">Checkpoint2ID</th>
-	     <th scope="col">ConveyerLaneID</th>
-             <th scope="col">LuggageID</th>
-            <th scope="col">Checkpoint2Date</th>
-             <th scope="col">Checkpoint2Time</th>
-          
-             <th scope="col">Action</th>
+             <th scope="col">Passenger ID</th>
+            <th scope="col">Passenger Name</th>
+             <th scope="col">PassengerIC</th>
+              <th scope="col">Action</th>
 
           </tr>
         </thead>
         <tbody>
-          <tr th:each="checkpoint2 : ${checkpoint2s}">
-            <th scope="row">[[${checkpoint2.Checkpoint2Id}]]</th>
-             <td>[[${checkpoint2.getConveyerLane()?.getConveyerLaneId()}]]</td>
-            <td>[[${checkpoint2.getLuggage()?.getLuggageId()}]]</td>
-	    <td>[[${checkpoint2.getCheckpoint2Date()}]]</td>
-	    <td>[[${checkpoint2.getCheckpoint2Time()}]]</td>
+          <tr th:each="passenger : ${passengers}">
+            <th scope="row">[[${passenger.getPassengerId()}]]</th>
+			
+
+            <td>[[${passenger.getPassengerName()}]]</td>
+            <td>[[${passenger.getPassengerIc()}]]</td>
             
-           
-          
+            
             <td>
-     			  <!-- A link to edit a checkpoint2 detail -->
-              <a th:href="@{'/checkpoint2/' + ${checkpoint2.Checkpoint2Id}}" 
-              	title="Edit this checkpoint detail"
+     			  <!-- A link to edit a passenger detail -->
+              <a th:href="@{'/passenger/' + ${passenger.PassengerId}}" 
+              	title="Edit this Passenger detail"
                 class="fa-regular fa-pen-to-square icon-dark"></a>
               &nbsp;
               
-                  <!-- A link to delete a checkpoint detail -->
-              <a th:href="@{'/checkpoint2/delete/' + ${checkpoint2.Checkpoint2Id}}" 
-              th:Checkpoint2Id="${checkpoint2.Checkpoint2Id}" id="btnDelete"
-                title="Delete this Checkpoint2" 
+                  <!-- A link to delete a Passenger detail -->
+              <a th:href="@{'/passenger/delete/' + ${passenger.PassengerId}}" 
+              th:PassengerId="${passenger.PassengerId}" id="btnDelete"
+                title="Delete this Passenger" 
                 class="fa-regular fa-trash-can icon-dark btn-delete"></a>
 
             </td> 
@@ -112,7 +96,7 @@
       </table>
     </div>
 
-    <div class="" th:unless="${checkpoint2s.size() > 0}">
+    <div class="" th:unless="${passengers.size() > 0}">
       <span>No record found!</span>
     </div>
   </div>
@@ -147,16 +131,16 @@
         e.preventDefault();
         link = $(this);
 
-        CheckPoint2Id = link.attr("CheckPoint2Id");
+        PassengerId = link.attr("PassengerId");
         $("#yesBtn").attr("href", link.attr("href"));
-        $("#confirmText").html("Do you want to delete the  \<strong\>" + CheckPoint2Id + "\<\/strong\>?");
+        $("#confirmText").html("Do you want to delete the  \<strong\>" + PassengerId + "\<\/strong\>?");
         $("#confirmModal").modal();
       });
 
       $("#btnClear").on("click", function (e) {
         e.preventDefault();
         $("#keyword").text("");
-        window.location = "[[@{/checkpoint2/list}]]";
+        window.location = "[[@{/passenger/list}]]";
       });
     });
   </script>

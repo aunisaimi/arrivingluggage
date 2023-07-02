@@ -6823,3 +6823,29 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2023-07-03 01:06:18,184 [Worker-50: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
 2023-07-03 01:10:53,126 [Worker-54: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
 2023-07-03 01:10:53,126 [Worker-54: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:22:12,962 [Worker-55: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:22:12,962 [Worker-55: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:32:31,528 [Worker-60: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:32:31,528 [Worker-60: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:34:16,512 [Worker-60: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:34:16,512 [Worker-60: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:37:11,106 [Worker-61: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:37:11,107 [Worker-61: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:38:23,921 [Worker-56: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:38:23,921 [Worker-56: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:40:53,262 [Worker-61: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:40:53,262 [Worker-61: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:45:35,337 [Worker-63: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:45:35,339 [Worker-63: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:47:41,845 [Worker-68: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:47:41,845 [Worker-68: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:48:42,986 [Worker-69: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:48:42,986 [Worker-69: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:51:08,493 [Worker-71: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:51:08,493 [Worker-71: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:52:13,076 [Worker-71: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:52:13,076 [Worker-71: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 01:58:53,376 [Worker-73: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 01:58:53,377 [Worker-73: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run
+2023-07-03 02:02:26,065 [Worker-69: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\arrivingluggage":
+2023-07-03 02:02:26,065 [Worker-69: Launching arrivingluggage] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always spring-boot:run

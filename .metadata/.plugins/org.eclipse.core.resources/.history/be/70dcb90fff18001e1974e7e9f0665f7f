@@ -46,6 +46,9 @@ public class Staff
 		this.StaffIc = staffIc;
 	}
 	
-	
+	@Override
+	public String toString() {
+	    return "Staff [StaffId=" + StaffId + ", name=" + StaffName + ", ic=" + StaffIc + "]";
+	}
 	
 }
