@@ -19,7 +19,7 @@
   <div th:replace="fragments/header :: header"></div>
 
   <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
-    <h2 class="text-center">List of Checkpoint1</h2>
+    <h2 class="text-center">List of Checkpoint2</h2>
 
     <div th:if="${message != null}" class="alert alert-success alert-dismissible fade show text-center message"
       role="alert">
@@ -29,7 +29,7 @@
       </button>
     </div>
 
-     <div class="my-3">
+    <!-- <div class="my-3">
       <form th:action="@{/tutorials}">
         <div class="row d-flex">
           <div class="col-md-6 mt-2">
@@ -55,7 +55,7 @@
         window.location = "[[@{/checkpoint2/0}]]";
       });
     });
-  </script>
+  </script> -->
 
     <div th:if="${checkpoint2s.size() > 0}">
       <table class="table table-hover table-responsive-xl">
@@ -76,8 +76,8 @@
             <th scope="row">[[${checkpoint2.Checkpoint2Id}]]</th>
              <td>[[${checkpoint2.getConveyerLane()?.getConveyerLaneId()}]]</td>
             <td>[[${checkpoint2.getLuggage()?.getLuggageId()}]]</td>
-	    <td>[[${checkpoint2.Checkpoint2Date}]]</td>
-	    <td>[[${checkpoint2.Checkpoint2Time}]]</td>
+	    <td>[[${checkpoint2.getCheckpoint2Date()}]]</td>
+	    <td>[[${checkpoint2.getCheckpoint2Time()}]]</td>
             
            
           

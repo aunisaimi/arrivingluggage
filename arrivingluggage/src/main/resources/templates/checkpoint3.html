@@ -29,7 +29,7 @@
       </button>
     </div>
 
-     <div class="my-3">
+   <!--  <div class="my-3">
       <form th:action="@{/tutorials}">
         <div class="row d-flex">
           <div class="col-md-6 mt-2">
@@ -45,7 +45,7 @@
           </div>
         </div>
       </form>
-    </div> 
+    </div> -->
     
     <input type="button" value="Add Checkpoint3" id="btnAdd" class="btn btn-success btn-sm" />
 
@@ -75,9 +75,10 @@
         <tbody>
           <tr th:each="checkpoint3s : ${checkpoint3s}">
             <th scope="row">[[${checkpoint3s.checkPoint3Id}]]</th>
+                <td>[[${checkpoint3s.getStaff().getStaffId()}]]</td>
              <td>[[${checkpoint3s.getLuggageId().getLuggageId()}]]</td>
             <td>[[${checkpoint3s.getLuggageStatus()}]]</td>
-	    <td>[[${checkpoint3s.getStaffId().getStaffId()}]]</td>
+	
             <td>[[${checkpoint3s.getCheckpoint3Date()}]]</td>
 	    <td>[[${checkpoint3s.getCheckpoint3Time()}]]</td>
 	       

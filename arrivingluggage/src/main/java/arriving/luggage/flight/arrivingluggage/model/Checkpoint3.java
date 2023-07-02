@@ -1,6 +1,6 @@
 package arriving.luggage.flight.arrivingluggage.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -27,7 +27,7 @@ public class Checkpoint3 {
 	
 	@ManyToOne
 	@JoinColumn(name = "StaffId")
-	private Staff StaffId;
+	private Staff Staff;
 	
 	@OneToOne
 	@JoinColumn(name = "LuggageId")
@@ -61,12 +61,13 @@ public class Checkpoint3 {
 		CheckPoint3Id = checkPoint3Id;
 	}
 
-	public Staff getStaffId() {
-		return StaffId;
+
+	public Staff getStaff() {
+		return Staff;
 	}
 
-	public void setStaffId(Staff staffId) {
-		StaffId = staffId;
+	public void setStaff(Staff staff) {
+		Staff = staff;
 	}
 
 	public Luggage getLuggageId() {
