@@ -27,6 +27,28 @@ public class Passenger
 	@Column (name = "PassengerID")
 	private int passengerID;
 	
+	
+	@Column (name = "Name")
+	private String name;
+	
+	@Column (name = "PhoneNumber")
+	private String phoneNo;
+	
+	@Column (name = "Email")
+	private String email;
+	
+	@Column (name = "Gender")
+	private String gender;
+	
+	@Column (name = "PassengerIC")
+	private String passengerIC;
+	
+	@ManyToOne
+	@JoinColumn (name = "FlightID")
+	private Flight flightID;
+
+
+	
 	public int getPassengerID() {
 		return passengerID;
 	}
@@ -83,25 +105,6 @@ public class Passenger
 		this.flightID = flightID;
 	}
 
-	@Column (name = "Name")
-	private String name;
 	
-	@Column (name = "PhoneNumber")
-	private String phoneNo;
-	
-	@Column (name = "Email")
-	private String email;
-	
-	@Column (name = "Gender")
-	private String gender;
-	
-	@Column (name = "PassengerIC")
-	private String passengerIC;
-	
-	@ManyToOne
-	@JoinColumn (name = "FlightID")
-	private Flight flightID;
-
-
 	
 }
