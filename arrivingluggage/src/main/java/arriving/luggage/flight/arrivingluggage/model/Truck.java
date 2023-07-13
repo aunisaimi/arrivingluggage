@@ -13,27 +13,43 @@ import jakarta.persistence.Table;
 public class Truck 
 {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column (name="TruckId")
-	private int TruckId;
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column (name = "TruckID")
+	private int Truck;
 	
-	@Column (name="TruckRegistrationNo")
-	private String TruckRegistrationNo;
+
+
+	public int getTruck() {
+		return Truck;
+	}
+
+	public void setTruck(int truck) {
+		Truck = truck;
+	}
+
+	public String getOperatorName() {
+		return operatorName;
+	}
+
+	public void setOperatorName(String operatorName) {
+		this.operatorName = operatorName;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	@Column (name = "OperatorName")
+	private String operatorName;
+	
+	@Column (name = "Location")
+	private String location;
 	
 	
-	
-	public int getTruckId() {
-		return TruckId;
-	}
-	public void setTruckId(int truckId) {
-		TruckId = truckId;
-	}
-	public String getTruckRegistrationNo() {
-		return TruckRegistrationNo;
-	}
-	public void setTruckRegistrationNo(String truckRegistrationNo) {
-		TruckRegistrationNo = truckRegistrationNo;
-	}
 	
 	
 }

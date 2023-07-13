@@ -37,7 +37,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trucks";
 		
 		//Get a list of Truck from web service
 		RestTemplate restTemplate= new RestTemplate();
-		ResponseEntity<Truck[]> response = restTemplate.getForEntity(uri, Truck[].class);
+		ResponseEntity<Truck[]> response = 
+				restTemplate.getForEntity(uri, Truck[].class);
 		
 		// Parse JSON data to array of object
 		Truck trucks[] = response.getBody();
@@ -70,7 +71,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trucks";
 		
 		String truckResponse = "";
 		
-		if (truck.getTruckId()>0)
+		if (truck.getTruck()>0)
 		{
 			// this block will update new Truck and
 			
@@ -99,27 +100,27 @@ private String defaultURI = "http://localhost:8080/arriving/api/trucks";
 	/**
 	 * This method will get truck
 	 * 
-	 * @param TruckId
+	 * @param Truck
 	 * @param model
 	 * @return
 	 */
 	
-	@GetMapping("/truck/{TruckId}")
-	public String getTruck (@PathVariable Integer TruckId, Model model)
+	@GetMapping("/truck/{Truck}")
+	public String getTruck (@PathVariable Integer Truck, Model model)
 	{
 		String pageTitle = "New Truck Details";
-		Truck truck = new Truck();
+		Truck truck1 = new Truck();
 		
 		//This block will get a Truck to be updated
-		if(TruckId > 0)
+		if(Truck> 0)
 		{
 			
 			// Generate new URI and append TruckId to it
-			String uri = defaultURI + "/" + TruckId;
+			String uri = defaultURI + "/" + Truck;
 			
 			// Get a passenger detail from web service
 			RestTemplate restTemplate = new RestTemplate();
-			truck = restTemplate.getForObject(uri, Truck.class);
+			truck1 = restTemplate.getForObject(uri, Truck.class);
 			
 			//Give new title to the page:
 			pageTitle = "Edit Truck Details";
@@ -128,32 +129,32 @@ private String defaultURI = "http://localhost:8080/arriving/api/trucks";
 		}
 		
 		// Attach value to pass to front end
-		model.addAttribute("trucks",truck);
+		model.addAttribute("trucks",truck1);
 		model.addAttribute("pageTitle", pageTitle);
 		
 		return "truckinfo";
 	}
-	
+	/*
 	/**
 	 * This method deletes a Truck
 	 * 
 	 * @param TruckId
 	 * @return
 	 */
-	
-	@RequestMapping("/truck/delete/{TruckId}")
-	public String deleteTruck(@PathVariable Integer TruckId)
+	/*
+	@RequestMapping("/truck/delete/{Truck}")
+	public String deleteTruck(@PathVariable Integer truck)
 	{
 		
 		// Generate new URI, similar to the mapping in TruckRESTController
-		String uri = defaultURI + "/{TruckId}";
+		String uri = defaultURI + "/{Truck}";
 		
 		// Send a DELETE request and attach the value of TruckId into URI
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete(uri, Map.of("TruckId", (TruckId)));
+		restTemplate.delete(uri, Map.of("truck", (truck)));
 		
 		return "redirect:/truck/list";
 		
 	}
-	
+	*/
 }

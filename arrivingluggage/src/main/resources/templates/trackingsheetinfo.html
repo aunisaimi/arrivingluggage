@@ -31,6 +31,21 @@
                 id="Flight" />
             </div>
           </div>
+          
+          <div class="form-group row">
+			<label class="col-sm-3 col-form-label" for="Luggage">Passenger
+				Name</label>
+				 <div class="col-sm-9">
+					<select name="Luggage" id="Luggage"
+					th:field="*{Luggage.LuggageID}" required>
+					<option th:each="luggageItem, stat : ${luggages}"
+					th:value="${luggageItem.luggageID}"
+					th:text="${luggageItem.passenger.getName()}"
+					th:selected="${stat.last}" th:if="${stat.last}"></option>
+						</select>
+						</div>
+					</div>
+							
 	 <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="Luggage">luggageId</label>
             <div class="col-sm-9">
@@ -38,7 +53,24 @@
                 id="Luggage" />
             </div>
           </div>
+          
+            
+          <!-- <div class="form-group row">
+			<label class="col-sm-3 col-form-label" for="Luggage">Passenger
+				Name</label>
+				 <div class="col-sm-9">
+					<select name="Luggage" id="Luggage"
+					th:field="*{Luggage.LuggageID}" required>
+					<option th:each="luggageItem, stat : ${luggages}"
+					th:value="${luggageItem.luggageID}"
+					th:text="${luggageItem.passenger.getName()}"
+					th:selected="${stat.last}" th:if="${stat.last}"></option>
+						</select>
+						</div>
+					</div> -->
+							
 
+	
 	<div class="form-group row">
             <label class="col-sm-3 col-form-label" for="Checkpoint1Date">checkpoint1Date</label>
             <div class="col-sm-9">

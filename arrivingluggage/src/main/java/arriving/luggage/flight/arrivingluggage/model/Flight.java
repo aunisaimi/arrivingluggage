@@ -21,7 +21,7 @@ public class Flight
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="FlightId")
-	private int FlightId;
+	private int FlighT;
 	
 	@Column(name="FlightName")
 	private String FlightName;
@@ -30,8 +30,8 @@ public class Flight
 	private String ArrivalTime;
 	
 	
-	public int getFlightId() {
-		return FlightId;
+	public int getFlighT() {
+		return FlighT;
 	}
 	
 
@@ -43,10 +43,13 @@ public class Flight
 		ArrivalTime = arrivalTime;
 	}
 
-	public void setFlightId(int flightId) {
-		FlightId = flightId;
-	}
 	
+	
+	public void setFlighT(int flighT) {
+		FlighT = flighT;
+	}
+
+
 	public String getFlightName() {
 		return FlightName;
 	}

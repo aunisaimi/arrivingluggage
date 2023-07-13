@@ -17,35 +17,39 @@ public class Staff
 	//primary key here
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="StaffId")
-	private int StaffId;
+	@Column(name="staffID")
+	private int staffID;
 	
-	@Column (name="StaffName")
-	private String StaffName;
+	@Column (name="staffName")
+	private String name;
 	
-	@Column (name ="StaffIc")
-	private String StaffIc;
+	@Column (name ="staffIC")
+	private String staffIC;
 	
-	
-	public int getStaffId() {
-		return StaffId;
+	public int getStaffID() {
+		return staffID;
 	}
-	public void setStaffId(int staffId) {
-		this.StaffId = staffId;
+
+	public void setStaffID(int staffID) {
+		this.staffID = staffID;
 	}
-	public String getStaffName() {
-		return StaffName;
+
+	public String getName() {
+		return name;
 	}
-	public void setStaffName(String staffName) {
-		this.StaffName = staffName;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getStaffIc() {
-		return StaffIc;
+
+	public String getStaffIC() {
+		return staffIC;
 	}
-	public void setStaffIc(String staffIc) {
-		this.StaffIc = staffIc;
+
+	public void setStaffIC(String staffIC) {
+		this.staffIC = staffIC;
 	}
-	
-	
+
+
 	
 }

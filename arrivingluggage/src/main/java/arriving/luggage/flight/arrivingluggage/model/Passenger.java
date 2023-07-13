@@ -5,11 +5,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-//import jakarta.persistence.JoinColumn;
-//import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 //import arriving.luggage.flight.arrivingluggage.model.Flight;
 
+/**
+ * 
+ * @author user
+ *
+ */
 
 
 @Entity
@@ -19,62 +24,88 @@ public class Passenger
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column (name = "PassengerId")
-	private int PassengerId;
+	@Column (name = "PassengerID")
+	private int PassengeR;
 	
+	
+
+
+
+	public int getPassengeR() {
+		return PassengeR;
+	}
+
+	public void setPassengeR(int passengeR) {
+		PassengeR = passengeR;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getPassengerIC() {
+		return passengerIC;
+	}
+
+	public void setPassengerIC(String passengerIC) {
+		this.passengerIC = passengerIC;
+	}
+
+	public Flight getFlightID() {
+		return flightID;
+	}
+
+	public void setFlightID(Flight flightID) {
+		this.flightID = flightID;
+	}
+
 	@Column (name = "PassengerName")
-	private String PassengerName;
+	private String name;
 	
-	@Column (name = "PassengerIc")
-	private String PassengerIc;
+	@Column (name = "PhoneNumber")
+	private String phoneNo;
 	
+	@Column (name = "Email")
+	private String email;
 	
-	/*
+	@Column (name = "Gender")
+	private String gender;
+	
+	@Column (name = "PassengerIC")
+	private String passengerIC;
+	
 	@ManyToOne
-	@JoinColumn(name = "FlightId")
-	private Flight flight;
-	*/
+	@JoinColumn (name = "FlightID")
+	private Flight flightID;
 
-	
-	public int getPassengerId() {
-		return PassengerId;
-	}
-	
-	public void setPassengerId(int passengerId) {
-		PassengerId = passengerId;
-	}
-	
-	public String getPassengerName() {
-		return PassengerName;
-	}
-	
-	public void setPassengerName(String passengerName) {
-		PassengerName = passengerName;
-	}
-	
-	
-	public String getPassengerIc() {
-		return PassengerIc;
-	}
-	
-	public void setPassengerIc(String passengerIc) {
-		PassengerIc = passengerIc;
-	}
-
-	/*
-	public Flight getFlight() {
-		return flight;
-	}
-
-	public void setFlight(Flight flight) {
-		this.flight = flight;
-	}
-
-
-	*/
-	
-	
-	
 
 	
 }

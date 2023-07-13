@@ -38,7 +38,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/flights";
 		
 		// get a list of checkpoint1 from web services
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Flight[]> response = restTemplate.getForEntity(uri, Flight[].class);
+		ResponseEntity<Flight[]> response = 
+				restTemplate.getForEntity(uri, Flight[].class);
 		
 		// parse a JSON data to array of object
 		Flight flights[] = response.getBody();
@@ -75,7 +76,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/flights";
 		
 		String flightResponse = " ";
 		
-		if (flight.getFlightId() > 0)
+		if (flight.getFlighT() > 0)
 		{
 			// This block adds new Flight
 			
@@ -100,22 +101,22 @@ private String defaultURI = "http://localhost:8080/arriving/api/flights";
 	/**
 	 * This method gets a flight
 	 * 
-	 * @param FlightId
+	 * @param FlighT
 	 * @param model
 	 * @return
 	 */
 	
-	@GetMapping("/flight/{FlightId}")
-	public String getFlight (@PathVariable Integer FlightId, Model model)
+	@GetMapping("/flight/{FlighT}")
+	public String getFlight (@PathVariable Integer FlighT, Model model)
 	{
 		String pageTitle = "New Flight";
 		Flight flight = new Flight();
 		
 		// This block gets flight to be updated
-		if(FlightId > 0) {
+		if(FlighT > 0) {
 			
 			//Generate new URI and append Flight to it
-			String uri = defaultURI + "/" + FlightId;
+			String uri = defaultURI + "/" + FlighT;
 			
 			//Get a Checkpoint1 from web service
 			RestTemplate restTemplate = new RestTemplate();
@@ -138,20 +139,21 @@ private String defaultURI = "http://localhost:8080/arriving/api/flights";
 	/**
 	 * This method deletes a flight
 	 * 
-	 * @param FlightId
+	 * @param FlighT
 	 * @return
 	 */
-	
-	@RequestMapping("/flight/delete/{FlightId}")
-	public String deleteFlight (@PathVariable Integer FlightId)
+	/*
+	@RequestMapping("/flight/delete/{FlighT}")
+	public String deleteFlight (@PathVariable Integer FlighT)
 	{
 		//Generate new URI
-		String uri = defaultURI + "/{FlightId}";
+		String uri = defaultURI + "/{FlighT}";
 		
 		//Send a DELETE request and attach the value of flight into URI
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete(uri, Map.of("Checkpoint2Id", (FlightId)));
+		restTemplate.delete(uri, Map.of("FlighT", (FlighT)));
 		
 		return "redirect:/flight/list";
 	}
+	*/
 }
