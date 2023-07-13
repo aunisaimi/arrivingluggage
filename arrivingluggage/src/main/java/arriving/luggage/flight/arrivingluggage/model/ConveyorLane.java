@@ -17,15 +17,6 @@ import jakarta.persistence.Table;
 @Table(name= "conveyorlane")
 public class ConveyorLane {
 	
-	@Id
-	@GeneratedValue (strategy=GenerationType.IDENTITY)
-	@Column (name = "ConveyorLaneID")
-	private int conveyorLaneID;
-	
-	@Column (name = "LaneNumber")
-	private String laneNumber;
-	
-
 	
 	public int getConveyorLaneID() {
 		return conveyorLaneID;
@@ -43,5 +34,15 @@ public class ConveyorLane {
 		this.laneNumber = laneNumber;
 	}
 
+	@Id
+	@GeneratedValue (strategy=GenerationType.IDENTITY)
+	@Column (name = "ConveyorLaneID")
+	private int conveyorLaneID;
 	
+	@Column (name = "LaneNumber")
+	private String laneNumber;
+	
+	
+
 }
+

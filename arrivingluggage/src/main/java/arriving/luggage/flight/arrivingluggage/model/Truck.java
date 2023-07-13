@@ -7,6 +7,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * 
+ * @author Anis Sabrina
+ *
+ */
 
 @Entity
 @Table(name="Truck")
@@ -15,16 +20,14 @@ public class Truck
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column (name = "TruckID")
-	private int Truck;
+	private int truckID;
 	
-
-
-	public int getTruck() {
-		return Truck;
+	public int getTruckID() {
+		return truckID;
 	}
 
-	public void setTruck(int truck) {
-		Truck = truck;
+	public void setTruckID(int truckID) {
+		this.truckID = truckID;
 	}
 
 	public String getOperatorName() {

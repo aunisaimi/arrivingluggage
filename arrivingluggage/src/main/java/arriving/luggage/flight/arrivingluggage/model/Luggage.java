@@ -29,7 +29,7 @@ public class Luggage
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column (name = "LuggageID")
-	private int LuggagE;
+	private int luggagE;
 		 
 	@ManyToOne
 	@JoinColumn (name = "passengerID")
@@ -41,13 +41,13 @@ public class Luggage
 
 
 	public int getLuggagE() {
-		return LuggagE;
+		return luggagE;
 	}
 
 	public void setLuggagE(int luggagE) {
-		LuggagE = luggagE;
+		this.luggagE = luggagE;
 	}
-
+	
 	public Passenger getPassenger() {
 		return passenger;
 	}

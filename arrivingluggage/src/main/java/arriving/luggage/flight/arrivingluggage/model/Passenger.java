@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 
 /**
  * 
- * @author user
+ * @author Anis Sabrina
  *
  */
 
@@ -25,18 +25,14 @@ public class Passenger
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name = "PassengerID")
-	private int PassengeR;
+	private int passengerID;
 	
-	
-
-
-
-	public int getPassengeR() {
-		return PassengeR;
+	public int getPassengerID() {
+		return passengerID;
 	}
 
-	public void setPassengeR(int passengeR) {
-		PassengeR = passengeR;
+	public void setPassengerID(int passengerID) {
+		this.passengerID = passengerID;
 	}
 
 	public String getName() {
