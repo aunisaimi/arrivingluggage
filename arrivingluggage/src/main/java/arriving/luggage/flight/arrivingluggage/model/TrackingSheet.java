@@ -45,7 +45,7 @@ public class TrackingSheet
 	
 	@ManyToOne
 	@JoinColumn (name = "CpID")
-	private CP checkpoint;
+	private Checkpoint checkpoint;
 	
 	@ManyToOne
 	@JoinColumn (name = "TruckID")
@@ -82,11 +82,11 @@ public class TrackingSheet
 		this.recordedBy = recordedBy;
 	}
 
-	public CP getCheckpoint() {
+	public Checkpoint getCheckpoint() {
 		return checkpoint;
 	}
 
-	public void setCheckpoint(CP checkpoint) {
+	public void setCheckpoint(Checkpoint checkpoint) {
 		this.checkpoint = checkpoint;
 	}
 
@@ -98,11 +98,11 @@ public class TrackingSheet
 		this.truck = truck;
 	}
 
-	public Conveyorlane getConveyorlane() {
+	public ConveyorLane getConveyorlane() {
 		return conveyorlane;
 	}
 
-	public void setConveyorlane(Conveyorlane conveyorlane) {
+	public void setConveyorlane(ConveyorLane conveyorlane) {
 		this.conveyorlane = conveyorlane;
 	}
 
