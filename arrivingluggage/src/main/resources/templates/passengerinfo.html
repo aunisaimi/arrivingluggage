@@ -22,33 +22,33 @@
       <form th:action="@{/passenger/save}" method="post" enctype="multipart/form-data" th:object="${passengers}"
         style="max-width: 550px; margin: 0 auto">
 
-        <input type="hidden" th:field="*{PassengerId}" />
+        <input type="hidden" th:field="*{PassengerID}" />
 
 		<!--
         <div class="p-3">
           <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="Id">Passenger Id</label>
+            <label class="col-sm-3 col-form-label" for="ID">Passenger ID</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{PassengerId}" required minlength="3" maxlength="3" class="form-control"
-                id="PassengerId" />
+              <input type="text" th:field="*{PassengerID}" required minlength="3" maxlength="3" class="form-control"
+                id="PassengerID" />
             </div>
           </div>
           -->
 
           <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="PassengerName">PassengerName</label>
+            <label class="col-sm-3 col-form-label" for="Name">name</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{PassengerName}" minlength="2" maxlength="256" class="form-control"
-                id="PassengerName" />
+              <input type="text" th:field="*{Name}" minlength="2" maxlength="256" class="form-control"
+                id="Name" />
             </div>
           </div>
           
           
           <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="PassengerIc">PassengerIc</label>
+            <label class="col-sm-3 col-form-label" for="PassengerIC">PassengerIC</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{PassengerIc}" minlength="2" maxlength="256" class="form-control"
-                id="PassengerIc" />
+              <input type="text" th:field="*{PassengerIC}" minlength="2" maxlength="256" class="form-control"
+                id="PassengerIC" />
             </div>
           </div>
           

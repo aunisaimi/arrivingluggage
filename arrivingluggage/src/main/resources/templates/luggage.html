@@ -75,6 +75,7 @@
          
          	<th scope="col">Luggage ID</th>
          	<th scope="col">Passenger Name</th>
+         	<th scope="col">Passport/IC Number</th>
             <th scope="col">Flight Name</th>
       
 
@@ -85,6 +86,7 @@
            	
            	<td>[[${luggage.getLuggagE}]]</td>
             <td>[[${luggage.getPassenger()?.getName()}]]</td>
+            <td>[[${luggage.getPassenger()?.getPassengerIC()}]]</td>
             <td>[[${luggage.getPassenger()?.getFlightID().getFlightName()}]]</td>
             
      

@@ -74,23 +74,43 @@
           <tr>
              <th scope="col">Passenger ID</th>
             <th scope="col">Passenger Name</th>
-             <th scope="col">PassengerIC</th>
-              
+             <th scope="col">Phone Number</th>
+             <th scope="col">Email</th>
+             <th scope="col">Gender</th>
+             <th scope="col">Passport/IC Number</th>
+             <th scope="col">Flight No</th>
+             
+              <th scope="col">Action</th>
 
           </tr>
         </thead>
         <tbody>
           <tr th:each="passenger : ${passengers}">
-            <th scope="row">[[${passenger.getPassengerID()}]]</th>
-            <td>[[${passenger.getName()}]]</td>
+		  
+			
+           	<td>[[${passenger.getPassengerID}]]</td>
+            <td>[[${passenger.getName()}]]</td>            
             <td>[[${passenger.getPhoneNo()}]]</td>
-             <td>[[${passenger.getEmail()}]]</td>
-              <td>[[${passenger.getGender()}]]</td>
-               <td>[[${passenger.getPhoneNo()}]]</td>
-             <td>[[${passenger.getPassengerIC()}]]</td>
+            <td>[[${passenger.getEmail()}]]</td>
+            <td>[[${passenger.getGender()}]]</td>
+            <td>[[${passenger.getPassengerIC()}]]</td>
+            <td>[[${passenger.getFlightID()?.getFlightNo()}]]</td>
             
             
-          
+            <td>
+     			  <!-- A link to edit a passenger detail -->
+              <a th:href="@{'/passenger/' + ${passenger.PassengerID}}" 
+              	title="Edit this Passenger detail"
+                class="fa-regular fa-pen-to-square icon-dark"></a>
+              &nbsp;
+              
+                  <!-- A link to delete a Passenger detail -->
+              <a th:href="@{'/passenger/delete/' + ${passenger.PassengerID}}" 
+              th:PassengerID="${passenger.PassengerID}" id="btnDelete"
+                title="Delete this Passenger" 
+                class="fa-regular fa-trash-can icon-dark btn-delete"></a>
+
+            </td> 
           </tr>
         </tbody>
       </table>
@@ -131,9 +151,9 @@
         e.preventDefault();
         link = $(this);
 
-        PassengerId = link.attr("PassengerId");
+        PassengerID = link.attr("PassengerID");
         $("#yesBtn").attr("href", link.attr("href"));
-        $("#confirmText").html("Do you want to delete the  \<strong\>" + PassengerId + "\<\/strong\>?");
+        $("#confirmText").html("Do you want to delete the  \<strong\>" + PassengerID + "\<\/strong\>?");
         $("#confirmModal").modal();
       });
 
