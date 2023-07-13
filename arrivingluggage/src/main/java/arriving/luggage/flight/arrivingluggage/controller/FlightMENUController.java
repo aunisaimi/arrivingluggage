@@ -76,7 +76,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/flights";
 		
 		String flightResponse = " ";
 		
-		if (flight.getFlighT() > 0)
+		if (flight.getFlightID() > 0)
 		{
 			// This block adds new Flight
 			

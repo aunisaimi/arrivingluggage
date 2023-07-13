@@ -21,7 +21,7 @@ public class Staff
 	private int staffID;
 	
 	@Column (name="staffName")
-	private String name;
+	private String staffname;
 	
 	@Column (name ="staffIC")
 	private String staffIC;
@@ -34,12 +34,14 @@ public class Staff
 		this.staffID = staffID;
 	}
 
-	public String getName() {
-		return name;
+	
+
+	public String getStaffname() {
+		return staffname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setStaffname(String staffname) {
+		this.staffname = staffname;
 	}
 
 	public String getStaffIC() {

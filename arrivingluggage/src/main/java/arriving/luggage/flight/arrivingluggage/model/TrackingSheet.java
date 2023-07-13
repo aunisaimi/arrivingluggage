@@ -40,8 +40,9 @@ public class TrackingSheet
 	@JoinColumn (name = "LuggageID")
 	private Luggage luggage;
 	
-	@Column (name = "RecordedBy")
-	private String recordedBy;
+	@ManyToOne
+	@JoinColumn (name = "StaffID")
+	private Staff staffID;
 	
 	@ManyToOne
 	@JoinColumn (name = "CpID")
@@ -55,6 +56,19 @@ public class TrackingSheet
 	@JoinColumn (name = "ConveyorlaneID")
 	private ConveyorLane conveyorlane;
 		
+	@ManyToOne
+	@JoinColumn (name = "FlightID")
+	private Flight flightID;
+	
+	
+	public Flight getFlightID() {
+		return flightID;
+	}
+
+	public void setFlightID(Flight flightID) {
+		this.flightID = flightID;
+	}
+
 	@Column (name = "DateTime")
 	private LocalDateTime dateTime;
 
@@ -74,12 +88,14 @@ public class TrackingSheet
 		this.luggage = luggage;
 	}
 
-	public String getRecordedBy() {
-		return recordedBy;
+
+
+	public Staff getStaffID() {
+		return staffID;
 	}
 
-	public void setRecordedBy(String recordedBy) {
-		this.recordedBy = recordedBy;
+	public void setStaffID(Staff staffID) {
+		this.staffID = staffID;
 	}
 
 	public Checkpoint getCheckpoint() {

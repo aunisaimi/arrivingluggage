@@ -75,33 +75,22 @@
              <th scope="col">Passenger ID</th>
             <th scope="col">Passenger Name</th>
              <th scope="col">PassengerIC</th>
-              <th scope="col">Action</th>
+              
 
           </tr>
         </thead>
         <tbody>
           <tr th:each="passenger : ${passengers}">
-            <th scope="row">[[${passenger.getPassengerId()}]]</th>
-			
-
-            <td>[[${passenger.getPassengerName()}]]</td>
-            <td>[[${passenger.getPassengerIc()}]]</td>
+            <th scope="row">[[${passenger.getPassengerID()}]]</th>
+            <td>[[${passenger.getName()}]]</td>
+            <td>[[${passenger.getPhoneNo()}]]</td>
+             <td>[[${passenger.getEmail()}]]</td>
+              <td>[[${passenger.getGender()}]]</td>
+               <td>[[${passenger.getPhoneNo()}]]</td>
+             <td>[[${passenger.getPassengerIC()}]]</td>
             
             
-            <td>
-     			  <!-- A link to edit a passenger detail -->
-              <a th:href="@{'/passenger/' + ${passenger.PassengerId}}" 
-              	title="Edit this Passenger detail"
-                class="fa-regular fa-pen-to-square icon-dark"></a>
-              &nbsp;
-              
-                  <!-- A link to delete a Passenger detail -->
-              <a th:href="@{'/passenger/delete/' + ${passenger.PassengerId}}" 
-              th:PassengerId="${passenger.PassengerId}" id="btnDelete"
-                title="Delete this Passenger" 
-                class="fa-regular fa-trash-can icon-dark btn-delete"></a>
-
-            </td> 
+          
           </tr>
         </tbody>
       </table>

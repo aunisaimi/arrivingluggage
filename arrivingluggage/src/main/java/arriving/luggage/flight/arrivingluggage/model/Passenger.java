@@ -40,7 +40,7 @@ public class Passenger
 	@Column (name = "Gender")
 	private String gender;
 	
-	@Column (name = "PassengerIC")
+	@Column (name = "PassengerIC/Passport")
 	private String passengerIC;
 	
 	@ManyToOne

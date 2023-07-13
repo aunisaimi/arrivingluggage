@@ -109,18 +109,18 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 * @return
 	 */
 	
-	@GetMapping("/trackingsheet/{TrackingSheetId}")
-	public String getTrackingSheet (@PathVariable Integer TrackingSheetId, Model model)
+	@GetMapping("/trackingsheet/{trackingsheetID}")
+	public String getTrackingSheet (@PathVariable Integer trackingsheetID, Model model)
 	{
 		String pageTitle = "New TrackingSheet Details";
 		TrackingSheet trackingsheet = new TrackingSheet();
 		
 		//This block will get a TrackingSheet to be updated
-		if(TrackingSheetId > 0)
+		if(trackingsheetID > 0)
 		{
 			
 			// Generate new URI and append PassengerId to it
-			String uri = defaultURI + "/" + TrackingSheetId;
+			String uri = defaultURI + "/" + trackingsheetID;
 			
 			// Get a passenger detail from web service
 			RestTemplate restTemplate = new RestTemplate();
@@ -190,16 +190,16 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 * @return
 	 */
 	
-	@RequestMapping("/trackingsheet/delete/{TrackingSheetId}")
-	public String deleteTrackingSheet(@PathVariable Integer TrackingSheetId)
+	@RequestMapping("/trackingsheet/delete/{trackingsheetID}")
+	public String deleteTrackingSheet(@PathVariable Integer trackingsheetID)
 	{
 		
 		// Generate new URI, similar to the mapping in TrackingsheetRESTController
-		String uri = defaultURI + "/{TrackingSheetId}";
+		String uri = defaultURI + "/{trackingsheetID}";
 		
 		// Send a DELETE request and attach the value of TrackingSheetId into URI
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete(uri, Map.of("TrackingSheetId", Integer.toString(TrackingSheetId)));
+		restTemplate.delete(uri, Map.of("trackingsheetID", Integer.toString(trackingsheetID)));
 		
 		return "redirect:/trackingsheet/list";
 		

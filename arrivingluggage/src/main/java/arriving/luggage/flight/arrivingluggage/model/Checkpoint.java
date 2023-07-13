@@ -14,17 +14,18 @@ public class Checkpoint
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column (name = "cpID")
-	private int checkpoint;
+	private int checkpointID;
 	
 	@Column (name = "CheckpointName")
 	private String Name;
 
-	public int getCheckpoint() {
-		return checkpoint;
+
+	public int getCheckpointID() {
+		return checkpointID;
 	}
 
-	public void setCheckpoint(int checkpoint) {
-		this.checkpoint = checkpoint;
+	public void setCheckpointID(int checkpointID) {
+		this.checkpointID = checkpointID;
 	}
 
 	public String getName() {
