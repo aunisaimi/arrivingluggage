@@ -21,6 +21,29 @@ import jakarta.persistence.Table;
 @Table (name = "flight")
 public class Flight {
 	
+	@Id
+	@GeneratedValue (strategy=GenerationType.IDENTITY)
+	@Column (name = "FlightID")
+	private int flightID;
+	
+	@Column (name = "FlightName")
+	private String flightName;
+	
+	@Column (name = "DepartingTime")
+	private Time aepartingTime;
+	
+	@Column (name = "ArrivingTime")
+	private Time arrivingTime;
+	
+	@Column (name = "DepartingDate")
+	private Date departingDate;
+	
+	@Column (name = "FlightNo")
+	private String flightNo;
+	
+	@ManyToOne
+	@JoinColumn (name = "AirportID")
+	private Airport airport;
 	public int getFlightID() {
 		return flightID;
 	}
@@ -77,29 +100,7 @@ public class Flight {
 		this.airport = airport;
 	}
 
-	@Id
-	@GeneratedValue (strategy=GenerationType.IDENTITY)
-	@Column (name = "FlightID")
-	private int flightID;
-	
-	@Column (name = "FlightName")
-	private String flightName;
-	
-	@Column (name = "DepartingTime")
-	private Time aepartingTime;
-	
-	@Column (name = "ArrivingTime")
-	private Time arrivingTime;
-	
-	@Column (name = "DepartingDate")
-	private Date departingDate;
-	
-	@Column (name = "FlightNo")
-	private String flightNo;
-	
-	@ManyToOne
-	@JoinColumn (name = "AirportID")
-	private Airport airport;
+
 	
 }
 
