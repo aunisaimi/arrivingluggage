@@ -71,7 +71,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trucks";
 		
 		String truckResponse = "";
 		
-		if (truck.getTruck()>0)
+		if (truck.getTruckID()>0)
 		{
 			// this block will update new Truck and
 			
@@ -105,18 +105,18 @@ private String defaultURI = "http://localhost:8080/arriving/api/trucks";
 	 * @return
 	 */
 	
-	@GetMapping("/truck/{Truck}")
-	public String getTruck (@PathVariable Integer Truck, Model model)
+	@GetMapping("/truck/{TruckID}")
+	public String getTruck (@PathVariable Integer TruckID, Model model)
 	{
 		String pageTitle = "New Truck Details";
 		Truck truck1 = new Truck();
 		
 		//This block will get a Truck to be updated
-		if(Truck> 0)
+		if(TruckID> 0)
 		{
 			
 			// Generate new URI and append TruckId to it
-			String uri = defaultURI + "/" + Truck;
+			String uri = defaultURI + "/" + TruckID;
 			
 			// Get a passenger detail from web service
 			RestTemplate restTemplate = new RestTemplate();

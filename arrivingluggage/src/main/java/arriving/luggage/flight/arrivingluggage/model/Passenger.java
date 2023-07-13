@@ -83,7 +83,7 @@ public class Passenger
 		this.flightID = flightID;
 	}
 
-	@Column (name = "PassengerName")
+	@Column (name = "Name")
 	private String name;
 	
 	@Column (name = "PhoneNumber")

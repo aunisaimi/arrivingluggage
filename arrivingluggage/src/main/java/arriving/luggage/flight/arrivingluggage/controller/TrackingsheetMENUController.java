@@ -75,7 +75,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		String trackingsheetResponse = "";
 		
-		if (trackingsheet.getTrackingSheetId()>0)
+		if (trackingsheet.getTrackingsheetID()>0)
 		{
 			// this block will update new trackingsheet and
 			

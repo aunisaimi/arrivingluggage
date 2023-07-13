@@ -72,36 +72,18 @@
       <table class="table table-hover table-responsive-xl">
         <thead class="thead-light">
           <tr>
-            
-        
-            <th scope="col">FlightID</th>
+         
             <th scope="col">PassengerID</th>
       
-            <!-- <th scope="col">Action</th>-->
 
           </tr>
         </thead>
         <tbody>
           <tr th:each="luggage : ${luggages}">
            	
-            <td>[[${luggage.getPassenger()?.getPassengerId()}]]</td>
+            <td>[[${luggage.getPassenger()?.getName()}]]</td>
             
-           
-          
-           <!-- <td>
-     			  <!-- A link to edit a luggage detail -->
-              <a th:href="@{'/luggage/' + ${luggage.LuggageId}}" 
-              	title="Edit this Luggage detail"
-                class="fa-regular fa-pen-to-square icon-dark"></a>
-              &nbsp;
-              
-                  <!-- A link to delete a luggage detail -->
-              <a th:href="@{'/luggage/delete/' + ${luggage.LuggageId}}" 
-              th:LuggageId="${luggage.LuggageId}" id="btnDelete"
-                title="Delete this Luggage" 
-                class="fa-regular fa-trash-can icon-dark btn-delete"></a>
-
-            </td>  -->
+     
             
           </tr>
         </tbody>

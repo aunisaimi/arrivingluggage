@@ -71,7 +71,7 @@ public class PassengerMENUController
 		
 		String passengerResponse = "";
 		
-		if (passenger.getPassengeR()>0)
+		if (passenger.getPassengerID()>0)
 		{
 			// this block will update new passenger and
 			

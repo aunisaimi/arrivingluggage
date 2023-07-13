@@ -21,7 +21,6 @@ INDEX VERSION 1.131+C:\Users\oni\Desktop\KELAS SEM 4\DAD\arrivingluggage\.metada
 2708633324.index
 91646435.index
 3463067681.index
-2916513142.index
 2476609677.index
 1445033166.index
 148367521.index
