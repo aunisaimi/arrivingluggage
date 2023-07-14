@@ -84,7 +84,7 @@
         <tbody>
           <tr th:each="luggage : ${luggages}">
            	
-           	<td>[[${luggage.getLuggagE}]]</td>
+           	<td>[[${luggage.getLuggageID}]]</td>
             <td>[[${luggage.getPassenger()?.getName()}]]</td>
             <td>[[${luggage.getPassenger()?.getPassengerIC()}]]</td>
             <td>[[${luggage.getPassenger()?.getFlightID().getFlightName()}]]</td>

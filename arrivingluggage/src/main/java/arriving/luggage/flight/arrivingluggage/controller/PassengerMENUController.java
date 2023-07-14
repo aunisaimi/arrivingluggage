@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import arriving.luggage.flight.arrivingluggage.model.Flight;
 import arriving.luggage.flight.arrivingluggage.model.Passenger;
 
 
@@ -100,6 +101,7 @@ public class PassengerMENUController
 		return "redirect:/passenger/list";
 	}
 	
+	
 	/**
 	 * This method will get passenger
 	 * 
@@ -131,11 +133,27 @@ public class PassengerMENUController
 			
 		}
 		
-		// Attach value to pass to front end
+		RestTemplate restTemplateFlight = new RestTemplate();
+		ResponseEntity<Flight[]> responseFlight = 
+				restTemplateFlight.getForEntity("http://localhost:8080/"
+					+ "arriving/api/flights", 
+					Flight[].class);
+		
+		Flight flightArray[] = responseFlight.getBody();	
+		
+		// Parse an array to a list object
+		List<Flight> flightList = Arrays.asList(flightArray);
+		
+		//Attach value to pass to front end
 		model.addAttribute("passengers",passenger);
-		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("passenger", pageTitle);
+		model.addAttribute("flights",flightList);
+		//model.addAttribute("student", currentStudent);
 		
 		return "passengerinfo";
+		
+		// Attach value to pass to front end
+		
 	}
 	/*
 	/**

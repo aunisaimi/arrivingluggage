@@ -29,31 +29,31 @@ public class Luggage
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column (name = "LuggageID")
-	private int luggagE;
+	private int luggageID;
 		 
 	@ManyToOne
 	@JoinColumn (name = "passengerID")
-	private Passenger passenger; 	
+	private Passenger passengerID; 	
 	
 	/*@OneToMany(mappedBy = "luggage",fetch = FetchType.LAZY)
 	@JsonIgnoreProperties("luggage")
 	private List<TrackingSheet> trackingsheets;*/
 
 
-	public int getLuggagE() {
-		return luggagE;
+	public int getLuggageID() {
+		return luggageID;
 	}
 
-	public void setLuggagE(int luggagE) {
-		this.luggagE = luggagE;
+	public void setLuggageID(int luggageID) {
+		this.luggageID = luggageID;
 	}
 	
 	public Passenger getPassenger() {
-		return passenger;
+		return passengerID;
 	}
 
-	public void setPassenger(Passenger passenger) {
-		this.passenger = passenger;
+	public void setPassenger(Passenger passengerID) {
+		this.passengerID = passengerID;
 	}
 
 	/*public List<TrackingSheet> getTrackingsheets() {

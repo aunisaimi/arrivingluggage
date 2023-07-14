@@ -36,7 +36,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/flights";
 		// The URI to GET the checkpoint1
 		String uri =  "http://localhost:8080/arriving/api/flights";
 		
-		// get a list of checkpoint1 from web services
+		// get a list of flight from web services
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<Flight[]> response = 
 				restTemplate.getForEntity(uri, Flight[].class);

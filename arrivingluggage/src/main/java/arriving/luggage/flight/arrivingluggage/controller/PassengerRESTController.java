@@ -26,6 +26,7 @@ public class PassengerRESTController
 {
 	@Autowired
 	private PassengerRepository passengerRepository;
+	
 	@GetMapping
 	public List<Passenger> getPassengers()
 	{

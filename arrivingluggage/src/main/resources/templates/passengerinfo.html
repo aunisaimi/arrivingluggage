@@ -79,18 +79,31 @@
             </div>
           </div>
           
-          <div class="form-group row">
+
+<!-- <div class="form-group row">
     <label class="col-sm-3 col-form-label" for="FlightNo">Flight No</label>
     <div class="col-sm-9">
         <select name="flightno" id="flightNo" th:field="*{flightID}" required>
             <option th:each="flight : ${flights}"
                     th:value="${flight.flightID}"
-                    th:text="${flight.getFlightNo()}" />
+                    th:text="${flight.flightNo}"></option>
         </select>
     </div>
-</div>
+</div> -->
 
-          
+<div class="form-group row">
+    		<label class="col-sm-3 col-form-label" for="flightID">Flight No</label>
+   			<div class="col-sm-9">
+        
+        	<select name="flight" id="flight" th:field="*{flightID.flightID}"required>
+            <option th:each="flight : ${flights}"
+            			th:value="${flight.flightID}"
+            			th:text="${flight.flightNo}" 
+            />
+        	</select> 
+    		</div>
+		</div>
+
 
           <div class="text-center">
             <input type="submit" value="Save" class="btn btn-primary btn-sm mr-2" />

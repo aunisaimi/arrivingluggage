@@ -102,13 +102,13 @@
         <thead class="thead-light">
           <tr>
              <th scope="col">TrackingSheetId</th>
-             <th scope="col">LugaggeID</th>
+             <th scope="col">LugaggeId</th>
 	     <th scope="col">Staff</th>
-             <th scope="col">CheckpointID</th>
-             <th scope="col">TruckID</th>
+             <th scope="col">CheckpointNo</th>
+             <th scope="col">TruckNo</th>
               <th scope="col">ConveyorLaneNo</th>
               <th scope="col">DateTime</th>
-               <th scope="col">Flight Name</th>
+               <th scope="col">FlightNo</th>
               
 
              
@@ -120,13 +120,13 @@
 
            	
            <th scope="row" th:text="${trackingsheet.trackingsheetID}"></th>
-            <td>[[${trackingsheet.getLuggage()?.getLuggagE()}]]</td>
+            <td>[[${trackingsheet.getLuggage()?.getLuggageID()}]]</td>
             <td>[[${trackingsheet.getStaffID()?.getStaffname()}]]</td>
             <td>[[${trackingsheet.getCheckpoint()?.getCheckpointID()}]]</td>            
             <td>[[${trackingsheet.getTruck()?.getTruckID()}]]</td>
             <td>[[${trackingsheet.getConveyorlane()?.getLaneNumber()}]]</td>
             <td>[[${trackingsheet.getDateTime()}]]</td>
-            <td>[[${trackingsheet.getFlightID()?.getFlightName()}]]</td>
+            <td>[[${trackingsheet.getFlightID()?.getFlightNo()}]]</td>
   </tr>
 </tbody>
 
@@ -155,7 +155,7 @@
              <th scope="col">TruckID</th>
               <th scope="col">ConveyorLaneNo</th>
               <th scope="col">DateTime</th>
-               <th scope="col">Flight Name</th>
+               <th scope="col">Flight No</th>
               
 
              
@@ -167,13 +167,13 @@
 
            	
            <th scope="row" th:text="${trackingsheet.trackingsheetID}"></th>
-            <td>[[${trackingsheet.getLuggage()?.getLuggagE()}]]</td>
+            <td>[[${trackingsheet.getLuggage()?.getLuggageID()}]]</td>
             <td>[[${trackingsheet.getStaffID()?.getStaffname()}]]</td>
             <td>[[${trackingsheet.getCheckpoint()?.getCheckpointID()}]]</td>            
             <td>[[${trackingsheet.getTruck()?.getTruckID()}]]</td>
             <td>[[${trackingsheet.getConveyorlane()?.getLaneNumber()}]]</td>
             <td>[[${trackingsheet.getDateTime()}]]</td>
-            <td>[[${trackingsheet.getFlightID()?.getFlightName()}]]</td>
+            <td>[[${trackingsheet.getFlightID()?.getFlightNo()}]]</td>
   </tr>
 </tbody>
 
@@ -202,7 +202,7 @@
              <th scope="col">TruckID</th>
               <th scope="col">ConveyorLaneID</th>
               <th scope="col">DateTime</th>
-               <th scope="col">Flight Name</th>
+               <th scope="col">FlightNo</th>
               
 
              
@@ -213,13 +213,13 @@
 
 
             <td>[[${trackingsheet.getTrackingsheetID()}]]</td>
-            <td>[[${trackingsheet.getLuggage()?.getLuggagE()}]]</td>
+            <td>[[${trackingsheet.getLuggage()?.getLuggageID()}]]</td>
             <td>[[${trackingsheet.getStaffID()?.getStaffname()}]]</td>
             <td>[[${trackingsheet.getCheckpoint()?.getCheckpointID()}]]</td>            
             <td>[[${trackingsheet.getTruck()?.getTruckID()}]]</td>
             <td>[[${trackingsheet.getConveyorlane()?.getLaneNumber()}]]</td>
             <td>[[${trackingsheet.getDateTime()}]]</td>
-            <td>[[${trackingsheet.getFlightID()?.getFlightName()}]]</td>  </tr>
+            <td>[[${trackingsheet.getFlightID()?.getFlightNo()}]]</td>  </tr>
             
 </tbody>
 

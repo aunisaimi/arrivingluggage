@@ -1,5 +1,6 @@
 package arriving.luggage.flight.arrivingluggage.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,9 +31,7 @@ public class LuggageRESTController
 	@GetMapping
 	public List<Luggage> getLuggage(){
 		return luggageRepository.findAll();
-		
-	}
-	
+    }
 	
 	@GetMapping("{LuggageId}")
 	public Luggage getLuggage(@PathVariable long LuggageId)
@@ -40,25 +39,6 @@ public class LuggageRESTController
 		Luggage luggage = luggageRepository.findById(LuggageId).get();
 		return luggage;
 		
-	}
-	
-	@PostMapping()
-	public Luggage insertLuggage(@RequestBody Luggage luggage)
-	{		
-		return luggageRepository.save(luggage);
-	}
-	
-	@PutMapping()
-	public Luggage updateLuggage(@RequestBody Luggage luggage)
-	{
-		return luggageRepository.save(luggage);
-	}
-	
-	@DeleteMapping("{LuggageId}")
-	public ResponseEntity<HttpStatus> deleteLuggage(@PathVariable long LuggageId)
-	{
-		luggageRepository.deleteById(LuggageId);
-		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 }

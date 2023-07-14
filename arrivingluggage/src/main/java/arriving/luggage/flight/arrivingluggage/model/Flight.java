@@ -30,7 +30,7 @@ public class Flight {
 	private String flightName;
 	
 	@Column (name = "DepartingTime")
-	private Time aepartingTime;
+	private Time departingTime;
 	
 	@Column (name = "ArrivingTime")
 	private Time arrivingTime;
@@ -44,6 +44,15 @@ public class Flight {
 	@ManyToOne
 	@JoinColumn (name = "AirportID")
 	private Airport airport;
+	
+	public Flight() {
+		//default constructor
+	}
+	
+	public Flight(int flightID) {
+	    this.flightID = flightID;
+	}
+	
 	public int getFlightID() {
 		return flightID;
 	}
@@ -60,12 +69,12 @@ public class Flight {
 		this.flightName = flightName;
 	}
 
-	public Time getAepartingTime() {
-		return aepartingTime;
+	public Time getADpartingTime() {
+		return departingTime;
 	}
 
-	public void setAepartingTime(Time aepartingTime) {
-		this.aepartingTime = aepartingTime;
+	public void setAepartingTime(Time departingTime) {
+		this.departingTime = departingTime;
 	}
 
 	public Time getArrivingTime() {

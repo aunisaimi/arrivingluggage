@@ -47,7 +47,6 @@ public class Passenger
 	@JoinColumn (name = "FlightID")
 	private Flight flightID;
 
-
 	
 	public int getPassengerID() {
 		return passengerID;
