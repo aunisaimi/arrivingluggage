@@ -23,7 +23,7 @@ import arriving.luggage.flight.arrivingluggage.model.Luggage;
 
 @RestController
 @RequestMapping("/api/luggages")
-public class LuggageRESTController 
+public class Luggagerestcontroller 
 {
 	@Autowired
 	private LuggageRepository luggageRepository;

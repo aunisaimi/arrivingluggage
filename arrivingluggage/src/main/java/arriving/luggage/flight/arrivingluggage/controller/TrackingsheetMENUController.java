@@ -20,15 +20,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import arriving.luggage.flight.arrivingluggage.model.Checkpoint;
 //import arriving.luggage.flight.arrivingluggage.model.Checkpoint2;
 import arriving.luggage.flight.arrivingluggage.model.TrackingSheet;
-//import arriving.luggage.flight.arrivingluggage.model.Checkpoint1;
-//import arriving.luggage.flight.arrivingluggage.model.Checkpoint3;
-//import arriving.luggage.flight.arrivingluggage.model.Luggage;
+import arriving.luggage.flight.arrivingluggage.model.ConveyorLane;
+import arriving.luggage.flight.arrivingluggage.model.Luggage;
+import arriving.luggage.flight.arrivingluggage.model.Staff;
+import arriving.luggage.flight.arrivingluggage.model.Truck;
 
 
 @Controller
-public class TrackingsheetMENUController 
+public class Trackingsheetmenucontroller 
 {
 private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	
@@ -102,20 +104,27 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	}
 	
 	/**
-	 * This method will get trackingsheet
+	 * This method will get a request to retrieve info about checkpoint 1 of
+	 * a specific tracking sheet. 
+	 * Retrieve checkpoint information from web service
+	 * add the retrieved data into model and pass into checkpoint1info.html
+	 * view
 	 * 
 	 * @param TrackingSheetId
 	 * @param model
 	 * @return
 	 */
 	
-	@GetMapping("/trackingsheet/{trackingsheetID}")
-	public String getTrackingSheet (@PathVariable Integer trackingsheetID, Model model)
+	@GetMapping("/trackingsheet/checkpoint1/{trackingsheetID}")
+	public String getTrackingSheetCheckpoint1 (@PathVariable int trackingsheetID, 
+									Model model)
 	{
-		String pageTitle = "New TrackingSheet Details";
+		
+		String pageTitle = "Checkpoint 1";
 		TrackingSheet trackingsheet = new TrackingSheet();
 		
-		//This block will get a TrackingSheet to be updated
+		
+		//This will get a TrackingSheet to be updated
 		if(trackingsheetID > 0)
 		{
 			
@@ -127,60 +136,562 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 			trackingsheet = restTemplate.getForObject(uri, TrackingSheet.class);
 			
 			//Give new title to the page:
-			pageTitle = "Edit TrackingSheet Details";
+			pageTitle = "Edit Checkpoint";
 			
 			
 		}
-		/*
-		RestTemplate restTemplateLuggage = new RestTemplate();
-	    ResponseEntity<Luggage[]> luggageResponse =
-	            restTemplateLuggage.getForEntity("http://localhost:8080/projectapp/api/luggages", Luggage[].class);
-
-	    Luggage luggage[] = luggageResponse.getBody();
-
-	    // Parse an array to a list object
-	    List<Luggage> luggageList = Arrays.asList(luggage);
-
-
-	    RestTemplate restTemplateCheckpoint1 = new RestTemplate();
-	    ResponseEntity<Checkpoint1[]> checkpoint1Response =
-	            restTemplateCheckpoint1.getForEntity("http://localhost:8080/projectapp/api/checkpoint1s", Checkpoint1[].class);
-
-	    Checkpoint1 checkpoint1[] = checkpoint1Response.getBody();
-
-	    // Parse an array to a list object
-	    List<Checkpoint1> checkpoint1List = Arrays.asList(checkpoint1);
 		
-	    RestTemplate restTemplateCheckpoint2 = new RestTemplate();
-	    ResponseEntity<Checkpoint2[]> checkpoint2Response =
-	            restTemplateCheckpoint2.getForEntity("http://localhost:8080/projectapp/api/checkpoint2s", Checkpoint2[].class);
-
-	    Checkpoint2 checkpoint2[] = checkpoint2Response.getBody();
-
-	    // Parse an array to a list object
-	    List<Checkpoint2> checkpoint2List = Arrays.asList(checkpoint2);
-	    
-	    RestTemplate restTemplateCheckpoint3 = new RestTemplate();
-	    ResponseEntity<Checkpoint3[]> checkpoint3Response =
-	            restTemplateCheckpoint3.getForEntity("http://localhost:8080/projectapp/api/checkpoint3s", Checkpoint3[].class);
-
-	    Checkpoint3 checkpoint3[] = checkpoint3Response.getBody();
-
-	    // Parse an array to a list object
-	    List<Checkpoint3> checkpoint3List = Arrays.asList(checkpoint3);
-	    */
+		//Get the checkpoint info from web service
+		RestTemplate checkpointREST = new RestTemplate();
+		ResponseEntity<Checkpoint[]> responseCheckpoint =
+				checkpointREST.getForEntity("htttp://localhost:8080/arriving"
+						+ "/api/checkpoints", Checkpoint[].class);
 		
-		// Attach value to pass to front end
+		//Parse JSON data to an array object
+		Checkpoint checkpointArray[] = responseCheckpoint.getBody();
+		
+		//Parse Array to a list object
+		List<Checkpoint> checkpointList = Arrays.asList(checkpointArray);
+		
+		// Get the luggage unit info from web service
+		RestTemplate restTemplateTruck = new RestTemplate();
+		ResponseEntity<Truck[]> responseTruck = 
+				restTemplateTruck.getForEntity("htttp://localhost:8080"
+						+ "/arriving/api/trucks", Truck[].class);
+		
+		
+		Truck truckArray[] = responseTruck.getBody();
+		
+		//parse Array to a list obj
+		List<Truck> truckList = Arrays.asList(truckArray);
+		
+		RestTemplate restTemplateluggage = new RestTemplate();
+		ResponseEntity<Luggage[]> responseLuggage = 
+				restTemplateluggage.getForEntity("htttp://localhost:8080"
+						+ "/arriving/api/luggages", Luggage[].class);
+		
+		
+		Luggage luggageArray[] = responseLuggage.getBody();
+		
+		//parse Array to a list obj
+		List<Luggage> luggageList = Arrays.asList(luggageArray);
+		
+		// Attach values to the model
 		model.addAttribute("trackingsheets",trackingsheet);
-		/*
+		model.addAttribute("checkpoints",checkpointList);
+		model.addAttribute("trucks",truckList);
 		model.addAttribute("luggages",luggageList);
-		model.addAttribute("checkpoint1s",checkpoint1List);
-		model.addAttribute("checkpoint2s",checkpoint2List);
-		model.addAttribute("checkpoint3s",checkpoint3List);
-		*/
 		model.addAttribute("pageTitle", pageTitle);
 		
-		return "trackingsheetinfo";
+		return "checkpoint1info";
+	
+		
+		
+		
+	}
+	
+	/*
+	 * Handles a POST request to save checkpoint 1 info of tracking sheet
+	 * Sends a HTTP POST request to the web service to save checkpoint 2 info
+	 * 
+	 * redirects to the checkpoint 2 page
+	 * 
+	 *  @Author Auni Afeeqah
+	 */
+	
+	@RequestMapping("/trackingsheet/checkpoint1/save")
+	public String insertTrackingSheetCheckpoint1 (@ModelAttribute TrackingSheet
+			trackingsheet)
+	{
+		RestTemplate restTemplatecp1 = new RestTemplate();
+		HttpEntity<TrackingSheet> request = 
+				new HttpEntity<TrackingSheet>(trackingsheet);
+		
+		String trackingsheetCheckpoint1Response = "";
+		
+		String uri = defaultURI + "/checkpoint1/save";
+		
+		if (trackingsheet.getTrackingsheetID()>0)
+		{
+			restTemplatecp1.put(defaultURI, request, TrackingSheet.class);
+			
+		}
+		else
+		{
+			trackingsheetCheckpoint1Response =
+					restTemplatecp1.postForObject(uri, request, String.class);
+		}
+		
+		System.out.println(trackingsheetCheckpoint1Response);
+		
+		return "redirect:/trackingsheet/checkpoint2/0";
+	
+	}
+	
+	/**
+	 * This method will get a request to retrieve info about checkpoint 2 of
+	 * a specific tracking sheet. 
+	 * Retrieve checkpoint information from web service
+	 * add the retrieved data into model and pass into checkpoint1info.html
+	 * view
+	 * 
+	 * @param TrackingSheetId
+	 * @param model
+	 * @return
+	 */
+	
+	@GetMapping("/trackingsheet/checkpoint2/{trackingsheetID}")
+	public String getTrackingSheetCheckpoint2(@PathVariable int trackingsheetID,
+			Model model)
+	{
+		String title = "Checkpoint 2";
+		TrackingSheet trackingsheet2 = new TrackingSheet();
+		
+		//This block get a tracking sheet to be updated
+		if(trackingsheetID > 0)
+		{
+			 // generate a new URI and append trackingsheetID to it
+			String uri = defaultURI + "/" + trackingsheetID;
+			
+			// Get a checkpoint2 from web servive
+			RestTemplate restTrackingSheet = new RestTemplate();
+			trackingsheet2 = restTrackingSheet.getForObject(uri,
+					TrackingSheet.class);
+
+			//Give a new title to the page
+			title = "Edit Checkpoint2";
+		}
+		
+		/*
+		 * The URI to get checkpoint unit
+		 * List all checkpoint unit for drop down list menu
+		 */
+		
+		RestTemplate checkpoint2REST = new RestTemplate();
+		ResponseEntity<Checkpoint[]> responseCheckpoint2 = 
+				checkpoint2REST.getForEntity("http://localhost:8080/arriving"
+						+ "/api/checkpoints", Checkpoint[].class);
+		
+		// Parse a JSON data to array of object
+		Checkpoint checkpointArray[] = responseCheckpoint2.getBody();
+		
+		// Parse an array to a list object
+		List<Checkpoint> checkpointList = Arrays.asList(checkpointArray);
+		
+		/*
+		 * 
+		 * The uri for get conveyer lane
+		 * List of all conveyer lane for drop down menu
+		 */
+		
+		RestTemplate restTemplateConveyorlane = new RestTemplate();
+		ResponseEntity<ConveyorLane[]> responseConveyorlane =
+				restTemplateConveyorlane.getForEntity("http://localhost:"
+						+ "8080/arriving/api/conveyorlanes",
+						ConveyorLane[].class );
+		
+		ConveyorLane conveyorlaneArray[] = responseConveyorlane.getBody();
+		
+		//Parse an array to a list object
+		List<ConveyorLane> conveyorlaneList = Arrays.asList(conveyorlaneArray);
+	
+		/*
+		 * 
+		 * The uri to get luggage unit
+		 * List all luggage in a drop down menu
+		 */
+		
+		RestTemplate restTemplateluggage = new RestTemplate();
+		ResponseEntity<Luggage[]> responseLuggage = 
+				restTemplateluggage.getForEntity("htttp://localhost:8080"
+						+ "/arriving/api/luggages", Luggage[].class);
+		
+		
+		Luggage luggageArray[] = responseLuggage.getBody();
+		
+		//parse Array to a list obj
+		List<Luggage> luggageList = Arrays.asList(luggageArray);
+		
+		// Attach values to the model
+		model.addAttribute("trackingsheets",trackingsheet2);
+		model.addAttribute("checkpoints",checkpointList);
+		model.addAttribute("conveyorlanes",conveyorlaneList);
+		model.addAttribute("luggages",luggageList);
+		model.addAttribute("pageTitle", title);
+		
+		return "checkpoint2info";
+		
+	}
+	
+	
+	
+	/**
+	 * This method handles a POST request to save checkpoint 2 info of a sheet
+	 * Sends a HTTP POST request to web service to save checkpoint 2
+	 * 
+	 * redirect to checkpoint3 input page
+	 */
+	
+	@RequestMapping("/trackingsheet/checkpoint2/save")
+	public String insertCheckpoint2(@ModelAttribute TrackingSheet trackingsheet)
+	{
+		String uri = defaultURI + "/checkpoint1/save";
+		
+		//create a new RestTemplate
+		RestTemplate restTemplatecp2 = new RestTemplate();
+		
+		//Create a request body
+		HttpEntity<TrackingSheet> request = 
+				new HttpEntity<TrackingSheet>(trackingsheet);
+		
+		String trackingsheetCheckpoint2Response = "";
+		
+		if (trackingsheet.getTrackingsheetID()>0)
+		{
+			//this block updates a new detail and send request as PUT
+			restTemplatecp2.put(defaultURI, request, TrackingSheet.class);
+			
+		}
+		
+		else
+		{
+			//This block as a new truck and send request as POST
+			trackingsheetCheckpoint2Response = 
+					restTemplatecp2.postForObject(uri, request, String.class);
+		}
+		
+		System.out.println(trackingsheetCheckpoint2Response);
+		
+		
+		// Rediriect to checkpoint
+		
+		return "redirect:/trackingsheet/checkpoint3/0";
+	}
+	
+	/**
+	 * Handles a GET request to retrieve information abt checkpoint 3 of a sheet
+	 * Retrieves a staff, status and luggage unit information
+	 * from web service. Add a retrieved data to model and pass
+	 * it to checkpoint3 html view
+	 * 
+	 */
+	
+	@GetMapping("/trackingsheet/checkpoint3/{trackingsheetID}")
+	public String getTrackingSheetCheckpoint3 (@PathVariable int trackingsheetID,
+			Model model)
+	{
+		String title = "Checkpoint 3";
+		TrackingSheet trackingsheet3 = new TrackingSheet();
+		
+		//This block get a tracking sheet to be updated
+		if(trackingsheetID >0)
+		{
+			
+			//Generate new URI and append trackingsheetID to it
+			String uri = defaultURI + "/" + trackingsheetID;
+			
+			//Get a checkpoint 3 from web service
+			RestTemplate restTracking = new RestTemplate();
+			trackingsheet3 = restTracking.getForObject(uri, TrackingSheet.class);
+			
+			//Give a new title to page
+			title = "Edit Checkpoint";
+		}
+		
+		/**
+		 * 
+		 * the uri to get checkpoint 3 details
+		 */
+		
+		RestTemplate checkpoint3REST = new RestTemplate();
+		ResponseEntity<Checkpoint[]> responseCheckpoint3 =
+				checkpoint3REST.getForEntity("http://localhost:8080/arriving"
+						+ "/api/checkpoints", Checkpoint[].class);
+				
+				
+		// Parse JSON data to array of object
+		Checkpoint checkpointArray[] = responseCheckpoint3.getBody();
+						
+		// Parse an array to a list object
+		List<Checkpoint> checkpointList = Arrays.asList(checkpointArray);
+		
+		
+		/*
+		 * the uri to get luggage unit
+		 * list all luggage unit for drop down menu
+		 */
+	
+		RestTemplate luggageREST = new RestTemplate();
+		
+		ResponseEntity<Luggage[]> responseLuggage=
+				luggageREST.getForEntity("http://localhost:8080/arriving"
+						+ "/api/luggages", Luggage[].class);
+				
+				
+		// Parse JSON data to array of object
+		Luggage luggageArray[] = responseLuggage.getBody();
+						
+		// Parse an array to a list object
+		List<Luggage> luggageList = Arrays.asList(luggageArray);
+	
+	/*
+		
+		/**
+		 * The uri to get Luggage Status
+		 * List all of luggage status for drop down list menu
+		 * 
+		 */
+		/*
+		RestTemplate checkpoint3REST = new RestTemplate();
+		ResponseEntity<Checkpoint[]> responseCheckpoint3 =
+		        checkpoint3REST.getForEntity("http://localhost:8080/projectapp/api/checkpoints", Checkpoint[].class);
+
+		// Parse JSON data to an array of objects
+		Checkpoint checkpointArray[] = responseCheckpoint3.getBody();
+
+		// Parse an array to a list of objects
+		List<Luggage> checkpointList = Arrays.asList(checkpointArray);
+
+		List<LuggageStatus> luggageStatusList = new ArrayList<>();
+
+		for (Checkpoint checkpoint : checkpointList) {
+		    LuggageWithStatus luggageWithStatus = new LuggageWithStatus();
+		    luggageWithStatus.setLuggage(checkpoint.getLuggage());
+		    luggageWithStatus.setStatus("Some Status"); // Set the desired status value
+		    luggageListWithStatus.add(luggageWithStatus);
+		}
+	*/
+
+		/**
+		 * The uri to get staff
+		 * List all of staff for drop down list menu
+		 * 
+		 */
+		
+		RestTemplate restTemplateStaff = new RestTemplate();
+		ResponseEntity<Staff[]> responseStaff = 
+				restTemplateStaff.getForEntity("http://localhost:"
+						+ "8080/projectapp/api/staffs", Staff[].class);
+		
+		Staff shuttlestaffArray[] = responseStaff.getBody();	
+		
+		// Parse an array to a list object
+		List<Staff> staffList = Arrays.asList(shuttlestaffArray);
+		
+		//Attach value to pass the front end
+		model.addAttribute("trackingsheet3", trackingsheet3);
+		model.addAttribute("checkpoints", checkpointList);
+		//model.addAttribute("luggagestatus", luggagestatusList);
+		model.addAttribute("luggages", luggageList);
+		model.addAttribute("staffs", staffList);
+		model.addAttribute("pagetitle",title);
+		
+		
+		return "checkpoint3info";
+	}
+	
+	
+	/**
+	 * Handles a POST request to save checkpoint 3 information of a sheet.
+	 * Sends an HTTP POST request to the web service to save the checkpoint 3 
+	 * information.
+	 * 
+	 * Redirects to the "checkpoint4" input page.
+	 */
+	
+	@RequestMapping("/trackingsheet/checkpoint3/save")
+	public String insertCheckpoint3 (@ModelAttribute TrackingSheet trackingsheet)
+	{
+		String uri = defaultURI + "/checkpoint3/save";
+		
+		// Create a new RestTemplate
+		RestTemplate restTemplatecp3 = new RestTemplate();
+		
+		// Create request body
+		HttpEntity<TrackingSheet> request = 
+				new HttpEntity<TrackingSheet>(trackingsheet);
+		
+		String trackingsheetCheckpoint3Response = "";
+		
+		if (trackingsheet.getTrackingsheetID() > 0)
+		{
+			// This block update an new order type and send request as PUT
+			restTemplatecp3.put(defaultURI, request, TrackingSheet.class);
+		}
+		else 
+		{
+			// This block ass a new passenger and send request as POST
+			trackingsheetCheckpoint3Response = restTemplatecp3.postForObject(uri, 
+					request, String.class);
+			
+		}
+		
+		System.out.println(trackingsheetCheckpoint3Response);
+		
+		// Redirect to checkpoint 4 input
+		return "redirect:/trackingsheet/checkpoint4/0";
+	}
+	
+	
+	/**
+	 * Handles a GET request to retrieve information about checkpoint 
+	 * 4 of a specific sheet. 
+	 * Retrieves checkpoint and luggage unit information
+	 * from the web service. Adds the retrieved data to the model and passes 
+	 * it to the "checkpoint4info" HTML view.
+	 */
+	@GetMapping("/trackingsheet/checkpoint4/{trackingsheetID}")
+	public String getCheckpoint4 (@PathVariable int trackingsheetID, Model model)
+	{
+		
+		String title = "Checkpoint 4";
+		TrackingSheet trackingsheet4 = new TrackingSheet();
+
+		// This block get an tracking list to be updated
+		if (trackingsheetID > 0) {
+
+			// Generate new URI and append trackingsheetID to it
+			String uri = defaultURI + "/" + trackingsheetID;
+
+			// Get an order type from the web service
+			RestTemplate restTracking = new RestTemplate();
+			trackingsheet4 = restTracking.getForObject(uri, TrackingSheet.class);
+
+			//Give a new title to the page
+			title = "Edit Checkpoint";
+		}
+	
+		/*
+		 * 
+		 * The uri for get luggage unit
+		 * List of all luggage unit for drop down list menu
+		 */
+		RestTemplate checkpoint4REST = new RestTemplate();
+		ResponseEntity<Checkpoint[]> responseCheckpoint4 =
+				checkpoint4REST.getForEntity("http://localhost:8080/arriving"
+						+ "/api/checkpoints", Checkpoint[].class);
+				
+				
+		// Parse JSON data to array of object
+		Checkpoint checkpointArray[] = responseCheckpoint4.getBody();
+						
+		// Parse an array to a list object
+		List<Checkpoint> checkpointList = Arrays.asList(checkpointArray);
+	
+		
+		/*
+		 * the uri to get luggage unit
+		 * list all luggage unit for drop down menu
+		 */
+	
+		RestTemplate luggageREST = new RestTemplate();
+		
+		ResponseEntity<Luggage[]> responseLuggage=
+				luggageREST.getForEntity("http://localhost:8080/arriving"
+						+ "/api/luggages", Luggage[].class);
+				
+				
+		// Parse JSON data to array of object
+		Luggage luggageArray[] = responseLuggage.getBody();
+						
+		// Parse an array to a list object
+		List<Luggage> luggageList = Arrays.asList(luggageArray);
+	
+	/*
+		
+		/**
+		 * The uri to get Luggage Status
+		 * List all of luggage status for drop down list menu
+		 * 
+		 */
+		/*
+		RestTemplate checkpoint3REST = new RestTemplate();
+		ResponseEntity<Checkpoint[]> responseCheckpoint3 =
+		        checkpoint3REST.getForEntity("http://localhost:8080/projectapp/api/checkpoints", Checkpoint[].class);
+
+		// Parse JSON data to an array of objects
+		Checkpoint checkpointArray[] = responseCheckpoint3.getBody();
+
+		// Parse an array to a list of objects
+		List<Luggage> checkpointList = Arrays.asList(checkpointArray);
+
+		List<LuggageStatus> luggageStatusList = new ArrayList<>();
+
+		for (Checkpoint checkpoint : checkpointList) {
+		    LuggageWithStatus luggageWithStatus = new LuggageWithStatus();
+		    luggageWithStatus.setLuggage(checkpoint.getLuggage());
+		    luggageWithStatus.setStatus("Some Status"); // Set the desired status value
+		    luggageListWithStatus.add(luggageWithStatus);
+		}
+	*/
+
+		/**
+		 * The uri to get staff
+		 * List all of staff for drop down list menu
+		 * 
+		 */
+		
+		RestTemplate restTemplateStaff = new RestTemplate();
+		ResponseEntity<Staff[]> responseStaff = 
+				restTemplateStaff.getForEntity("http://localhost:"
+						+ "8080/projectapp/api/staffs", Staff[].class);
+		
+		Staff shuttlestaffArray[] = responseStaff.getBody();	
+		
+		// Parse an array to a list object
+		List<Staff> staffList = Arrays.asList(shuttlestaffArray);
+		
+		//Attach value to pass the front end
+		model.addAttribute("trackingsheet3", trackingsheet4);
+		model.addAttribute("checkpoints", checkpointList);
+		//model.addAttribute("luggagestatus", luggagestatusList);
+		model.addAttribute("luggages", luggageList);
+		model.addAttribute("staffs", staffList);
+		model.addAttribute("pagetitle",title);
+		
+		
+		return "checkpoint4info";
+	}
+	
+	/**
+	 * Handles a POST request to save checkpoint 4 information of a sheet.
+	 * Sends an HTTP POST request to the web service to save the checkpoint 4 
+	 * information.
+	 * 
+	 * Redirects to the "trackingsheet" input page.
+	 */
+	@RequestMapping("/trackingsheet/checkpoint4/save")
+	public String insertCheckpoint4(@ModelAttribute TrackingSheet trackingsheet)
+	{
+		String uri = defaultURI + "/checkpoint4/save";
+		
+		// Create a new RestTemplate
+		RestTemplate restTemplatecp4 = new RestTemplate();
+		
+		// Create request body
+		HttpEntity<TrackingSheet> request = 
+				new HttpEntity<TrackingSheet>(trackingsheet);
+		
+		String trackingsheetCheckpoint4Response = "";
+		
+		if (trackingsheet.getTrackingsheetID() > 0)
+		{
+			// This block update an new tracking sheet and send request as PUT
+			restTemplatecp4.put(defaultURI, request, TrackingSheet.class);
+		}
+		else 
+		{
+			// This block ass a new passenger and send request as POST
+			trackingsheetCheckpoint4Response = 
+					restTemplatecp4.postForObject(uri,
+					request, String.class);
+			
+		}
+		
+		System.out.println(trackingsheetCheckpoint4Response);
+		
+		// Redirect to passenger input
+		return "redirect:/trackingsheet/0";
 	}
 	
 	/**
@@ -189,6 +700,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 * @param TrackingSheetId
 	 * @return
 	 */
+	
+	
 	
 	@RequestMapping("/trackingsheet/delete/{trackingsheetID}")
 	public String deleteTrackingSheet(@PathVariable Integer trackingsheetID)

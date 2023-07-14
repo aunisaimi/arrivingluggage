@@ -21,7 +21,7 @@ import arriving.luggage.flight.arrivingluggage.repository.TruckRepository;
 
 @RestController
 @RequestMapping("/api/trucks")
-public class TruckRESTController 
+public class Truckrestcontroller 
 
 {
 

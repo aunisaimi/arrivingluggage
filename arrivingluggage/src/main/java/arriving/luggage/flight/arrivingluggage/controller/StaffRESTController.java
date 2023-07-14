@@ -19,7 +19,7 @@ import arriving.luggage.flight.arrivingluggage.repository.StaffRepository;
 
 @RestController
 @RequestMapping ("/api/staffs")
-public class StaffRESTController {
+public class Staffrestcontroller {
 
 		@Autowired
 		private StaffRepository staffRepository;

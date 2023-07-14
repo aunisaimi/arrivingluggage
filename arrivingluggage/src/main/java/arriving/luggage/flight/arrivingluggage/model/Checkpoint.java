@@ -7,6 +7,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import arriving.luggage.flight.arrivingluggage.model.Truck;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import arriving.luggage.flight.arrivingluggage.model.Luggage;
+import arriving.luggage.flight.arrivingluggage.repository.LuggageRepository;
+
 @Entity
 @Table (name = "checkpoint")
 public class Checkpoint 
@@ -17,7 +25,7 @@ public class Checkpoint
 	private int checkpointID;
 	
 	@Column (name = "CheckpointName")
-	private String Name;
+	private String CheckpointName;
 
 
 	public int getCheckpointID() {
@@ -28,13 +36,17 @@ public class Checkpoint
 		this.checkpointID = checkpointID;
 	}
 
-	public String getName() {
-		return Name;
+	public String getCheckpointName() 
+	{
+		return CheckpointName;
 	}
 
-	public void setName(String name) {
-		Name = name;
+	public void setCheckpointName(String checkpointName) {
+		CheckpointName = checkpointName;
 	}
+
+	
+	  
 	
 	
 }

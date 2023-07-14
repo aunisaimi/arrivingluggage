@@ -22,3 +22,22 @@
 1689233480948	Delete element
 1689233482914	Delete element
 1689233485870	Delete element
+1689378927327	Delete element
+1689378931218	Delete element
+1689378934129	Delete element
+1689378936691	Delete element
+1689378939166	Delete element
+1689378941276	Delete element
+1689378943864	Delete element
+1689378947342	Delete element
+1689378961258	Rename type 'FlightMENUController'
+1689378974302	Rename type 'FlightRESTController'
+1689378987487	Rename type 'LuggageMENUController'
+1689378999556	Rename type 'LuggageRESTController'
+1689379010497	Rename type 'PassengerMENUController'
+1689379021555	Rename type 'PassengerRESTController'
+1689379034699	Rename type 'StaffRESTController'
+1689379046900	Rename type 'TrackingsheetMENUController'
+1689379060593	Rename type 'TrackingSheetRESTController'
+1689379072611	Rename type 'TruckMENUController'
+1689379084046	Rename type 'TruckRESTController'

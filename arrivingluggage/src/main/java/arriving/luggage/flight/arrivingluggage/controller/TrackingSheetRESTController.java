@@ -22,7 +22,7 @@ import arriving.luggage.flight.arrivingluggage.model.TrackingSheet;
 
 @RestController
 @RequestMapping("/api/trackingsheets")
-public class TrackingSheetRESTController 
+public class TrackingSheetrestcontroller 
 {
 	@Autowired
 	private TrackingsheetRepository trackingsheetRepository;
