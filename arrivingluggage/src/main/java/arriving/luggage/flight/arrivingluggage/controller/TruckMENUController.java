@@ -24,7 +24,7 @@ import arriving.luggage.flight.arrivingluggage.model.Truck;
 
 
 @Controller
-public class Truckmenucontroller 
+public class TruckMenuController 
 {
 private String defaultURI = "http://localhost:8080/arriving/api/trucks";
 	

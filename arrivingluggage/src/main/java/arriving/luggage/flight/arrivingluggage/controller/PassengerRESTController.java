@@ -22,7 +22,7 @@ import arriving.luggage.flight.arrivingluggage.repository.PassengerRepository;
 
 @RestController
 @RequestMapping("/api/passengers")
-public class Passengerrestcontroller 
+public class PassengerRestController 
 {
 	@Autowired
 	private PassengerRepository passengerRepository;

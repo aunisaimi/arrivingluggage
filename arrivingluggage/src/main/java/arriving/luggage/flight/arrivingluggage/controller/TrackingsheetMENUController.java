@@ -30,7 +30,7 @@ import arriving.luggage.flight.arrivingluggage.model.Truck;
 
 
 @Controller
-public class Trackingsheetmenucontroller 
+public class TrackingsheetMenuController 
 {
 private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	
