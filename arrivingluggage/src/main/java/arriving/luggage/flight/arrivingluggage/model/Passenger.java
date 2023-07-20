@@ -28,6 +28,7 @@ public class Passenger
 	private int passengerID;
 	
 	
+	
 	@Column (name = "Name")
 	private String name;
 	

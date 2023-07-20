@@ -1,0 +1,101 @@
+package arriving.luggage.flight.arrivingluggage.controller;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.client.RestTemplate;
+
+
+import org.springframework.http.HttpEntity;
+//import org.springframework.http.HttpStatus;
+
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+
+//import arriving.luggage.flight.arrivingluggage.model.Flight;
+import arriving.luggage.flight.arrivingluggage.model.Checkpoint;
+import arriving.luggage.flight.arrivingluggage.model.Luggage;
+
+
+@Controller
+public class CheckpointMenuController 
+{
+
+private String defaultURI = "http://localhost:8080/arriving/api/checkpoints";
+	
+	
+	@GetMapping("/checkpoint/list")
+	public String getCheckpoint(Model model)
+	{
+		// The URI for GET passengers
+		//String uri = "http://localhost:8080/arriving/api/checkpoints";
+		
+		//Get a list of passengers from web service
+		RestTemplate restTemplate= new RestTemplate();
+		ResponseEntity<Checkpoint[]> response = 
+				restTemplate.getForEntity(defaultURI, 
+				Checkpoint[].class);
+		
+		// Parse JSON data to array of object
+		Checkpoint checkpoints[] = response.getBody();
+		
+		// Parse an array to a list object
+		List<Checkpoint> checkpointList = Arrays.asList(checkpoints);
+		
+		//Attach list to model as attributes
+		model.addAttribute("checkpoints", checkpointList);
+		
+		return "checkpoint";
+		
+	}
+	
+
+	/**
+	 * This method gets an luggage
+	 * 
+	 * @param Checkpoint
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("/checkpoint/{checkpointID}")
+	public String getCheckpoint (@PathVariable Integer checkpointID, Model model) {
+		
+		String pageTitle = "New Checkpoint";
+		Checkpoint checkpoint = new Checkpoint();
+		
+		// This block get luggage to be updated
+		if (checkpointID > 0) {
+
+			// Generate new URI and append checkpointID to it
+			String uri = defaultURI + "/" + checkpointID;
+			
+			// Get an order type from the web service
+			RestTemplate restTemplate = new RestTemplate();
+			checkpoint = restTemplate.getForObject(uri, Luggage.class);
+			
+			//Give a new title to the page
+			pageTitle = "Edit Luggage";
+			
+			
+		}
+		
+		
+		// Attach value to pass to front end
+		
+		model.addAttribute("luggages", luggage);
+		//model.addAttribute("flight", flightList);
+		//model.addAttribute("passenger", passengerList);
+		model.addAttribute("pageTitle", pageTitle);
+		
+		return "luggageinfo";
+			
+	}
+}
