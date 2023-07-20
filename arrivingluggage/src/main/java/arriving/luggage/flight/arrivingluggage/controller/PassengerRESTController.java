@@ -58,7 +58,8 @@ public class PassengerRestController
 	
 	
 	@DeleteMapping("{PassengerId}")
-	public ResponseEntity<HttpStatus> deletePassenger(@PathVariable long PassengerId)
+	public ResponseEntity<HttpStatus> deletePassenger
+	(@PathVariable long PassengerId)
 	{
 		passengerRepository.deleteById(PassengerId);
 		return new ResponseEntity<>(HttpStatus.OK);

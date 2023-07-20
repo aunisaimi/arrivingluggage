@@ -28,6 +28,11 @@ import arriving.luggage.flight.arrivingluggage.model.Luggage;
 import arriving.luggage.flight.arrivingluggage.model.Staff;
 import arriving.luggage.flight.arrivingluggage.model.Truck;
 
+/**
+ * 
+ *@author  Auni Afeeqah
+ * 
+ */
 
 @Controller
 public class TrackingsheetMenuController 
@@ -43,7 +48,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		//Get a list of passengers from web service
 		RestTemplate restTemplate= new RestTemplate();
-		ResponseEntity<TrackingSheet[]> response = restTemplate.getForEntity(uri, TrackingSheet[].class);
+		ResponseEntity<TrackingSheet[]> response = 
+				restTemplate.getForEntity(uri, TrackingSheet[].class);
 		
 		// Parse JSON data to array of object
 		TrackingSheet trackingsheets[] = response.getBody();
@@ -73,7 +79,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		RestTemplate restTemplate = new RestTemplate();
 		
 		//Create request body
-		HttpEntity<TrackingSheet> request = new HttpEntity<TrackingSheet>(trackingsheet);
+		HttpEntity<TrackingSheet> request =
+				new HttpEntity<TrackingSheet>(trackingsheet);
 		
 		String trackingsheetResponse = "";
 		
@@ -83,7 +90,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 			
 			// send request as PUT
 			
-			restTemplate.put("http://localhost:8080/arriving/api/trackingsheets", request, TrackingSheet.class);
+			restTemplate.put("http://localhost:8080/arriving/api/trackingsheets", 
+					request, TrackingSheet.class);
 			
 			
 		}
@@ -93,7 +101,9 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 			// This block will add new passenger and
 			
 			// Send Request as POST	
-			trackingsheetResponse = restTemplate.postForObject("http://localhost:8080/arriving/api/trackingsheets", request, String.class);
+			trackingsheetResponse = restTemplate.postForObject
+					("http://localhost:8080/arriving/api/trackingsheets", 
+							request, String.class);
 			
 		}
 		

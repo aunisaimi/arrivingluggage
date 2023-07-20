@@ -77,7 +77,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trucks";
 			
 			// send request as PUT
 			
-			restTemplate.put("http://localhost:8080/arriving/api/trucks", request, Truck.class);
+			restTemplate.put("http://localhost:8080/arriving/api/trucks", 
+					request, Truck.class);
 			
 			
 		}
@@ -87,7 +88,9 @@ private String defaultURI = "http://localhost:8080/arriving/api/trucks";
 			// This block will add new Truck and
 			
 			// Send Request as POST
-			truckResponse = restTemplate.postForObject("http://localhost:8080/arriving/api/trucks", request, String.class);
+			truckResponse = restTemplate.postForObject
+				("http://localhost:8080/arriving/api/trucks", 
+						request, String.class);
 			
 		}
 		

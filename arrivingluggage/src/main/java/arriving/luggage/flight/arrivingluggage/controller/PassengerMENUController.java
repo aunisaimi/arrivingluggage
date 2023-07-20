@@ -39,7 +39,8 @@ public class PassengerMenuController
 		
 		//Get a list of passengers from web service
 		RestTemplate restTemplate= new RestTemplate();
-		ResponseEntity<Passenger[]> response = restTemplate.getForEntity(uri, Passenger[].class);
+		ResponseEntity<Passenger[]> response = restTemplate.getForEntity(uri, 
+				Passenger[].class);
 		
 		// Parse JSON data to array of object
 		Passenger passengers[] = response.getBody();

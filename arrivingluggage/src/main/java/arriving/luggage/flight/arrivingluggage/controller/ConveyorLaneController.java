@@ -34,7 +34,8 @@ public class ConveyorLaneController
 	@GetMapping("{conveyorLaneID}")
 	public ConveyorLane getConveyerlane(@PathVariable long conveyorLaneID)
 	{
-		ConveyorLane conveyerlane = conveyerlaneRepository.findById(conveyorLaneID).get();
+		ConveyorLane conveyerlane = 
+				conveyerlaneRepository.findById(conveyorLaneID).get();
 		return conveyerlane;
 	}
 	
@@ -51,7 +52,8 @@ public class ConveyorLaneController
 	}
 	
 	@DeleteMapping("{conveyorLaneID}")
-	public ResponseEntity<HttpStatus> deleteConveyerlane(@PathVariable long conveyorLaneID)
+	public ResponseEntity<HttpStatus> deleteConveyerlane
+	(@PathVariable long conveyorLaneID)
 	{
 		conveyerlaneRepository.deleteById(conveyorLaneID);
 		return new ResponseEntity<>(HttpStatus.OK);

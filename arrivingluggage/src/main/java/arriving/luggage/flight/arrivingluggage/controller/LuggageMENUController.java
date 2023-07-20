@@ -37,7 +37,8 @@ public class LuggageMenuController
 		
 		// GEt a list order types from, the web services
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Luggage[]> response = restTemplate.getForEntity(uri, Luggage[].class);
+		ResponseEntity<Luggage[]> response = restTemplate.getForEntity(uri,
+				Luggage[].class);
 		
 		//parse JSON data to array of object
 		Luggage luggages[] = response.getBody();
