@@ -19,9 +19,9 @@
   <div th:replace="fragments/header :: header"></div>
 
   <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
-    <h2 class="text-center">Passenger Information</h2>
-
-    <html>
+    <h2 class="text-center">List of Luggages</h2>
+    
+        <html>
 	<body>
 
 		<div class="center">
@@ -56,63 +56,49 @@
           </div>
         </div>
       </form>
-    </div> -->
-<!--
-	<input type="button" value="Add Passenger" id="btnAdd" class="btn btn-success btn-sm" />
+    </div> 
+    
+    <input type="button" value="Add Luggage" id="btnAdd" class="btn btn-success btn-sm" />
 
 	<script type="text/javascript">
     $(document).ready(function () {
       $("#btnAdd").on("click", function () {
-        window.location = "[[@{/passenger/0}]]";
+        window.location = "[[@{/luggage/0}]]";
       });
     });
   </script> -->
 
-    <div th:if="${passengers.size() > 0}">
+    <div th:if="${luggages.size() > 0}">
       <table class="table table-hover table-responsive-xl">
         <thead class="thead-light">
           <tr>
-             <th scope="col">Passenger ID</th>
-            <th scope="col">Passenger Name</th>
-             <th scope="col">Luggage ID</th>
-             <th scope="col">Phone Number</th>
-             <th scope="col">Email</th>
-             <th scope="col">Gender</th>
-             <th scope="col">Passport/IC Number</th>
-             <th scope="col">Departure Airport</th>
-             <th scope="col">Flight No</th>
-   
-              <th scope="col">Action</th>
-
+         	<th scope="col">Luggage ID</th>
+         	<th scope="col">Passenger Name</th>
+         	<th scope="col">Passport/IC Number</th>
+            <th scope="col">Flight Name</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr th:each="passenger : ${passengers}">
+          <tr th:each="luggage : ${luggages}">
 			
-           	<td>[[${passenger.getPassengerID}]]</td>
-            <td>[[${passenger.getName()}]]</td> 
+            <td>[[${luggage.getLuggageID}]]</td>
+            <td>[[${luggage.getPassenger()?.getName()}]]</td>
+            <td>[[${luggage.getPassenger()?.getPassengerIC()}]]</td>
+            <td>[[${luggage.getPassenger()?.getFlightID().getFlightName()}]]</td>
                      
-            <td>[[${passenger.getPhoneNo()}]]</td>
-            <td>[[${passenger.getEmail()}]]</td>
-            <td>[[${passenger.getGender()}]]</td>
-            <td>[[${passenger.getPassengerIC()}]]</td>
-            <td>[[${passenger.getFlightID()?.getFlightName()}]]</td>            
-            <td>[[${passenger.getFlightID()?.getFlightNo()}]]</td>
-
-
-            
-            
             <td>
-     			  <!-- A link to edit a passenger detail -->
-              <a th:href="@{'/passenger/' + ${passenger.PassengerID}}" 
-              	title="Edit this Passenger detail"
+            
+     			  <!-- A link to edit a luggage detail -->
+              <a th:href="@{'/luggage/' + ${luggage.LuggageID}}" 
+              	title="Edit this Luggage detail"
                 class="fa-regular fa-pen-to-square icon-dark"></a>
               &nbsp;
               
-                  <!-- A link to delete a Passenger detail -->
-              <a th:href="@{'/passenger/delete/' + ${passenger.PassengerID}}" 
-              th:PassengerID="${passenger.PassengerID}" id="btnDelete"
-                title="Delete this Passenger" 
+                  <!-- A link to delete a luggage detail -->
+              <a th:href="@{'/luggage/delete/' + ${luggage.LuggageID}}" 
+              th:LuggageID="${luggage.LuggageID}" id="btnDelete"
+                title="Delete this Luggage" 
                 class="fa-regular fa-trash-can icon-dark btn-delete"></a>
 
             </td> 
@@ -121,7 +107,7 @@
       </table>
     </div>
 
-    <div class="" th:unless="${passengers.size() > 0}">
+    <div class="" th:unless="${luggages.size() > 0}">
       <span>No record found!</span>
     </div>
   </div>
@@ -156,16 +142,15 @@
         e.preventDefault();
         link = $(this);
 
-        PassengerID = link.attr("PassengerID");
         $("#yesBtn").attr("href", link.attr("href"));
-        $("#confirmText").html("Do you want to delete the  \<strong\>" + PassengerID + "\<\/strong\>?");
+        $("#confirmText").html("Do you want to delete the  \<strong\>" + LuggageID + "\<\/strong\>?");
         $("#confirmModal").modal();
       });
 
       $("#btnClear").on("click", function (e) {
         e.preventDefault();
         $("#keyword").text("");
-        window.location = "[[@{/passenger/list}]]";
+        window.location = "[[@{/luggage/list}]]";
       });
     });
   </script>
