@@ -10,8 +10,6 @@
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.repository.PassengerRepository"/>
-    <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.model.Flight"/>
-    <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.model.Truck"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Temporal"/>
     <fullyQualifiedTypeName name="jakarta.persistence.TemporalType"/>
@@ -27,5 +25,9 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.repository.TruckRepository"/>
+    <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.model.ConveyorLane"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.model.Truck"/>
     <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.model.Checkpoint"/>
+    <fullyQualifiedTypeName name="arriving.luggage.flight.arrivingluggage.model.Flight"/>
 </qualifiedTypeNameHistroy>
