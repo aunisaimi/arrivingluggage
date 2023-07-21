@@ -234,7 +234,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		System.out.println(trackingsheetCheckpoint1Response);
 		
-		return "redirect:/trackingsheet/list";
+		return "redirect:/trackingsheet/checkpoint2/0";
+		//return "redirect:/trackingsheet/list";
 	
 	}
 	
@@ -373,9 +374,9 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		System.out.println(trackingsheetCheckpoint2Response);
 		
 		
-		// Rediriect to checkpoint
+		// Rediriect to checkpoint 3
 		
-		return "redirect:/trackingsheet/checkpoint1/0";
+		return "redirect:/trackingsheet/checkpoint3/0";
 	}
 	
 	/**
@@ -510,8 +511,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		System.out.println(trackingsheetCheckpoint3Response);
 		
-		// Redirect to checkpoint 2 input
-		return "redirect:/trackingsheet/checkpoint2/0";
+		// Redirect to checkpoint 4 input
+		return "redirect:/trackingsheet/checkpoint4/0";
 	}
 	
 	
@@ -648,9 +649,9 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		System.out.println(trackingsheetCheckpoint4Response);
 		
 		// Redirect to checkpoint3 input
-		//return "redirect:/trackingsheet/list";
+		return "redirect:/trackingsheet/list";
 		//return "redirect:/trackingsheet/checkpoint3/0";
-		return "redirect:/trackingsheet/checkpoint3/0";
+		//return "redirect:/trackingsheet/checkpoint3/0";
 	}
 	
 	/**

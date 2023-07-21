@@ -47,15 +47,18 @@
  
  
 	 <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="Truck">truck Id</label>
+            <label class="col-sm-3 col-form-label" for="Truck">Truck Registration No</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{truck.truckID}" minlength="1" maxlength="256" class="form-control"
-                id="Truck" />
+        <select name="registrationNo" id="registrationNo" th:field="*{truckID}" required>
+            <option th:each="truck : ${trucks}"
+                    th:value="${truck.truckID}"
+                    th:text="${truck.registrationNo}"></option>
+        </select>
             </div>
           </div> 
 
 	<div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="Luggage">luggage</label>
+            <label class="col-sm-3 col-form-label" for="Luggage">Luggage</label>
             <div class="col-sm-9">
               <input type="text" th:field="*{luggage.luggageID}" minlength="1" maxlength="256" class="form-control"
                 id="Luggage" />

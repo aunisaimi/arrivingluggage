@@ -22,6 +22,18 @@ public class Truck
 	@Column (name = "TruckID")
 	private int truckID;
 	
+	@Column (name = "RegistrationNo")
+	private String registrationNo;
+	
+	@Column (name = "OperatorName")
+	private String operatorName;
+	
+	
+	@Column (name = "Location")
+	private String location;
+	
+	
+	
 	public int getTruckID() {
 		return truckID;
 	}
@@ -46,13 +58,15 @@ public class Truck
 		this.location = location;
 	}
 
-	@Column (name = "OperatorName")
-	private String operatorName;
-	
-	@Column (name = "Location")
-	private String location;
-	
-	
+	public String getRegistrationNo() {
+		return registrationNo;
+	}
+
+	public void setRegistrationNo(String registrationNo) {
+		this.registrationNo = registrationNo;
+	}
+
+
 	
 	
 }
