@@ -54,7 +54,7 @@ public class CheckpointMenuController
 		//Attach list to model as attributes
 		model.addAttribute("trackingsheets", trackingsheetList);
 		
-		return "trackingsheet";
+		return "checkpoint1";
 		
 	}
 
@@ -116,7 +116,7 @@ public class CheckpointMenuController
 	 * @return
 	 */
 	
-/*	
+
 	@GetMapping("/trackingsheet/checkpoint1/{trackingsheetID}")
 	public String getTrackingSheetCheckpoint1 (@PathVariable int trackingsheetID, 
 									Model model)
@@ -131,7 +131,7 @@ public class CheckpointMenuController
 		{
 			
 			// Generate new URI and append PassengerId to it
-			String uri = defaultURI + "/" + trackingsheetID;
+			String uri =  "http://localhost:8080/arriving/api/checkpoint1s "+ "/" + trackingsheetID;
 			
 			// Get a passenger detail from web service
 			RestTemplate restTemplate = new RestTemplate();
@@ -185,7 +185,7 @@ public class CheckpointMenuController
 		model.addAttribute("luggages",luggageList);
 		model.addAttribute("pageTitle", pageTitle);
 		
-		return "checkpoint1info";
+		return "checkpoint1";
 	
 		
 		
