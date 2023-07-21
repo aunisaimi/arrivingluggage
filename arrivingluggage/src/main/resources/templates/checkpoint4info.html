@@ -19,10 +19,10 @@
     <h2 class="text-center">[[${pageTitle}]]</h2>
 
     <div class="my-3">
-      <form th:action="@{/checkpoint4/save}" method="post" enctype="multipart/form-data" th:object="${checkpoint4s}"
+      <form th:action="@{/trackingsheet/checkpoint4/save}" method="post" enctype="multipart/form-data" th:object="${trackingsheet3}"
         style="max-width: 550px; margin: 0 auto">
 
-        <input type="hidden" th:field="*{CheckPoint4Id}" />
+        <input type="hidden" th:field="*{trackingsheetID}" />
 
 	<div class="p-3">
 		 
@@ -48,7 +48,7 @@
 <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="Staff">staffId</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{Staff.StaffId}" minlength="1" maxlength="256" class="form-control"
+              <input type="text" th:field="*{staffID.staffID}" minlength="1" maxlength="256" class="form-control"
                 id="Staff" />
             </div>
           </div>
@@ -56,18 +56,27 @@
            <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="luggage">luggageId</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{Luggage.LuggageId}" minlength="1" maxlength="256" class="form-control"
+              <input type="text" th:field="*{luggage.luggageID}" minlength="1" maxlength="256" class="form-control"
                 id="Luggage" />
             </div>
           </div>
           
+              <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="truck">Truck ID</label>
+            <div class="col-sm-9">
+              <input type="text" th:field="*{truck.truckID}" minlength="1" maxlength="256" class="form-control"
+                id="Truck" />
+            </div>
+          </div>
+          
+          <!--
             <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="LuggageStatus">SStatus</label>
             <div class="col-sm-9">
               <input type="text" th:field="*{LuggageStatus}" minlength="1" maxlength="256" class="form-control"
                 id="LuggageStatus" />
             </div>
-          </div>
+          </div> 
           
           <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="Checkpoint4Date">checkpoint4Date</label>
@@ -85,6 +94,7 @@
                 id="Checkpoint4Time" />
             </div>
           </div>
+          -->
 
 
 
