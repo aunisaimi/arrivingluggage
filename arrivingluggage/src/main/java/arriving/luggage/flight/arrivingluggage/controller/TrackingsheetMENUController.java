@@ -126,12 +126,12 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 */
 	
 	@GetMapping("/trackingsheet/checkpoint1/{trackingsheetID}")
-	public String getTrackingSheetCheckpoint1 (@PathVariable int trackingsheetID, 
+	public String getCheckpoint1 (@PathVariable int trackingsheetID, 
 									Model model)
 	{
 		
 		String pageTitle = "Checkpoint 1";
-		TrackingSheet trackingsheet = new TrackingSheet();
+		TrackingSheet trackingsheet1 = new TrackingSheet();
 		
 		
 		//This will get a TrackingSheet to be updated
@@ -141,9 +141,9 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 			// Generate new URI and append PassengerId to it
 			String uri = defaultURI + "/" + trackingsheetID;
 			
-			// Get a passenger detail from web service
-			RestTemplate restTemplate = new RestTemplate();
-			trackingsheet = restTemplate.getForObject(uri, TrackingSheet.class);
+			// Get a checkpoint1 detail from web service
+			RestTemplate restTracking = new RestTemplate();
+			trackingsheet1 = restTracking.getForObject(uri, TrackingSheet.class);
 			
 			//Give new title to the page:
 			pageTitle = "Edit Checkpoint";
@@ -154,7 +154,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		//Get the checkpoint info from web service
 		RestTemplate checkpointREST = new RestTemplate();
 		ResponseEntity<Checkpoint[]> responseCheckpoint =
-				checkpointREST.getForEntity("htttp://localhost:8080/arriving"
+				checkpointREST.getForEntity("http://localhost:8080/arriving"
 						+ "/api/checkpoints", Checkpoint[].class);
 		
 		//Parse JSON data to an array object
@@ -166,7 +166,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		// Get the luggage unit info from web service
 		RestTemplate restTemplateTruck = new RestTemplate();
 		ResponseEntity<Truck[]> responseTruck = 
-				restTemplateTruck.getForEntity("htttp://localhost:8080"
+				restTemplateTruck.getForEntity("http://localhost:8080"
 						+ "/arriving/api/trucks", Truck[].class);
 		
 		
@@ -177,7 +177,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		RestTemplate restTemplateluggage = new RestTemplate();
 		ResponseEntity<Luggage[]> responseLuggage = 
-				restTemplateluggage.getForEntity("htttp://localhost:8080"
+				restTemplateluggage.getForEntity("http://localhost:8080"
 						+ "/arriving/api/luggages", Luggage[].class);
 		
 		
@@ -187,7 +187,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		List<Luggage> luggageList = Arrays.asList(luggageArray);
 		
 		// Attach values to the model
-		model.addAttribute("trackingsheets",trackingsheet);
+		model.addAttribute("trackingsheet1",trackingsheet1);
 		model.addAttribute("checkpoints",checkpointList);
 		model.addAttribute("trucks",truckList);
 		model.addAttribute("luggages",luggageList);
@@ -234,7 +234,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		System.out.println(trackingsheetCheckpoint1Response);
 		
-		return "redirect:/trackingsheet/checkpoint2/0";
+		return "redirect:/trackingsheet/list";
 	
 	}
 	
@@ -251,7 +251,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 */
 	
 	@GetMapping("/trackingsheet/checkpoint2/{trackingsheetID}")
-	public String getTrackingSheetCheckpoint2(@PathVariable int trackingsheetID,
+	public String getCheckpoint2(@PathVariable int trackingsheetID,
 			Model model)
 	{
 		String title = "Checkpoint 2";
@@ -313,7 +313,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		RestTemplate restTemplateluggage = new RestTemplate();
 		ResponseEntity<Luggage[]> responseLuggage = 
-				restTemplateluggage.getForEntity("htttp://localhost:8080"
+				restTemplateluggage.getForEntity("http://localhost:8080"
 						+ "/arriving/api/luggages", Luggage[].class);
 		
 		
@@ -323,7 +323,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		List<Luggage> luggageList = Arrays.asList(luggageArray);
 		
 		// Attach values to the model
-		model.addAttribute("trackingsheets",trackingsheet2);
+		model.addAttribute("trackingsheet2",trackingsheet2);
 		model.addAttribute("checkpoints",checkpointList);
 		model.addAttribute("conveyorlanes",conveyorlaneList);
 		model.addAttribute("luggages",luggageList);
@@ -339,13 +339,13 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 * This method handles a POST request to save checkpoint 2 info of a sheet
 	 * Sends a HTTP POST request to web service to save checkpoint 2
 	 * 
-	 * redirect to checkpoint3 input page
+	 * redirect to checkpoint1 input page
 	 */
 	
 	@RequestMapping("/trackingsheet/checkpoint2/save")
 	public String insertCheckpoint2(@ModelAttribute TrackingSheet trackingsheet)
 	{
-		String uri = defaultURI + "/checkpoint1/save";
+		String uri = defaultURI + "/checkpoint2/save";
 		
 		//create a new RestTemplate
 		RestTemplate restTemplatecp2 = new RestTemplate();
@@ -375,7 +375,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		// Rediriect to checkpoint
 		
-		return "redirect:/trackingsheet/checkpoint3/0";
+		return "redirect:/trackingsheet/checkpoint1/0";
 	}
 	
 	/**
@@ -387,7 +387,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 */
 	
 	@GetMapping("/trackingsheet/checkpoint3/{trackingsheetID}")
-	public String getTrackingSheetCheckpoint3 (@PathVariable int trackingsheetID,
+	public String getCheckpoint3 (@PathVariable int trackingsheetID,
 			Model model)
 	{
 		String title = "Checkpoint 3";
@@ -444,34 +444,6 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		// Parse an array to a list object
 		List<Luggage> luggageList = Arrays.asList(luggageArray);
 	
-	/*
-		
-		/**
-		 * The uri to get Luggage Status
-		 * List all of luggage status for drop down list menu
-		 * 
-		 */
-		/*
-		RestTemplate checkpoint3REST = new RestTemplate();
-		ResponseEntity<Checkpoint[]> responseCheckpoint3 =
-		        checkpoint3REST.getForEntity("http://localhost:8080/projectapp/api/checkpoints", Checkpoint[].class);
-
-		// Parse JSON data to an array of objects
-		Checkpoint checkpointArray[] = responseCheckpoint3.getBody();
-
-		// Parse an array to a list of objects
-		List<Luggage> checkpointList = Arrays.asList(checkpointArray);
-
-		List<LuggageStatus> luggageStatusList = new ArrayList<>();
-
-		for (Checkpoint checkpoint : checkpointList) {
-		    LuggageWithStatus luggageWithStatus = new LuggageWithStatus();
-		    luggageWithStatus.setLuggage(checkpoint.getLuggage());
-		    luggageWithStatus.setStatus("Some Status"); // Set the desired status value
-		    luggageListWithStatus.add(luggageWithStatus);
-		}
-	*/
-
 		/**
 		 * The uri to get staff
 		 * List all of staff for drop down list menu
@@ -481,7 +453,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		RestTemplate restTemplateStaff = new RestTemplate();
 		ResponseEntity<Staff[]> responseStaff = 
 				restTemplateStaff.getForEntity("http://localhost:"
-						+ "8080/projectapp/api/staffs", Staff[].class);
+						+ "8080/arriving/api/staffs", Staff[].class);
 		
 		Staff shuttlestaffArray[] = responseStaff.getBody();	
 		
@@ -496,7 +468,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		model.addAttribute("staffs", staffList);
 		model.addAttribute("pagetitle",title);
 		
-		
+		System.out.println("tessttt");
 		return "checkpoint3info";
 	}
 	
@@ -506,7 +478,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 * Sends an HTTP POST request to the web service to save the checkpoint 3 
 	 * information.
 	 * 
-	 * Redirects to the "checkpoint4" input page.
+	 * Redirects to the "checkpoint2" input page.
 	 */
 	
 	@RequestMapping("/trackingsheet/checkpoint3/save")
@@ -538,8 +510,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		System.out.println(trackingsheetCheckpoint3Response);
 		
-		// Redirect to checkpoint 4 input
-		return "redirect:/trackingsheet/checkpoint4/0";
+		// Redirect to checkpoint 2 input
+		return "redirect:/trackingsheet/checkpoint2/0";
 	}
 	
 	
@@ -607,33 +579,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		// Parse an array to a list object
 		List<Luggage> luggageList = Arrays.asList(luggageArray);
 	
-	/*
-		
-		/**
-		 * The uri to get Luggage Status
-		 * List all of luggage status for drop down list menu
-		 * 
-		 */
-		/*
-		RestTemplate checkpoint3REST = new RestTemplate();
-		ResponseEntity<Checkpoint[]> responseCheckpoint3 =
-		        checkpoint3REST.getForEntity("http://localhost:8080/projectapp/api/checkpoints", Checkpoint[].class);
 
-		// Parse JSON data to an array of objects
-		Checkpoint checkpointArray[] = responseCheckpoint3.getBody();
-
-		// Parse an array to a list of objects
-		List<Luggage> checkpointList = Arrays.asList(checkpointArray);
-
-		List<LuggageStatus> luggageStatusList = new ArrayList<>();
-
-		for (Checkpoint checkpoint : checkpointList) {
-		    LuggageWithStatus luggageWithStatus = new LuggageWithStatus();
-		    luggageWithStatus.setLuggage(checkpoint.getLuggage());
-		    luggageWithStatus.setStatus("Some Status"); // Set the desired status value
-		    luggageListWithStatus.add(luggageWithStatus);
-		}
-	*/
+	
 
 		/**
 		 * The uri to get staff
@@ -652,7 +599,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		List<Staff> staffList = Arrays.asList(shuttlestaffArray);
 		
 		//Attach value to pass the front end
-		model.addAttribute("trackingsheet3", trackingsheet4);
+		model.addAttribute("trackingsheet4", trackingsheet4);
 		model.addAttribute("checkpoints", checkpointList);
 		//model.addAttribute("luggagestatus", luggagestatusList);
 		model.addAttribute("luggages", luggageList);
@@ -701,8 +648,9 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		System.out.println(trackingsheetCheckpoint4Response);
 		
 		// Redirect to checkpoint3 input
-		return "redirect:/trackingsheet/list";
+		//return "redirect:/trackingsheet/list";
 		//return "redirect:/trackingsheet/checkpoint3/0";
+		return "redirect:/trackingsheet/checkpoint3/0";
 	}
 	
 	/**

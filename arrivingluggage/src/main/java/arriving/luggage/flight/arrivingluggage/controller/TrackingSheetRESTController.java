@@ -77,9 +77,9 @@ public class TrackingSheetRestController
 		    trackingsheet.setConveyorlane(conveyorlane);
 		     
 		    //Set the Truck with ID 9999
-		    //Truck truck = new Truck();
-		    //truck.setTruckID(9999);
-		    //trackingsheet.setTruck(truck);
+		    Truck truck = new Truck();
+		    truck.setTruckID(9999);
+		    trackingsheet.setTruck(truck);
 		   
 		    // Set the Checkpoint with ID 9999
 		    Checkpoint checkpoint = new Checkpoint();
@@ -94,16 +94,134 @@ public class TrackingSheetRestController
 		    trackingsheet.setFlightID(flight);
 		    
 		    // Set the Luggage with ID 9999
-		    Luggage luggage = new Luggage();
-		    luggage.setLuggageID(9999);
-		    trackingsheet.setLuggage(luggage);
+		    //Luggage luggage = new Luggage();
+		    //luggage.setLuggageID(9999);
+		    //trackingsheet.setLuggage(luggage);
 		    
 		    
 			return trackingsheetRepository.save(trackingsheet);
 		}
 		
+		// Insert a sheet at checkpoint 3
+			@PostMapping("checkpoint3/save")
+			public TrackingSheet insertTrackingSheet3(@RequestBody TrackingSheet
+					trackingsheet) {
+					
+			LocalDateTime DateTime = LocalDateTime.now();
+					trackingsheet.setDateTime(DateTime);
+				    
+				    // Set the ConveyorLane with ID 9999
+				    ConveyorLane conveyorlane = new ConveyorLane();
+				    conveyorlane.setConveyorLaneID(9999);
+				    trackingsheet.setConveyorlane(conveyorlane);
+				     
+				    //Set the Truck with ID 9999
+				    Truck truck = new Truck();
+				    truck.setTruckID(9999);
+				    trackingsheet.setTruck(truck);
+				   
+				    // Set the Checkpoint with ID 9999
+				    Checkpoint checkpoint = new Checkpoint();
+				    checkpoint.setCheckpointID(3);
+				    trackingsheet.setCheckpoint(checkpoint);
+				    
+				    //test 
+				    
+				    // Set the Flight with ID 9999
+				    Flight flight = new Flight();
+				    flight.setFlightID(9999);
+				    trackingsheet.setFlightID(flight);
+				    
+				    // Set the Luggage with ID 9999
+				   // Luggage luggage = new Luggage();
+				    //luggage.setLuggageID(9999);
+				    //trackingsheet.setLuggage(luggage);
+				    
+				    
+					return trackingsheetRepository.save(trackingsheet);
+				}
+			
+			// Insert a sheet at checkpoint 2
+			@PostMapping("checkpoint2/save")
+			public TrackingSheet insertTrackingSheet2(@RequestBody TrackingSheet
+					trackingsheet) {
+					
+			LocalDateTime DateTime = LocalDateTime.now();
+					trackingsheet.setDateTime(DateTime);
+				    
+				    // Set the ConveyorLane with ID 9999
+				    ConveyorLane conveyorlane = new ConveyorLane();
+				    conveyorlane.setConveyorLaneID(9999);
+				    trackingsheet.setConveyorlane(conveyorlane);
+				     
+				    //Set the Truck with ID 9999
+				    Truck truck = new Truck();
+				    truck.setTruckID(9999);
+				    trackingsheet.setTruck(truck);
+				   
+				    // Set the Checkpoint with ID 9999
+				    Checkpoint checkpoint = new Checkpoint();
+				    checkpoint.setCheckpointID(3);
+				    trackingsheet.setCheckpoint(checkpoint);
+				    
+				    //test 
+				    
+				    // Set the Flight with ID 9999
+				    Flight flight = new Flight();
+				    flight.setFlightID(9999);
+				    trackingsheet.setFlightID(flight);
+				    
+				    // Set the Luggage with ID 9999
+				   // Luggage luggage = new Luggage();
+				    //luggage.setLuggageID(9999);
+				    //trackingsheet.setLuggage(luggage);
+				    
+				    
+					return trackingsheetRepository.save(trackingsheet);
+				}
 	
-	@DeleteMapping("{TrackingSheetId}")
+			// Insert a sheet at checkpoint 1
+			@PostMapping("checkpoint1/save")
+			public TrackingSheet insertTrackingSheet1(@RequestBody TrackingSheet
+					trackingsheet) {
+								
+			LocalDateTime DateTime = LocalDateTime.now();
+			trackingsheet.setDateTime(DateTime);
+							    
+			 // Set the ConveyorLane with ID 9999
+			ConveyorLane conveyorlane = new ConveyorLane();
+			 conveyorlane.setConveyorLaneID(9999);
+		  trackingsheet.setConveyorlane(conveyorlane);
+		  
+		  //Set the Truck with ID 9999
+		    //Truck truck = new Truck();
+		    //truck.setTruckID(9999);
+		    //trackingsheet.setTruck(truck);
+							   
+		    // Set the Checkpoint with ID 9999
+		    Checkpoint checkpoint = new Checkpoint();
+		    checkpoint.setCheckpointID(3);
+		    trackingsheet.setCheckpoint(checkpoint);
+							    
+							    //test 
+							  
+		    // Set the Flight with ID 9999
+		    Flight flight = new Flight();
+		    flight.setFlightID(9999);
+		    trackingsheet.setFlightID(flight);
+						
+		    
+		    // Set the Luggage with ID 9999
+		   // Luggage luggage = new Luggage();
+		    //luggage.setLuggageID(9999);
+		    //trackingsheet.setLuggage(luggage);
+							    
+							    
+	return trackingsheetRepository.save(trackingsheet);
+			
+			}	
+	
+			@DeleteMapping("{TrackingSheetId}")
 	public ResponseEntity<HttpStatus> deleteTrackingSheet(
 			@PathVariable long TrackingSheetId)
 	{

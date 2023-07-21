@@ -19,10 +19,10 @@
     <h2 class="text-center">[[${pageTitle}]]</h2>
 
     <div class="my-3">
-      <form th:action="@{/checkpoint3/save}" method="post" enctype="multipart/form-data" th:object="${checkpoint3s}"
+      <form th:action="@{/trackingsheet/checkpoint3/save}" method="post" enctype="multipart/form-data" th:object="${trackingsheet3}"
         style="max-width: 550px; margin: 0 auto">
 
-        <input type="hidden" th:field="*{CheckPoint3Id}" />
+        <input type="hidden" th:field="*{trackingsheetID}" />
 
         <div class="p-3">
           
@@ -44,49 +44,67 @@
                         });
                     </script>
                     
-                    
-          
-<div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="Staff">staffId</label>
+       <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="Staff">Staff</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{Staff.StaffId}" minlength="1" maxlength="256" class="form-control"
-                id="Staff" />
+            <!-- <input type="text" th:field="*{staffID.staffID}" minlength="1" maxlength="256" class="form-control"
+                id="Staff" /> -->
+            <select name="staff" id="staff" th:field="*{staffID.staffID}" required>
+      		<option th:each="staff : ${staffs}"
+              		th:value="${staff.staffID}"
+              		th:text="${staff.getStaffname()}"
+			     />
+			     </select>
+                
             </div>
           </div>
           
 	 <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="LunggageId">luggageId</label>
+            <label class="col-sm-3 col-form-label" for="luggage">Luggage Id</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{luggageId.LuggageId}" minlength="1" maxlength="256" class="form-control"
-                id="LuggageId" />
-            </div>
+             <input type="text" th:field="*{luggage.luggageID}" minlength="1" maxlength="256" class="form-control"
+                id="Luggage" 
+                />
+                
+                
+              <!-- <select name="luggage" id="luggage" th:field="*{luggage.luggageID}" required>
+      			<option th:each="luggage : ${luggages}"
+              		th:value="${luggage.luggageID}"
+              		th:text="${luggage.getLuggageID()}"
+			     />
+			   </select> -->  
+			   
+             </div>
           </div>
 
-	 <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="LuggageStatus">luggageStatus</label>
+      <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="status">Status</label>
             <div class="col-sm-9">
-              <input type="text" th:field="*{LuggageStatus}" minlength="1" maxlength="256" class="form-control"
-                id="LuggageStatus" />
-            </div> 
-          </div>  
-
-
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="Checkpoint3Date">checkpoint3Date</label>
-            <div class="col-sm-9">
-              <input type="text" th:field="*{Checkpoint3Date}" minlength="1" maxlength="256" class="form-control"
-                id="Checkpoint3Date" />
+            <select name="status" id="status" th:field="*{luggage.status}" required>
+            	<option value="Claimed">Claimed</option>
+            	<option value="Unclaimed">Unclaimed</option>
+            </select>
             </div>
-          </div>
-          
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="Checkpoin3Time">checkpoint3Time</label>
-            <div class="col-sm-9">
-              <input type="text" th:field="*{Checkpoint3Time}" minlength="1" maxlength="256" class="form-control"
-                id="Checkpoint3Time" />
-            </div>
-          </div>
-          
+          </div>
+
+			
+
+					<div class="form-group row">
+						<label class="col-sm-3 col-form-label" for="DateTime">DateTime</label>
+						<div class="col-sm-9">
+							<input type="text" id="DateTime" class="form-control" disabled />
+
+						</div>
+					</div>
+
+					<script type="text/javascript">
+			  // Get the current date and time
+			  var currentDateTime = new Date().toLocaleString(); // Corrected line
+			  
+			  // Set the value in the HTML input field
+			  document.getElementById("DateTime").value = currentDateTime;
+		</script>
+		
 
           <div class="text-center">
             <input type="submit" value="Save" class="btn btn-primary btn-sm mr-2" />

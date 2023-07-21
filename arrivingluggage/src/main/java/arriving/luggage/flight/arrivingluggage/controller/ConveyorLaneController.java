@@ -20,7 +20,7 @@ import arriving.luggage.flight.arrivingluggage.model.ConveyorLane;
 
 
 @RestController
-@RequestMapping("/api/conveyerlanes")
+@RequestMapping("/api/conveyorlanes")
 public class ConveyorLaneController
 {
 	@Autowired
