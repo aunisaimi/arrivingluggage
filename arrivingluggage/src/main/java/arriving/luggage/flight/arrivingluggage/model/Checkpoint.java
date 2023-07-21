@@ -5,10 +5,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import arriving.luggage.flight.arrivingluggage.model.Truck;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -45,8 +52,7 @@ public class Checkpoint
 		CheckpointName = checkpointName;
 	}
 
-	
-	  
+
 	
 	
 }

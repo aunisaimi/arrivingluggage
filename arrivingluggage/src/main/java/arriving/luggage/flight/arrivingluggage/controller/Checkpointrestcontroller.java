@@ -14,7 +14,7 @@ import arriving.luggage.flight.arrivingluggage.repository.CheckpointRepository;
 
 
 @RestController
-@RequestMapping("/api/checkpoints")
+@RequestMapping("/api/checkpoint1s")
 public class Checkpointrestcontroller 
 {
 	@Autowired

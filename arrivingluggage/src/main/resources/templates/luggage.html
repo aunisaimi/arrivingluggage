@@ -76,14 +76,17 @@
          	<th scope="col">Passenger Name</th>
          	<th scope="col">Passport/IC Number</th>
             <th scope="col">Flight Name</th>
-      
-
-           	   <tr th:each="luggage : ${luggages}">
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="luggage : ${luggages}">
+			
             <td>[[${luggage.getLuggageID}]]</td>
             <td>[[${luggage.getPassenger()?.getName()}]]</td>
             <td>[[${luggage.getPassenger()?.getPassengerIC()}]]</td>
             <td>[[${luggage.getPassenger()?.getFlightID().getFlightName()}]]</td>
-            
+                     
             <td>
             
      			  <!-- A link to edit a luggage detail -->
@@ -139,7 +142,6 @@
         e.preventDefault();
         link = $(this);
 
-        LuggageID = link.attr("LuggageID");
         $("#yesBtn").attr("href", link.attr("href"));
         $("#confirmText").html("Do you want to delete the  \<strong\>" + LuggageID + "\<\/strong\>?");
         $("#confirmModal").modal();
