@@ -61,7 +61,7 @@
           </div>
           
            <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="luggage">Luggage Id</label>
+            <label class="col-sm-3 col-form-label" for="luggage">Luggage ID</label>
             <div class="col-sm-9">
              <input type="text" th:field="*{luggage.luggageID}" minlength="1" maxlength="256" class="form-control"
                 id="Luggage" 
@@ -81,6 +81,7 @@
             <select name="status" id="status" th:field="*{luggage.status}" required>
             	<option value="Claimed">Claimed</option>
             	<option value="Unclaimed">Unclaimed</option>
+            	<option value="Missing">Missing</option>
             </select>
             </div>
           </div>
