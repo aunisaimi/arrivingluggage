@@ -53,7 +53,7 @@ public class TrackingSheet
 	private Truck truck;
 	
 	@ManyToOne
-	@JoinColumn (name = "ConveyorlaneID")
+	@JoinColumn (name = "ConveyorLaneID")
 	private ConveyorLane conveyorlane;
 		
 	@ManyToOne

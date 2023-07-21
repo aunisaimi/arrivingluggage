@@ -700,8 +700,9 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		System.out.println(trackingsheetCheckpoint4Response);
 		
-		// Redirect to passenger input
+		// Redirect to checkpoint3 input
 		return "redirect:/trackingsheet/list";
+		//return "redirect:/trackingsheet/checkpoint3/0";
 	}
 	
 	/**
