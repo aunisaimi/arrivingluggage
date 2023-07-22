@@ -3,6 +3,11 @@ package arriving.luggage.flight.arrivingluggage.controller;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -31,7 +36,8 @@ import arriving.luggage.flight.arrivingluggage.model.Truck;
 /**
  * 
  *@author  Auni Afeeqah
- * 
+ *@author  Anis Sabrina
+ *
  */
 
 @Controller
@@ -234,7 +240,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		System.out.println(trackingsheetCheckpoint1Response);
 		
-		return "redirect:/trackingsheet/list";
+		return "redirect:/trackingsheet/checkpoint2/0";
 	
 	}
 	
@@ -328,7 +334,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		model.addAttribute("conveyorlanes",conveyorlaneList);
 		model.addAttribute("luggages",luggageList);
 		model.addAttribute("pageTitle", title);
-		
+		         
 		return "checkpoint2info";
 		
 	}
@@ -339,7 +345,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 * This method handles a POST request to save checkpoint 2 info of a sheet
 	 * Sends a HTTP POST request to web service to save checkpoint 2
 	 * 
-	 * redirect to checkpoint1 input page
+	 * redirect to checkpoint3 input page
 	 */
 	
 	@RequestMapping("/trackingsheet/checkpoint2/save")
@@ -375,7 +381,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		// Rediriect to checkpoint
 		
-		return "redirect:/trackingsheet/checkpoint1/0";
+		return "redirect:/trackingsheet/checkpoint3/0";
 	}
 	
 	/**
@@ -468,7 +474,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		model.addAttribute("staffs", staffList);
 		model.addAttribute("pagetitle",title);
 		
-		System.out.println("tessttt");
+		
 		return "checkpoint3info";
 	}
 	
@@ -478,7 +484,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 * Sends an HTTP POST request to the web service to save the checkpoint 3 
 	 * information.
 	 * 
-	 * Redirects to the "checkpoint2" input page.
+	 * Redirects to the "checkpoint4" input page.
 	 */
 	
 	@RequestMapping("/trackingsheet/checkpoint3/save")
@@ -511,7 +517,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		System.out.println(trackingsheetCheckpoint3Response);
 		
 		// Redirect to checkpoint 2 input
-		return "redirect:/trackingsheet/checkpoint2/0";
+		return "redirect:/trackingsheet/checkpoint4/0";
 	}
 	
 	
@@ -522,10 +528,86 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 * from the web service. Adds the retrieved data to the model and passes 
 	 * it to the "checkpoint4info" HTML view.
 	 */
+		
+    @GetMapping("/trackingsheet/checkpoint4/list")
+    public String getUnclaimedTrackingSheets(Model model)
+	{
+		// The URI for GET trackingsheet
+		String uri = "http://localhost:8080/arriving/api/trackingsheets";
+		
+		//Get a list of passengers from web service
+		RestTemplate restTemplate= new RestTemplate();
+		ResponseEntity<TrackingSheet[]> response = 
+				restTemplate.getForEntity(uri, TrackingSheet[].class);
+		
+		// Parse JSON data to array of object
+		TrackingSheet trackingsheets[] = response.getBody();
+		
+		// Parse an array to a list object
+		List<TrackingSheet> trackingsheetList = Arrays.asList(trackingsheets);
+		
+		//Attach list to model as attributes
+		model.addAttribute("trackingsheets", trackingsheetList);
+		
+		return "checkpoint4";
+	}
+    
+	/**
+	 * @author Anis Sabrina
+	 * Handles a POST request to save checkpoint 4 information of a sheet.
+	 * Sends an HTTP POST request to the web service to save the checkpoint 4 
+	 * information.
+	 * 
+	 * This method will update the details of passenger claiming the luggage 
+	 * or report their misssing luggage
+	 * 
+	 * Redirects to the "trackingsheet" input page.
+	 */
+    
+	@RequestMapping("/trackingsheet/checkpoint4/save")
+	public String editCheckpoint4(@ModelAttribute TrackingSheet trackingsheet)
+	{
+		String uri = defaultURI + "/checkpoint4/save";
+		
+		// Create a new RestTemplate
+		RestTemplate restTemplatecp4 = new RestTemplate();
+		
+		// Create request body
+		HttpEntity<TrackingSheet> request = 
+				new HttpEntity<TrackingSheet>(trackingsheet);
+		
+		String trackingsheetCheckpoint4Response = "";
+		
+		if (trackingsheet.getTrackingsheetID() > 0)
+		{
+			// This block update an new tracking sheet and send request as PUT
+			restTemplatecp4.put(defaultURI, request, TrackingSheet.class);
+		}
+		else 
+		{
+			// This block ass a new passenger and send request as POST
+			trackingsheetCheckpoint4Response = 
+					restTemplatecp4.postForObject(uri,
+					request, String.class);
+			
+		}
+		
+		System.out.println(trackingsheetCheckpoint4Response);
+		
+		return "redirect:/trackingsheet/checkpoint4/list";
+	}
+	
+	/**
+	 * This method gets a checkpoint4 info
+	 * 
+	 * @paramCheckPointId
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/trackingsheet/checkpoint4/{trackingsheetID}")
 	public String getCheckpoint4 (@PathVariable int trackingsheetID, Model model)
 	{
-	//	System.out.println("testttt");
+	
 		String title = "Checkpoint 4";
 		TrackingSheet trackingsheet4 = new TrackingSheet();
 
@@ -611,46 +693,23 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	}
 	
 	/**
-	 * Handles a POST request to save checkpoint 4 information of a sheet.
-	 * Sends an HTTP POST request to the web service to save the checkpoint 4 
-	 * information.
+	 * This method deletes a checkpoint4
 	 * 
-	 * Redirects to the "trackingsheet" input page.
+	 * @param CheckPointNo
+	 * @return
 	 */
-	@RequestMapping("/trackingsheet/checkpoint4/save")
-	public String insertCheckpoint4(@ModelAttribute TrackingSheet trackingsheet)
+	
+	@RequestMapping("/checkpoint4/delete/{trackingsheetID}")
+	public String deleteCheckpoint4 (@PathVariable Integer CheckPoint4Id)
 	{
-		String uri = defaultURI + "/checkpoint4/save";
+		//Generate new URI
+		String uri = defaultURI + "/{trackingsheetID}";
 		
-		// Create a new RestTemplate
-		RestTemplate restTemplatecp4 = new RestTemplate();
-		
-		// Create request body
-		HttpEntity<TrackingSheet> request = 
-				new HttpEntity<TrackingSheet>(trackingsheet);
-		
-		String trackingsheetCheckpoint4Response = "";
-		
-		if (trackingsheet.getTrackingsheetID() > 0)
-		{
-			// This block update an new tracking sheet and send request as PUT
-			restTemplatecp4.put(defaultURI, request, TrackingSheet.class);
-		}
-		else 
-		{
-			// This block ass a new passenger and send request as POST
-			trackingsheetCheckpoint4Response = 
-					restTemplatecp4.postForObject(uri,
-					request, String.class);
-			
-		}
-		
-		System.out.println(trackingsheetCheckpoint4Response);
-		
-		// Redirect to checkpoint3 input
-		//return "redirect:/trackingsheet/list";
-		//return "redirect:/trackingsheet/checkpoint3/0";
-		return "redirect:/trackingsheet/checkpoint3/0";
+		//Send a DELETE request and attach the value of Checkpoint4Id into URI
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.delete(uri, Map.of("trackingsheetID", 
+				Integer.toString(trackingsheetID)));		
+		return "redirect:/trackingsheet/chekcpoint4/list";
 	}
 	
 	/**
@@ -677,4 +736,65 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		return "redirect:/trackingsheet/list";
 		
 	}
+	
+	//testttt
+	/*
+    @GetMapping("/trackingsheet/unclaimed")
+    public String getUnclaimedTrackingSheets(Model model) {
+        TrackingSheet trackingsh = new TrackingSheet();
+        List<TrackingSheet> unclaimedList = trackingsh.getUnclaimedTrackingSheets();
+
+        model.addAttribute("unclaimedList", unclaimedList);
+        return "unclaimed_tracking_sheets"; // Replace with your desired view name
+    }*/
+	
+
+/*		
+    private class TrackingSheetDAO {
+
+        private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/lsmr4_db";
+        private static final String DB_USER = "root";
+        private static final String DB_PASSWORD = "@Anissabrina136";
+
+        public List<TrackingSheet> getUnclaimedTrackingSheets() {
+            List<TrackingSheet> unclaimedList = new ArrayList<>();
+
+            try {
+                // Step 1: Connect to the database
+                Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+     
+                // Step 2: Create a statement
+                Statement statement = connection.createStatement();
+
+                // Step 3: Execute the SQL query
+                String sqlQuery = "SELECT * FROM tracking_sheet WHERE status = 'Unclaim'";
+                ResultSet resultSet = statement.executeQuery(sqlQuery);
+
+                // Step 4: Process the results
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("trackingsheetID"); // Replace "id" with the actual column name
+                    String status = resultSet.getString("status"); // Replace "status" with the actual column name
+
+                    // Create a TrackingSheet object and add it to the list
+                    TrackingSheet trackingSheet = new TrackingSheet(trackingsheetID, status);
+                    unclaimedList.add(trackingSheet);
+                }
+
+                // Step 5: Close the resources
+                resultSet.close();
+                statement.close();
+                connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+                // Handle exceptions
+            }
+
+            return unclaimedList;
+        }
+    }*/
+
+
+
+        // Add getters and setters (omitted for brevity)
+    
 }

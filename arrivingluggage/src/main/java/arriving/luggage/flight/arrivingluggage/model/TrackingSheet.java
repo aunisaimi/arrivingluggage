@@ -19,6 +19,12 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -60,7 +66,19 @@ public class TrackingSheet
 	@JoinColumn (name = "FlightID")
 	private Flight flightID;
 	
+
+	@Column (name = "Status")
+	private String status;
 	
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public Flight getFlightID() {
 		return flightID;
 	}
@@ -131,5 +149,7 @@ public class TrackingSheet
 	}
 
 
+
+    
 	
 }
