@@ -38,6 +38,9 @@ public class Flight {
 	@Column (name = "DepartingDate")
 	private Date departingDate;
 	
+	@Column (name = "ArrivingDate")
+	private Time arrivingDate;
+	
 	@Column (name = "FlightNo")
 	private String flightNo;
 	
@@ -109,6 +112,21 @@ public class Flight {
 		this.airport = airport;
 	}
 
+	public Time getDepartingTime() {
+		return departingTime;
+	}
+
+	public void setDepartingTime(Time departingTime) {
+		this.departingTime = departingTime;
+	}
+
+	public Time getArrivingDate() {
+		return arrivingDate;
+	}
+
+	public void setArrivingDate(Time arrivingDate) {
+		this.arrivingDate = arrivingDate;
+	}
 
 	
 }

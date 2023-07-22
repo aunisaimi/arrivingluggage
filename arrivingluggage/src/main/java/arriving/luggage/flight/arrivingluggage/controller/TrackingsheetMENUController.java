@@ -522,15 +522,18 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	
 	
 	/**
-	 * Handles a GET request to retrieve information about checkpoint 
-	 * 4 of a specific sheet. 
-	 * Retrieves checkpoint and luggage unit information
-	 * from the web service. Adds the retrieved data to the model and passes 
-	 * it to the "checkpoint4info" HTML view.
-	 */
-		
+	 * @author Anis Sabrina
+	 * Handles a POST request to save checkpoint 4 information of a sheet.
+	 * Sends an HTTP POST request to the web service to save the checkpoint 4 
+	 * information.
+	 * 
+	 * This method will update the details of passenger claiming the luggage 
+	 * or report their misssing luggage
+	 * 
+	 * Redirects to the "trackingsheet" input page.
+	 */	
     @GetMapping("/trackingsheet/checkpoint4/list")
-    public String getUnclaimedTrackingSheets(Model model)
+    public String getCp4detail(Model model)
 	{
 		// The URI for GET trackingsheet
 		String uri = "http://localhost:8080/arriving/api/trackingsheets";
@@ -551,19 +554,13 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		return "checkpoint4";
 	}
-    
 	/**
-	 * @author Anis Sabrina
 	 * Handles a POST request to save checkpoint 4 information of a sheet.
 	 * Sends an HTTP POST request to the web service to save the checkpoint 4 
 	 * information.
 	 * 
-	 * This method will update the details of passenger claiming the luggage 
-	 * or report their misssing luggage
-	 * 
 	 * Redirects to the "trackingsheet" input page.
 	 */
-    
 	@RequestMapping("/trackingsheet/checkpoint4/save")
 	public String editCheckpoint4(@ModelAttribute TrackingSheet trackingsheet)
 	{
@@ -707,8 +704,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		//Send a DELETE request and attach the value of Checkpoint4Id into URI
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete(uri, Map.of("trackingsheetID", 
-				Integer.toString(trackingsheetID)));		
+		restTemplate.delete(uri, Map.of("CheckPoint4Id",(CheckPoint4Id)));
+		
 		return "redirect:/trackingsheet/chekcpoint4/list";
 	}
 	
