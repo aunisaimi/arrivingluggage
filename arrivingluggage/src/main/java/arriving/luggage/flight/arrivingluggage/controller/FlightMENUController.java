@@ -22,13 +22,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 //import arriving.luggage.flight.arrivingluggage.model.Checkpoint2;
 import arriving.luggage.flight.arrivingluggage.model.Flight;
 
-
+/*
+ * This REST controller request REST web service in provider site
+ * This is for FlightMenuController
+ * 
+ * @Author Anis Sabrina
+ * 
+ */
 @Controller
 
 public class FlightMenuController
 {
 
-private String defaultURI = "http://localhost:8080/arriving/api/flights";
+	private String defaultURI = "http://localhost:8080/arriving/api/flights";
+	
+	/**
+	 * This method retrieves and displays flight details.
+	 * 
+	 * @param model 
+	 * @return The view name for flight details.
+	 */
 	
 	@GetMapping("/flight/list")
 	public String getFlight(Model model)
