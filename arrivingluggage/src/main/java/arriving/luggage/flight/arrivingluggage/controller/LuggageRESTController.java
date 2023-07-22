@@ -33,10 +33,10 @@ public class LuggageRestController
 		return luggageRepository.findAll();
     }
 	
-	@GetMapping("{LuggageId}")
-	public Luggage getLuggage(@PathVariable long LuggageId)
+	@GetMapping("{luggageID}")
+	public Luggage getLuggage(@PathVariable long luggageID)
 	{
-		Luggage luggage = luggageRepository.findById(LuggageId).get();
+		Luggage luggage = luggageRepository.findById(luggageID).get();
 		return luggage;
 		
 	}
