@@ -44,18 +44,18 @@
                     </script>
 
 
- 
- 
-	 <div class="form-group row">
-            <label class="col-sm-3 col-form-label" for="Truck">Truck Registration No</label>
-            <div class="col-sm-9">
-        <select name="registrationNo" id="registrationNo" th:field="*{truckID}" required>
+<div class="form-group row">
+    		<label class="col-sm-3 col-form-label" for="truckID">Truck Registration No</label>
+   			<div class="col-sm-9">
+        
+        	<select name="truck" id="truck" th:field="*{truck.truckID}"required>
             <option th:each="truck : ${trucks}"
-                    th:value="${truck.truckID}"
-                    th:text="${truck.registrationNo}"></option>
-        </select>
-            </div>
-          </div> 
+            			th:value="${truck.truckID}"
+            			th:text="${truck.registrationNo}" 
+            />
+        	</select> 
+    		</div>
+		</div>
 
 	<div class="form-group row">
             <label class="col-sm-3 col-form-label" for="Luggage">Luggage</label>
@@ -90,7 +90,7 @@
   <script type="text/javascript">
     $(document).ready(function () {
       $("#btnCancel").on("click", function () {
-        window.location = "[[@{/checkpoint1/list}]]";
+        window.location = "[[@{/trackingsheet/list}]]";
       });
     });
   </script>

@@ -24,16 +24,24 @@
           <a class="nav-link" th:href="@{/passenger/list}">Passengers</a>
         </li> 
        
+         <!-- A menu link to checkpoint detail -->
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="ListDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Arriving 
+          </a>
+          <div class="dropdown-menu" aria-labelledby="ListDropdown">
+		      <a class="dropdown-item" th:href="@{/trackingsheet/checkpoint1/0}">Checkpoint 1</a>
+		      <a class="dropdown-item" th:href="@{/trackingsheet/checkpoint2/0}">Checkpoint 2</a>
+		      <a class="dropdown-item" th:href="@{/trackingsheet/checkpoint3/0}">Checkpoint 3</a>
+		      <a class="dropdown-item" th:href="@{/trackingsheet/checkpoint4/list}">Checkpoint 4</a>
+          </div>
+        </li>
+    
          <!-- A menu link to add a tracking record detail -->
          <li class="nav-item">
           <a class="nav-link" th:href="@{/trackingsheet/list}">Trackingsheet</a>
         </li> 
-        
-         <!-- A menu link to add a tracking record detail -->
-         <li class="nav-item">
-          <a class="nav-link" th:href="@{/trackingsheet/checkpoint1/0}">Checkpoint</a>
-        </li> 
-        
+                   
         
       </ul>
     </div>
