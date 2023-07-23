@@ -9,20 +9,33 @@
     <div class="collapse navbar-collapse" id="topNavbar">
       <ul class="navbar-nav">
       
-      	<!-- A menu link to lists luggage details -->
+        <!-- A menu link to lists detail -->
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="ListDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            View List 
+          </a>
+          <div class="dropdown-menu" aria-labelledby="ListDropdown">
+		      <a class="dropdown-item" th:href="@{/luggage/list}">Luggages</a>
+		      <a class="dropdown-item" th:href="@{/flight/list}">Flights</a>
+		      <a class="dropdown-item" th:href="@{/passenger/list}">Passengers</a>
+		      
+          </div>
+        </li>
+        
+      	<!-- A menu link to lists luggage details 
         <li class="nav-item">
           <a class="nav-link" th:href="@{/luggage/list}">Luggages</a>
         </li>
         
-              	<!-- A menu link to lists flight details -->
+              	A menu link to lists flight details 
         <li class="nav-item">
           <a class="nav-link" th:href="@{/flight/list}">Flights</a>
         </li>
         
-        <!-- A menu link to add a new passenger detail -->
+        A menu link to add a new passenger detail 
          <li class="nav-item">
           <a class="nav-link" th:href="@{/passenger/list}">Passengers</a>
-        </li> 
+        </li> -->
        
          <!-- A menu link to checkpoint detail -->
          <li class="nav-item dropdown">

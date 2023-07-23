@@ -18,6 +18,17 @@
   <div class="container-fluid">
     <h2 class="text-center">Unclaimed/Missing Luggage Counter</h2>
 
+     <html>
+	<body>
+<div class="my-3">
+     <div style="display: flex; justify-content: center;">
+<th>	<img src="https://www.utem.edu.my/templates/yootheme/cache/8e/LogoUTeM-8ec6c416.png" alt="Ateez" width="200" height="150"> </th>
+		</div>
+		
+		
+	</body>
+	</html>
+
     <div class="my-3">
       <form th:action="@{/trackingsheet/checkpoint4/save}" method="post" enctype="multipart/form-data" th:object="${trackingsheet4}"
         style="max-width: 550px; margin: 0 auto">
@@ -92,7 +103,7 @@
 					 <div class="form-group row">
 						<label class="col-sm-3 col-form-label" for="DateTime">DateTime</label>
 						<div class="col-sm-9">
-							<input type="text" id="DateTime" class="form-control" disabled />
+							<input type="text" id="DateTime" class="form-control" readonly />
 
 						</div>
 					</div> 
@@ -106,6 +117,7 @@
 			  // Set the value in the HTML input field
 			  document.getElementById("DateTime").value = currentDateTime;
 		</script>
+		
 		
 
           <div class="text-center">

@@ -45,7 +45,7 @@ public class Flight {
 	private Date departureDate;
 	
 	@Column (name = "ArrivingDate")
-	private Time arrivalDate;
+	private Date arrivalDate;
 	
 	// Column representing the flight number
 	@Column (name = "FlightNo")
@@ -99,6 +99,14 @@ public class Flight {
 		this.departureDate = departureDate;
 	}
 
+	public Date getArrivalDate() {
+		return arrivalDate;
+	}
+
+	public void setArrivalDate(Date arrivalDate) {
+		this.arrivalDate = arrivalDate;
+	}
+/*
 	public Time getArrivingDate() {
 		return arrivalDate;
 	}
@@ -106,6 +114,7 @@ public class Flight {
 	public void setArrivingDate(Time arrivalDate) {
 		this.arrivalDate = arrivalDate;
 	}
+	*/
 
 	public String getFlightNo() {
 		return flightNumber;

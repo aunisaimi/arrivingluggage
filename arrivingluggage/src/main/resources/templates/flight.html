@@ -20,6 +20,17 @@
 
   <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
     <h2 class="text-center">List of Flight</h2>
+    
+         <html>
+	<body>
+<div class="my-3">
+     <div style="display: flex; justify-content: center;">
+<th>	<img src="https://www.utem.edu.my/templates/yootheme/cache/8e/LogoUTeM-8ec6c416.png" alt="Ateez" width="200" height="150"> </th>
+		</div>
+		
+		
+	</body>
+	</html>
 
     <div th:if="${message != null}" class="alert alert-success alert-dismissible fade show text-center message"
       role="alert">
@@ -53,38 +64,40 @@
         <thead class="thead-light">
           <tr>
             <th scope="col">Flight ID</th>
-            <th scope="col">Flight Number</th>
-            <th scope="col">Flight Name</th>
-            <th scope="col">Departure Time</th>
-            <th scope="col">Arrival Time</th>
+            <th scope="col">Flight Name</th> 
             <th scope="col">Departure Date</th>
             <th scope="col">Arrival Date</th>
+            <th scope="col">Departure Time</th>
+            <th scope="col">Arrival Time</th>
+           <th scope="col">Flight Number</th>
             <th scope="col">Airport Id</th>
-            <th scope="col">Action</th>
+         
           </tr>
         </thead>
         <tbody>
           <tr th:each="flight : ${flights}">
-            <td>[[${flight.getflightID}]]</td>
-            <td>[[${flight.flightNo}]]</td>
-            <td>[[${flight.flightName}]]</td>
-            <td>[[${flight.departingTime}]]</td>
-            <td>[[${flight.arrivingTime}]]</td>
-            <td>[[${flight.departingDate}]]</td>
-            <td>[[${flight.arrivingDate}]]</td>
+            <td>[[${flight.getFlightID()}]]</td>
+            <td>[[${flight.getFlightName()}]]</td>
+          <td>[[${flight.getDepartingDate()}]]</td>
+          <td>[[${flight.getArrivalDate()}]]</td>
+            <td>[[${flight.getDepartingTime()}]]</td>
+            <td>[[${flight.getArrivingTime()}]]</td>
+             <td>[[${flight.getFlightNo()}]]</td>
+            <td>[[${flight.getAirport().getAirportID()}]]</td>
             <td>
+            
               <!-- A link to edit an flight -->
-              <a th:href="@{'/flight/' + ${flight.flightID}}" 
+             <!-- <a th:href="@{'/flight/' + ${flight.flightID}}" 
               	title="Edit this flight"
                 class="fa-regular fa-pen-to-square icon-dark"></a>
               &nbsp; >
-              
+              -->
               <!-- A link to delete an flight -->
-              <a th:href="@{'/flight/delete/' + ${flight.flightID}}" 
+             <!-- <a th:href="@{'/flight/delete/' + ${flight.flightID}}" 
               th:flightID="${flight.flightID}" id="btnDelete"
                 title="Delete this flight" 
                 class="fa-regular fa-trash-can icon-dark btn-delete"></a>
-
+-->
             </td> 
           </tr>
         </tbody>

@@ -1,0 +1,62 @@
+<header th:fragment="header">
+	 <nav class="navbar navbar-expand-md bg-success navbar-dark ">	
+    <a class="navbar-brand" th:href="@{/menu/list}">
+      Master Information
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="topNavbar">
+      <ul class="navbar-nav">
+      
+        <!-- A menu link to lists detail -->
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="ListDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            View List 
+          </a>
+          <div class="dropdown-menu" aria-labelledby="ListDropdown">
+		      <a class="dropdown-item" th:href="@{/luggage/list}">Luggages</a>
+		      <a class="dropdown-item" th:href="@{/flight/list}">Flights</a>
+		      <a class="dropdown-item" th:href="@{/passenger/list}">Passengers</a>
+		      
+          </div>
+        </li>
+        
+      	<!-- A menu link to lists luggage details -->
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/luggage/list}">Luggages</a>
+        </li>
+        
+              	<!-- A menu link to lists flight details -->
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/flight/list}">Flights</a>
+        </li>
+        
+        <!-- A menu link to add a new passenger detail -->
+         <li class="nav-item">
+          <a class="nav-link" th:href="@{/passenger/list}">Passengers</a>
+        </li> 
+       
+         <!-- A menu link to checkpoint detail -->
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="ListDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Arriving 
+          </a>
+          <div class="dropdown-menu" aria-labelledby="ListDropdown">
+		      <a class="dropdown-item" th:href="@{/trackingsheet/checkpoint1/0}">Checkpoint 1</a>
+		      <a class="dropdown-item" th:href="@{/trackingsheet/checkpoint2/0}">Checkpoint 2</a>
+		      <a class="dropdown-item" th:href="@{/trackingsheet/checkpoint3/0}">Checkpoint 3</a>
+		      <a class="dropdown-item" th:href="@{/trackingsheet/checkpoint4/list}">Checkpoint 4</a>
+          </div>
+        </li>
+    
+         <!-- A menu link to add a tracking record detail -->
+         <li class="nav-item">
+          <a class="nav-link" th:href="@{/trackingsheet/list}">Trackingsheet</a>
+        </li> 
+                   
+        
+      </ul>
+    </div>
+  </nav>
+</header>

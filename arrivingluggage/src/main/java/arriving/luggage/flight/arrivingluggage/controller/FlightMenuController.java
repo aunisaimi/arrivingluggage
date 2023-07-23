@@ -62,7 +62,7 @@ public class FlightMenuController
 		
 		// Attach a list to model as attribute
 		// this will be for the front end
-		model.addAttribute("flight", flightList);
+		model.addAttribute("flights", flightList);
 		
 		return "flight";
 		
