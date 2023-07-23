@@ -438,7 +438,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 	 * Sends an HTTP POST request to the web service to save the checkpoint 3 
 	 * information.
 	 * 
-	 * Redirects to the "checkpoint4" input page.
+	 * Redirects to the tracking sheet
 	 */
 	
 	@RequestMapping("/trackingsheet/checkpoint3/save")
@@ -539,7 +539,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		System.out.println(trackingsheetCheckpoint4Response);
 		
-		return "redirect:/trackingsheet/checkpoint4/list";
+		//return "redirect:/trackingsheet/checkpoint4/list";
+		return "redirect:/trackingsheet/list";
 	}
 	
 	/**
@@ -567,7 +568,7 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 			trackingsheet4 = restTracking.getForObject(uri, TrackingSheet.class);
 
 			//Give a new title to the page
-			title = "Edit Checkpoint";
+			title = "Edit Checkpoint4";
 		}
 		
 		
@@ -631,48 +632,5 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		System.out.println("tessttt");
 		return "checkpoint4info";
 	}
-	
-	/**
-	 * This method deletes a checkpoint4
-	 * 
-	 * @param CheckPointNo
-	 * @return
-	 */
-	
-	@RequestMapping("/checkpoint4/delete/{trackingsheetID}")
-	public String deleteCheckpoint4 (@PathVariable Integer CheckPoint4Id)
-	{
-		//Generate new URI
-		String uri = defaultURI + "/{trackingsheetID}";
-		
-		//Send a DELETE request and attach the value of Checkpoint4Id into URI
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete(uri, Map.of("CheckPoint4Id",(CheckPoint4Id)));
-		
-		
-		//return "redirect:/trackingsheet/list";
-		return "redirect:/trackingsheet/chekcpoint4/list";
-	}
-	
-	/**
-	 * This method deletes a trackingsheet
-	 * 
-	 * @param TrackingSheetId
-	 * @return
-	 */
-	
-	@RequestMapping("/trackingsheet/delete/{trackingsheetID}")
-	public String deleteTrackingSheet(@PathVariable Integer trackingsheetID)
-	{
-		
-		// Generate new URI, similar to the mapping in TrackingsheetRESTController
-		String uri = defaultURI + "/{trackingsheetID}";
-		
-		// Send a DELETE request and attach the value of TrackingSheetId into URI
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete(uri, Map.of("trackingsheetID", 
-				Integer.toString(trackingsheetID)));
-		
-		return "redirect:/trackingsheet/list";	
-	}
+
 }

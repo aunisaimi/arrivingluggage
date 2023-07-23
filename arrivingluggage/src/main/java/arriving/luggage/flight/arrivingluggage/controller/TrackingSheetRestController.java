@@ -64,8 +64,8 @@ public class TrackingSheetRestController
 	
 	// Insert a sheet at checkpoint 1
 				@PostMapping("checkpoint1/save")
-				public TrackingSheet insertTrackingSheet1(@RequestBody TrackingSheet
-						trackingsheet) {
+				public TrackingSheet insertTrackingSheet1
+				(@RequestBody TrackingSheet trackingsheet) {
 									
 				LocalDateTime DateTime = LocalDateTime.now();
 				trackingsheet.setDateTime(DateTime);
@@ -105,8 +105,8 @@ public class TrackingSheetRestController
 	
 				// Insert a sheet at checkpoint 2
 				@PostMapping("checkpoint2/save")
-				public TrackingSheet insertTrackingSheet2(@RequestBody TrackingSheet
-						trackingsheet) {
+				public TrackingSheet insertTrackingSheet2
+				(@RequestBody TrackingSheet trackingsheet) {
 					
 					LocalDateTime DateTime = LocalDateTime.now();
 					trackingsheet.setDateTime(DateTime);					
@@ -145,8 +145,8 @@ public class TrackingSheetRestController
 				
 				// Insert a sheet at checkpoint 3
 				@PostMapping("checkpoint3/save")
-				public TrackingSheet insertTrackingSheet3(@RequestBody TrackingSheet
-						trackingsheet) {
+				public TrackingSheet insertTrackingSheet3
+				(@RequestBody TrackingSheet trackingsheet) {
 					
 					LocalDateTime DateTime = LocalDateTime.now();
 					trackingsheet.setDateTime(DateTime);					
