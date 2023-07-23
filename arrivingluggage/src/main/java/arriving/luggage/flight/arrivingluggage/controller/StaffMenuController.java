@@ -23,6 +23,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import arriving.luggage.flight.arrivingluggage.model.Staff;
 
 
+/**
+ * 
+ * @author Anis Sabrina
+ *
+ */
 
 @Controller
 public class StaffMenuController 

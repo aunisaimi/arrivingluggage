@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
-import arriving.luggage.flight.arrivingluggage.repository.ConveyerlaneRepository;
+import arriving.luggage.flight.arrivingluggage.repository.ConveyorlaneRepository;
 import arriving.luggage.flight.arrivingluggage.model.ConveyorLane;
 
 
@@ -24,19 +24,19 @@ import arriving.luggage.flight.arrivingluggage.model.ConveyorLane;
 public class ConveyorLaneRestController
 {
 	@Autowired
-	private ConveyerlaneRepository conveyerlaneRepository;
+	private ConveyorlaneRepository conveyorlaneRepository;
 	@GetMapping
 	public List<ConveyorLane> getConveyerlane()
 	{
-		return conveyerlaneRepository.findAll();
+		return conveyorlaneRepository.findAll();
 	}
 	
 	@GetMapping("{conveyorLaneID}")
-	public ConveyorLane getConveyerlane(@PathVariable long conveyorLaneID)
+	public ConveyorLane getConveyorlane(@PathVariable long conveyorLaneID)
 	{
-		ConveyorLane conveyerlane = 
-				conveyerlaneRepository.findById(conveyorLaneID).get();
-		return conveyerlane;
+		ConveyorLane conveyorlane = 
+				conveyorlaneRepository.findById(conveyorLaneID).get();
+		return conveyorlane;
 	}
 }
 

@@ -19,7 +19,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
-//import arriving.luggage.flight.arrivingluggage.model.Checkpoint2;
 import arriving.luggage.flight.arrivingluggage.model.Flight;
 
 /*
@@ -46,7 +45,7 @@ public class FlightMenuController
 	@GetMapping("/flight/list")
 	public String getFlight(Model model)
 	{
-		// The URI to GET the checkpoint1
+		// The URI to GET the flight
 		String uri =  "http://localhost:8080/arriving/api/flights";
 		
 		// get a list of flight from web services
@@ -131,7 +130,7 @@ public class FlightMenuController
 			//Generate new URI and append Flight to it
 			String uri = defaultURI + "/" + FlighT;
 			
-			//Get a Checkpoint1 from web service
+			//Get a Flight from web service
 			RestTemplate restTemplate = new RestTemplate();
 			flight = restTemplate.getForObject(uri, Flight.class);
 			

@@ -21,34 +21,41 @@ import org.springframework.web.bind.annotation.GetMapping;
 //import org.springframework.web.bind.annotation.PathVariable;
 
 import arriving.luggage.flight.arrivingluggage.model.Airport;
+import arriving.luggage.flight.arrivingluggage.model.Flight;
 
 
 
 @Controller
 public class AirportMenuController
 {
+
 	@GetMapping("/airport/list")
 	public String getAirport(Model model)
 	{
-		// The URI for GET Airport
-		String uri = "http://localhost:8080/arriving/api/airports";
+		// The URI to GET the airport
+		String uri =  "http://localhost:8080/arriving/api/airports";
 		
-		//Get a list of Airport from web service
-		RestTemplate restTemplate= new RestTemplate();
+		// get a list of airport from web services
+		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<Airport[]> response = 
 				restTemplate.getForEntity(uri, Airport[].class);
 		
-		// Parse JSON data to array of object
+		// parse a JSON data to array of object
 		Airport airports[] = response.getBody();
 		
-		// Parse an array to a list object
+		// parse an array to list object
 		List<Airport> airportList = Arrays.asList(airports);
 		
-		//Attach list to model as attributes
+		// Attach a list to model as attribute
+		// this will be for the front end
 		model.addAttribute("airports", airportList);
 		
 		return "airport";
 		
+		
+		
 	}
+	
+	
 
 }

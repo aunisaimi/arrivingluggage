@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import arriving.luggage.flight.arrivingluggage.model.ConveyorLane;
 
 @Repository
-public interface ConveyerlaneRepository extends JpaRepository<ConveyorLane, Long> 
+public interface ConveyorlaneRepository extends JpaRepository<ConveyorLane, Long> 
 {
 
 }

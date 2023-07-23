@@ -19,7 +19,7 @@
   <div th:replace="fragments/header :: header"></div>
 
   <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
-    <h2 class="text-center">List of Flight</h2>
+    <h2 class="text-center">List of Airport</h2>
     
          <html>
 	<body>
@@ -59,43 +59,35 @@
     </div> -->
 
 
-    <div th:if="${flights.size() > 0}">
+    <div th:if="${airports.size() > 0}">
       <table class="table table-hover table-responsive-xl">
         <thead class="thead-light">
           <tr>
-            <th scope="col">Flight ID</th>
-            <th scope="col">Flight Name</th> 
-            <th scope="col">Departure Date</th>
-            <th scope="col">Arrival Date</th>
-            <th scope="col">Departure Time</th>
-            <th scope="col">Arrival Time</th>
-           <th scope="col">Flight Number</th>
-            <th scope="col">Airport Id</th>
+            <th scope="col">Airport ID</th>
+            <th scope="col">Departure Airport</th> 
+            <th scope="col">Arrival Airport</th>
+
          
           </tr>
         </thead>
         <tbody>
-          <tr th:each="flight : ${flights}">
-            <td>[[${flight.getFlightID()}]]</td>
-            <td>[[${flight.getFlightName()}]]</td>
-          <td>[[${flight.getDepartingDate()}]]</td>
-          <td>[[${flight.getArrivalDate()}]]</td>
-            <td>[[${flight.getDepartingTime()}]]</td>
-            <td>[[${flight.getArrivingTime()}]]</td>
-             <td>[[${flight.getFlightNo()}]]</td>
-            <td>[[${flight.getAirport().getAirportID()}]]</td>
+          <tr th:each="airport : ${airports}">
+            <td>[[${airport.getAirportID}]]</td>
+            <td>[[${airport.getDepartingAirport()}]]</td>
+            <td>[[${airport.getArrivalAirport()}]]</td>
+
             <td>
             
-              <!-- A link to edit a flight -->
-             <!-- <a th:href="@{'/flight/' + ${flight.flightID}}" 
-              	title="Edit this flight"
+              <!-- A link to edit an airport -->
+             <!-- <a th:href="@{'/airport/' + ${airport.airportID}}" 
+              	title="Edit this airport"
                 class="fa-regular fa-pen-to-square icon-dark"></a>
               &nbsp; >
               -->
-              <!-- A link to delete a flight -->
-             <!-- <a th:href="@{'/flight/delete/' + ${flight.flightID}}" 
-              th:flightID="${flight.flightID}" id="btnDelete"
-                title="Delete this flight" 
+              <!-- A link to delete an airport -->
+             <!-- <a th:href="@{'/airport/delete/' + ${airport.airportID}}" 
+              th:airportID="${airport.airportID}" id="btnDelete"
+                title="Delete this airport" 
                 class="fa-regular fa-trash-can icon-dark btn-delete"></a>
 -->
             </td> 
@@ -104,7 +96,7 @@
       </table>
     </div>
 
-    <div class="" th:unless="${flights.size() > 0}">
+    <div class="" th:unless="${airports.size() > 0}">
       <span>No record found!</span>
     </div>
   </div>
@@ -139,16 +131,16 @@
         e.preventDefault();
         link = $(this);
 
-        flightId = link.attr("FlightID");
+        airportID = link.attr("airportID");
         $("#yesBtn").attr("href", link.attr("href"));
-        $("#confirmText").html("Do you want to delete the  \<strong\>" + flightID + "\<\/strong\>?");
+        $("#confirmText").html("Do you want to delete the  \<strong\>" + airportID + "\<\/strong\>?");
         $("#confirmModal").modal();
       });
 
       $("#btnClear").on("click", function (e) {
         e.preventDefault();
         $("#keyword").text("");
-        window.location = "[[@{/flight/list}]]";
+        window.location = "[[@{/airport/list}]]";
       });
     });
   </script>
