@@ -19,7 +19,7 @@
   <div th:replace="fragments/header :: header"></div>
 
   <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
-    <h2 class="text-center">List of Luggages</h2>
+    <h2 class="text-center">Luggages Information</h2>
     
         <html>
 	<body>
@@ -76,30 +76,19 @@
          	<th scope="col">Passenger Name</th>
          	<th scope="col">Passport/IC Number</th>
             <th scope="col">Flight Name</th>
-            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           <tr th:each="luggage : ${luggages}">
 			
             <td>[[${luggage.getLuggageID}]]</td>
-            <td>[[${luggage.getPassenger()?.getName()}]]</td>
-            <td>[[${luggage.getPassenger()?.getPassengerIC()}]]</td>
-            <td>[[${luggage.getPassenger()?.getFlightID().getFlightName()}]]</td>
+            <td>[[${luggage.getPassengerID()?.getName()}]]</td>
+            <td>[[${luggage.getPassengerID()?.getPassengerIC()}]]</td>
+            <td>[[${luggage.getPassengerID()?.getFlightID().getFlightName()}]]</td>
                      
             <td>
             
-     			  <!-- A link to edit a luggage detail -->
-              <a th:href="@{'/luggage/' + ${luggage.LuggageID}}" 
-              	title="Edit this Luggage detail"
-                class="fa-regular fa-pen-to-square icon-dark"></a>
-              &nbsp;
-              
-                  <!-- A link to delete a luggage detail -->
-              <a th:href="@{'/luggage/delete/' + ${luggage.LuggageID}}" 
-              th:LuggageID="${luggage.LuggageID}" id="btnDelete"
-                title="Delete this Luggage" 
-                class="fa-regular fa-trash-can icon-dark btn-delete"></a>
+
 
             </td> 
           </tr>

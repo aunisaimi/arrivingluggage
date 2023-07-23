@@ -66,10 +66,8 @@ public class TrackingSheet
 	@JoinColumn (name = "FlightID")
 	private Flight flightID;
 	
-
 	@Column (name = "Status")
 	private String status;
-	
 	
 	public String getStatus() {
 		return status;
@@ -105,8 +103,6 @@ public class TrackingSheet
 	public void setLuggage(Luggage luggage) {
 		this.luggage = luggage;
 	}
-
-
 
 	public Staff getStaffID() {
 		return staffID;

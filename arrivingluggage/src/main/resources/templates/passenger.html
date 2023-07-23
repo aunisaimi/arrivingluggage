@@ -19,7 +19,7 @@
   <div th:replace="fragments/header :: header"></div>
 
   <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
-    <h2 class="text-center">Passenger Information</h2>
+    <h2 class="text-center">Passengers Information</h2>
 
     <html>
 	<body>
@@ -81,8 +81,6 @@
              <th scope="col">Passport/IC Number</th>
              <th scope="col">Departure Airport</th>
              <th scope="col">Flight No</th>
-   
-              <th scope="col">Action</th>
 
           </tr>
         </thead>
@@ -105,17 +103,17 @@
             <td>
             
 
-     			  <!-- A link to edit a passenger detail -->
+     			<!--  <!-- A link to edit a passenger detail 
               <a th:href="@{'/passenger/' + ${passenger.PassengerID}}" 
               	title="Edit this Passenger detail"
                 class="fa-regular fa-pen-to-square icon-dark"></a>
               &nbsp;
               
-                  <!-- A link to delete a Passenger detail -->
+                  <!-- A link to delete a Passenger detail 
               <a th:href="@{'/passenger/delete/' + ${passenger.PassengerID}}" 
               th:PassengerID="${passenger.PassengerID}" id="btnDelete"
                 title="Delete this Passenger" 
-                class="fa-regular fa-trash-can icon-dark btn-delete"></a>
+                class="fa-regular fa-trash-can icon-dark btn-delete"></a> --> 
 
             </td> 
           </tr>

@@ -33,24 +33,5 @@ public class StaffRestController {
 		{
 			Staff staff = staffRepository.findById(StaffId).get();
 			return staff;
-		}
-		
-		@PostMapping()
-		public Staff insertStaff (@RequestBody Staff staff)
-		{		
-			return staffRepository.save(staff);
-		}
-		
-		@PutMapping()
-		public Staff updateStaff(@RequestBody Staff staff)
-		{
-			return staffRepository.save(staff);
-		}
-		
-		@DeleteMapping("{StaffId}")
-		public ResponseEntity<HttpStatus> deleteStaff(@PathVariable long StaffId)
-		{
-			staffRepository.deleteById(StaffId);
-			return new ResponseEntity<>(HttpStatus.OK);
 		}	
 }

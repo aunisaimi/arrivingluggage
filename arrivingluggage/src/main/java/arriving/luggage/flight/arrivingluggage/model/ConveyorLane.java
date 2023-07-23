@@ -8,15 +8,28 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
- * 
+ * This class is the ConveyorLane model representing
+ * conveyor lane information.
  * @author Anis Sabrina
  *
  */
-
 @Entity
 @Table(name= "conveyorlane")
 public class ConveyorLane {
 	
+	// Primary Key
+	@Id
+	@GeneratedValue (strategy=GenerationType.IDENTITY)
+	// Column representing the conveyor lane ID
+	@Column (name = "ConveyorLaneID")
+	private int conveyorLaneID;
+	
+	// Column representing the lane station
+	@Column (name = "LaneNumber")
+	private String laneStation;
+	
+	
+    // Getter and Setter methods
 	
 	public int getConveyorLaneID() {
 		return conveyorLaneID;
@@ -27,22 +40,12 @@ public class ConveyorLane {
 	}
 
 	public String getLaneNumber() {
-		return laneNumber;
+		return laneStation;
 	}
 
-	public void setLaneNumber(String laneNumber) {
-		this.laneNumber = laneNumber;
+	public void setLaneNumber(String laneStation) {
+		this.laneStation = laneStation;
 	}
-
-	@Id
-	@GeneratedValue (strategy=GenerationType.IDENTITY)
-	@Column (name = "ConveyorLaneID")
-	private int conveyorLaneID;
 	
-	@Column (name = "LaneNumber")
-	private String laneNumber;
-	
-	
-
 }
 

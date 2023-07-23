@@ -5,36 +5,32 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import arriving.luggage.flight.arrivingluggage.model.Truck;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import arriving.luggage.flight.arrivingluggage.model.Luggage;
-import arriving.luggage.flight.arrivingluggage.repository.LuggageRepository;
-
+/**
+ * This class is the Checkpoint model representing checkpoint information.
+ * 
+ * @author Anis Sabrina
+ *
+ */
 @Entity
 @Table (name = "checkpoint")
-public class Checkpoint 
-{
+public class Checkpoint {
+	
+	// Primary Key
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	// Column representing the checkpoint id
 	@Column (name = "cpID")
 	private int checkpointID;
 	
+	// Column representing the checkpoint name
 	@Column (name = "CheckpointName")
-	private String CheckpointName;
+	private String name;
 
-
+	
+	// Getter and Setter methods
+	
 	public int getCheckpointID() {
 		return checkpointID;
 	}
@@ -43,16 +39,12 @@ public class Checkpoint
 		this.checkpointID = checkpointID;
 	}
 
-	public String getCheckpointName() 
-	{
-		return CheckpointName;
+	public String getCheckpointName() {
+		return name;
 	}
 
-	public void setCheckpointName(String checkpointName) {
-		CheckpointName = checkpointName;
+	public void setCheckpointName(String name) {
+		this.name = name;
 	}
-
-
-	
 	
 }

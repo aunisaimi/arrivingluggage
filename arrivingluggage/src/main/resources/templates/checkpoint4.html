@@ -19,7 +19,7 @@
   <div th:replace="fragments/header :: header"></div>
 
   <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
-    <h2 class="text-center">Claim Bay Page</h2>
+    <h2 class="text-center">Unclaimed/Missing Luggage Counter</h2>
 
     <html>
 	<body>
@@ -68,53 +68,160 @@
     });
   </script>
 
+   <!-- For flight AirAsia -->
+<div th:if="${trackingsheets.size() > 0}">
+    <table class="table table-hover table-responsive-xl">
+        <tbody>
+            <tr th:if="${trackingsheets.?[flightID != null && flightID.getFlightName() == 'AirAsia'].size() > 0}">
+                <td>
+                    <span th:remove="tag">Flight Name:</span>
+                    <span th:inline="text" th:text="| AirAsia |"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
     <div th:if="${trackingsheets.size() > 0}">
       <table class="table table-hover table-responsive-xl">
         <thead class="thead-light">
           <tr>
               <th scope="col">Tracking No</th>
- 
-             <th scope="col">CheckpointNo</th>
+             <th scope="col">Checkpoint No</th>
              <th scope="col">Luggage ID</th>
-	     	 <th scope="col">Staff ID</th>
+	     	 <th scope="col">Staff Name</th>
+             <th scope="col">Luggage Status</th>
+			 <th scope="col">Date:Time</th> 
+			 <th scope="col">Action</th>  
+</tr>
+</thead>
+
+<tbody>
+            <tr th:each="trackingsheet : ${trackingsheets}" th:if="${trackingsheet.luggage.passengerID.flightID.flightName == 'AirAsia'}">
+                <td th:text="${trackingsheet.getTrackingsheetID()}"></td>
+                <td th:text="${trackingsheet.checkpoint.getCheckpointID()}"></td>
+                <td th:text="${trackingsheet.luggage.getLuggageID()}"></td>
+                <td th:text="${trackingsheet.staffID.getStaffname()}"></td>
+                <td th:text="${trackingsheet.getStatus()}"></td>
+                <td th:text="${trackingsheet.getDateTime()}"></td>
+                
+                <td>
+                
+                     			  <!-- A link to edit a checkpoint 4 detail -->
+              <a th:href="@{'/trackingsheet/checkpoint4/' + ${trackingsheet.TrackingsheetID}}" 
+              	title="Edit this Passenger detail"
+                class="fa-regular fa-pen-to-square icon-dark"></a>
+                
+                </td>
+            </tr>
+        </tbody>
+</tbody>
+    </table>
+</div>
+
+<!-- For flight Malaysia Airline -->
+<div th:if="${trackingsheets.size() > 0}">
+    <table class="table table-hover table-responsive-xl">
+        <tbody>
+            <tr th:if="${trackingsheets.?[flightID != null && flightID.getFlightName() == 'Malaysia Airlines'].size() > 0}">
+                <td>
+                    <span th:remove="tag">Flight Name:</span>
+                    <span th:inline="text" th:text="| Malaysia Airlines |"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    <div th:if="${trackingsheets.size() > 0}">
+      <table class="table table-hover table-responsive-xl">
+        <thead class="thead-light">
+          <tr>
+              <th scope="col">Tracking No</th>
+             <th scope="col">Checkpoint No</th>
+             <th scope="col">Luggage ID</th>
+	     	 <th scope="col">Staff Name</th>
              <th scope="col">Luggage Status</th>
 			 <th scope="col">Date:Time</th>
-          
-             <th scope="col">Action</th>
+			 <th scope="col">Action</th>
+     
+</tr>
+</thead>
 
-          </tr>
-      </thead>
-        <tbody>
- <tr th:each="trackingsheet : ${trackingsheets}" th:if="${trackingsheet.getFlightID() != null && trackingsheet.getFlightID().getFlightName() == 'AirAsia'}">
-
-            <th scope="row" th:text="${trackingsheet.trackingsheetID}"></th>
-          
-            <td>[[${trackingsheet.getCheckpoint()?.getCheckpointID()}]]</td>            
-  			<td>[[${trackingsheet.getLuggage()?.getLuggageID()}]]</td>
-            <td>[[${trackingsheet.getStaffID()?.getStaffname()}]]</td>           
-            <td>[[${trackingsheet.getStatus()}]]</td>
-
-            <td>[[${trackingsheet.getDateTime()}]]</td>
-	       
-            <td> 
+<tbody>
+            <tr th:each="trackingsheet : ${trackingsheets}" th:if="${trackingsheet.luggage.passengerID.flightID.flightName == 'Malaysia Airlines'}">
+                <td th:text="${trackingsheet.getTrackingsheetID()}"></td>
+                <td th:text="${trackingsheet.checkpoint.getCheckpointID()}"></td>
+                <td th:text="${trackingsheet.luggage.getLuggageID()}"></td>
+                <td th:text="${trackingsheet.staffID.getStaffname()}"></td>
+                <td th:text="${trackingsheet.getStatus()}"></td>
+                <td th:text="${trackingsheet.getDateTime()}"></td>
+                
+                <td> 
 		
      			  <!-- A link to edit a checkpoint 4 detail -->
               <a th:href="@{'/trackingsheet/checkpoint4/' + ${trackingsheet.TrackingsheetID}}" 
               	title="Edit this Passenger detail"
                 class="fa-regular fa-pen-to-square icon-dark"></a>
-              &nbsp;
-              
-                  <!-- A link to delete a checkpoint 4 detail -->
-              <a th:href="@{'/trackingsheet/delete/' + ${trackingsheet.TrackingsheetID}}" 
-              th:TrackingsheetID="${trackingsheet.TrackingsheetID}" id="btnDelete"
-                title="Delete this Passenger" 
-                class="fa-regular fa-trash-can icon-dark btn-delete"></a>
 
             </td> 
-          </tr>
+                
+            </tr>
         </tbody>
-      </table>
-    </div>
+</tbody>
+    </table>
+</div>
+
+<!-- For flight Malindo Air -->
+<div th:if="${trackingsheets.size() > 0}">
+    <table class="table table-hover table-responsive-xl">
+        <tbody>
+            <tr th:if="${trackingsheets.?[flightID != null && flightID.getFlightName() == 'Malindo Air'].size() > 0}">
+                <td>
+                    <span th:remove="tag">Flight Name:</span>
+                    <span th:inline="text" th:text="| Malindo Air |"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    <div th:if="${trackingsheets.size() > 0}">
+      <table class="table table-hover table-responsive-xl">
+        <thead class="thead-light">
+          <tr>
+              <th scope="col">Tracking No</th>
+             <th scope="col">Checkpoint No</th>
+             <th scope="col">Luggage ID</th>
+	     	 <th scope="col">Staff Name</th>
+             <th scope="col">Luggage Status</th>
+			 <th scope="col">Date:Time</th>  
+			 <th scope="col">Action</th>
+</tr>
+</thead>
+
+<tbody>
+            <tr th:each="trackingsheet : ${trackingsheets}" th:if="${trackingsheet.luggage.passengerID.flightID.flightName == 'Malindo Air'}">
+                <td th:text="${trackingsheet.getTrackingsheetID()}"></td>
+                <td th:text="${trackingsheet.checkpoint.getCheckpointID()}"></td>
+                <td th:text="${trackingsheet.luggage.getLuggageID()}"></td>
+                <td th:text="${trackingsheet.staffID.getStaffname()}"></td>
+                <td th:text="${trackingsheet.getStatus()}"></td>
+                <td th:text="${trackingsheet.getDateTime()}"></td>
+                
+                <td> 
+		
+     			  <!-- A link to edit a checkpoint 4 detail -->
+              <a th:href="@{'/trackingsheet/checkpoint4/' + ${trackingsheet.TrackingsheetID}}" 
+              	title="Edit this Passenger detail"
+                class="fa-regular fa-pen-to-square icon-dark"></a>
+
+            </td> 
+            </tr>
+        </tbody>
+</tbody>
+    </table>
+</div>
 
     <div class="" th:unless="${trackingsheets.size() > 0}">
       <span>No record found!</span>

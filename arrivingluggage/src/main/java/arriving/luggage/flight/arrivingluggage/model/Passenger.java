@@ -49,6 +49,7 @@ public class Passenger
 	private Flight flightID;
 
 	
+	
 	public int getPassengerID() {
 		return passengerID;
 	}
@@ -104,6 +105,7 @@ public class Passenger
 	public void setFlightID(Flight flightID) {
 		this.flightID = flightID;
 	}
+
 
 	
 	

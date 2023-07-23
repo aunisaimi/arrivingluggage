@@ -40,31 +40,6 @@ public class PassengerRestController
 		Passenger passenger = passengerRepository.findById(PassengerId).get();
 		return passenger;
 		
-	}
-	
-	
-	@PostMapping()
-	public Passenger insertPassenger (@RequestBody Passenger passenger)
-	{		
-		return passengerRepository.save(passenger);
-	}
-	
-	
-	@PutMapping()
-	public Passenger updatePassenger(@RequestBody Passenger passenger)
-	{
-		return passengerRepository.save(passenger);
-	}
-	
-	
-	@DeleteMapping("{PassengerId}")
-	public ResponseEntity<HttpStatus> deletePassenger
-	(@PathVariable long PassengerId)
-	{
-		passengerRepository.deleteById(PassengerId);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
-	
+	}	
 }
 

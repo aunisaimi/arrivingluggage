@@ -21,7 +21,7 @@ import arriving.luggage.flight.arrivingluggage.model.ConveyorLane;
 
 @RestController
 @RequestMapping("/api/conveyorlanes")
-public class ConveyorLaneController
+public class ConveyorLaneRestController
 {
 	@Autowired
 	private ConveyerlaneRepository conveyerlaneRepository;
@@ -37,26 +37,6 @@ public class ConveyorLaneController
 		ConveyorLane conveyerlane = 
 				conveyerlaneRepository.findById(conveyorLaneID).get();
 		return conveyerlane;
-	}
-	
-	@PostMapping()
-	public ConveyorLane insertConveyerlane(@RequestBody ConveyorLane conveyerlane)
-	{		
-		return conveyerlaneRepository.save(conveyerlane);
-	}
-	
-	@PutMapping()
-	public ConveyorLane updateConveyerlane(@RequestBody ConveyorLane conveyerlane)
-	{
-		return conveyerlaneRepository.save(conveyerlane);
-	}
-	
-	@DeleteMapping("{conveyorLaneID}")
-	public ResponseEntity<HttpStatus> deleteConveyerlane
-	(@PathVariable long conveyorLaneID)
-	{
-		conveyerlaneRepository.deleteById(conveyorLaneID);
-		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
 

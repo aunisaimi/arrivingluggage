@@ -39,23 +39,4 @@ public class FlightRestController
 		
 	}
 	
-	@PostMapping()
-	public Flight insertFlight (@RequestBody Flight flight)
-	{		
-		return flightRepository.save(flight);
-	}
-	
-	@PutMapping()
-	public Flight updateFlight(@RequestBody Flight flight)
-	{
-		return flightRepository.save(flight);
-	}
-	
-	@DeleteMapping("{FlightId}")
-	public ResponseEntity<HttpStatus> deleteFlight(@PathVariable long FlightId)
-	{
-		flightRepository.deleteById(FlightId);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
 }

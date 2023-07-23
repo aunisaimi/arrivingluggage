@@ -1,4 +1,5 @@
 package arriving.luggage.flight.arrivingluggage.model;
+
 import java.sql.Date;
 import java.sql.Time;
 
@@ -12,6 +13,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 /**
+ * This class is the Flight model representing
+ * flight information.
  * 
  * @author Anis Sabrina
  *
@@ -21,28 +24,32 @@ import jakarta.persistence.Table;
 @Table (name = "flight")
 public class Flight {
 	
+	// Column representing the flight id
 	@Id
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
+	// Column representing the flight id
 	@Column (name = "FlightID")
 	private int flightID;
 	
+	// Column representing the airlines
 	@Column (name = "FlightName")
-	private String flightName;
+	private String airlines;
 	
 	@Column (name = "DepartingTime")
-	private Time departingTime;
+	private Time departureTime;
 	
 	@Column (name = "ArrivingTime")
-	private Time arrivingTime;
+	private Time arrivalTime;
 	
 	@Column (name = "DepartingDate")
-	private Date departingDate;
+	private Date departureDate;
 	
 	@Column (name = "ArrivingDate")
-	private Time arrivingDate;
+	private Time arrivalDate;
 	
+	// Column representing the flight number
 	@Column (name = "FlightNo")
-	private String flightNo;
+	private String flightNumber;
 	
 	@ManyToOne
 	@JoinColumn (name = "AirportID")
@@ -60,48 +67,52 @@ public class Flight {
 		return flightID;
 	}
 
-	public void setFlightID(int flightID) {
-		this.flightID = flightID;
-	}
-
 	public String getFlightName() {
-		return flightName;
+		return airlines;
 	}
 
-	public void setFlightName(String flightName) {
-		this.flightName = flightName;
+	public void setFlightName(String airlines) {
+		this.airlines = airlines;
 	}
 
-	public Time getADpartingTime() {
-		return departingTime;
+	public Time getDepartingTime() {
+		return departureTime;
 	}
 
-	public void setAepartingTime(Time departingTime) {
-		this.departingTime = departingTime;
+	public void setDepartingTime(Time departureTime) {
+		this.departureTime = departureTime;
 	}
 
 	public Time getArrivingTime() {
-		return arrivingTime;
+		return arrivalTime;
 	}
 
-	public void setArrivingTime(Time arrivingTime) {
-		this.arrivingTime = arrivingTime;
+	public void setArrivingTime(Time arrivalTime) {
+		this.arrivalTime = arrivalTime;
 	}
 
 	public Date getDepartingDate() {
-		return departingDate;
+		return departureDate;
 	}
 
-	public void setDepartingDate(Date departingDate) {
-		this.departingDate = departingDate;
+	public void setDepartingDate(Date departureDate) {
+		this.departureDate = departureDate;
+	}
+
+	public Time getArrivingDate() {
+		return arrivalDate;
+	}
+
+	public void setArrivingDate(Time arrivalDate) {
+		this.arrivalDate = arrivalDate;
 	}
 
 	public String getFlightNo() {
-		return flightNo;
+		return flightNumber;
 	}
 
-	public void setFlightNo(String flightNo) {
-		this.flightNo = flightNo;
+	public void setFlightNo(String flightNumber) {
+		this.flightNumber = flightNumber;
 	}
 
 	public Airport getAirport() {
@@ -112,22 +123,9 @@ public class Flight {
 		this.airport = airport;
 	}
 
-	public Time getDepartingTime() {
-		return departingTime;
+	public void setFlightID(int flightID) {
+		this.flightID = flightID;
 	}
 
-	public void setDepartingTime(Time departingTime) {
-		this.departingTime = departingTime;
-	}
-
-	public Time getArrivingDate() {
-		return arrivingDate;
-	}
-
-	public void setArrivingDate(Time arrivingDate) {
-		this.arrivingDate = arrivingDate;
-	}
-
-	
 }
 

@@ -35,22 +35,10 @@ public class Luggage
 	@JoinColumn (name = "passengerID")
 	private Passenger passengerID; 	
 	
-	@Column (name= "Status")
-	private String status;
-	
-	
 	/*@OneToMany(mappedBy = "luggage",fetch = FetchType.LAZY)
 	@JsonIgnoreProperties("luggage")
 	private List<TrackingSheet> trackingsheets;*/
 
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
 
 	public int getLuggageID() {
 		return luggageID;
@@ -59,15 +47,15 @@ public class Luggage
 	public void setLuggageID(int luggageID) {
 		this.luggageID = luggageID;
 	}
-	
-	public Passenger getPassenger() {
+
+	public Passenger getPassengerID() {
 		return passengerID;
 	}
 
-	public void setPassenger(Passenger passengerID) {
+	public void setPassengerID(Passenger passengerID) {
 		this.passengerID = passengerID;
 	}
-
 	
+
 
 }

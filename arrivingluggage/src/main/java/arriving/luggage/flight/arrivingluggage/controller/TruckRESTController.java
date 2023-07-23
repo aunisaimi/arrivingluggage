@@ -40,25 +40,5 @@ public class TruckRestController
 		Truck truck = truckRepository.findById(TruckId).get();
 		return truck;
 		
-	}
-	
-	@PostMapping()
-	public Truck insertTruck (@RequestBody Truck truck)
-	{		
-		return truckRepository.save(truck);
-	}
-	
-	@PutMapping()
-	public Truck updateTruck(@RequestBody Truck truck)
-	{
-		return truckRepository.save(truck);
-	}
-	
-	@DeleteMapping("{TruckId}")
-	public ResponseEntity<HttpStatus> deleteTruck(@PathVariable long TruckId)
-	{
-		truckRepository.deleteById(TruckId);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
+	}	
 }

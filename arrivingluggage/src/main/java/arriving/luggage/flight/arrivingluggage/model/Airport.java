@@ -8,19 +8,32 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
+ * This class is the Airport model representing airport information.
  * 
  * @author Anis Sabrina
  *
  */
-
 @Entity
 @Table (name = "airport")
 public class Airport {
 	
+    // Primary Key
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+    // Column representing the airport id
 	@Column (name = "AirportID")
 	private int airportID;
+	
+    // Column representing the departure airport location 
+	@Column (name = "DepartingAirport")
+	private String departureLocation;
+	
+    // Column representing the arrival airport location 
+	@Column (name = "ArrivalAirport")
+	private String arrivalLocation;
+	
+	
+	// Getter and Setter methods
 	
 	public int getAirportID() {
 		return airportID;
@@ -31,27 +44,19 @@ public class Airport {
 	}
 
 	public String getDepartingAirport() {
-		return departingAirport;
+		return departureLocation;
 	}
 
-	public void setDepartingAirport(String departingAirport) {
-		this.departingAirport = departingAirport;
+	public void setDepartingAirport(String departureLocation) {
+		this.departureLocation = departureLocation;
 	}
 
 	public String getArrivalAirport() {
-		return arrivalAirport;
+		return arrivalLocation;
 	}
 
-	public void setArrivalAirport(String arrivalAirport) {
-		this.arrivalAirport = arrivalAirport;
+	public void setArrivalAirport(String arrivalLocation) {
+		this.arrivalLocation = arrivalLocation;
 	}
-
-	@Column (name = "DepartingAirport")
-	private String departingAirport;
 	
-	@Column (name = "ArrivalAirport")
-	private String arrivalAirport;
-
-
-
 }
