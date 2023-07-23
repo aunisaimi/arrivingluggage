@@ -18,7 +18,6 @@
 		      <a class="dropdown-item" th:href="@{/luggage/list}">Luggages</a>
 		      <a class="dropdown-item" th:href="@{/flight/list}">Flights</a>
 		      <a class="dropdown-item" th:href="@{/passenger/list}">Passengers</a>
-		       <a class="dropdown-item" th:href="@{/truck/list}">Truck</a>
 		      
           </div>
         </li>

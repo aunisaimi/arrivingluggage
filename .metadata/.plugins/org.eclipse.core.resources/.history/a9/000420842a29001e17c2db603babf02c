@@ -19,19 +19,8 @@
   <div th:replace="fragments/header :: header"></div>
 
   <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
-    <h2 class="text-center">List of Truck</h2>
+    <h2 class="text-center">List of Checkpoint1</h2>
 
-       <html>
-	<body>
-<div class="my-3">
-     <div style="display: flex; justify-content: center;">
-<th>	<img src="https://www.utem.edu.my/templates/yootheme/cache/8e/LogoUTeM-8ec6c416.png" alt="Ateez" width="200" height="150"> </th>
-		</div>
-		
-		
-	</body>
-	</html>
-		
     <div th:if="${message != null}" class="alert alert-success alert-dismissible fade show text-center message"
       role="alert">
       [[${message}]]
@@ -75,28 +64,28 @@
            
 	     <th scope="col">TruckID</th>
              <th scope="col">Registration No</th>
-            <th scope="col">Operator Name</th>
-             <th scope="col">Location</th>
+            
+             <th scope="col">Action</th>
 
           </tr>
         </thead>
         <tbody>
           <tr th:each="truck : ${trucks}">
-            <th scope="row">[[${truck.truckID}]]</th>
-             <td>[[${truck.getRegistrationNo()}]]</td>
-			<td>[[${truck.getOperatorName()}]]</td>
-           <td>[[${truck.getLocation()}]]</td>
+            <th scope="row">[[${truck.TruckId}]]</th>
+             <td>[[${truck.getTruckRegistrationNo(}]]</td>
+
+           
           
             <td>
      			  <!-- A link to edit a truck detail -->
-              <a th:href="@{'/truck/' + ${truck.truckID}}" 
+              <a th:href="@{'/truck/' + ${truck.TruckId}}" 
               	title="Edit this truck detail"
                 class="fa-regular fa-pen-to-square icon-dark"></a>
               &nbsp;
               
                   <!-- A link to delete a truck detail -->
-              <a th:href="@{'/truck/delete/' + ${truck.truckID}}" 
-              th:truckID="${truck.truckID}" id="btnDelete"
+              <a th:href="@{'/truck/delete/' + ${truck.TruckId}}" 
+              th:TruckId="${truck.TruckId}" id="btnDelete"
                 title="Delete this Truck" 
                 class="fa-regular fa-trash-can icon-dark btn-delete"></a>
 
@@ -141,9 +130,9 @@
         e.preventDefault();
         link = $(this);
 
-        truckID = link.attr("truckID");
+        TruckId = link.attr("TruckId");
         $("#yesBtn").attr("href", link.attr("href"));
-        $("#confirmText").html("Do you want to delete the  \<strong\>" + truckID + "\<\/strong\>?");
+        $("#confirmText").html("Do you want to delete the  \<strong\>" + TruckId + "\<\/strong\>?");
         $("#confirmModal").modal();
       });
 

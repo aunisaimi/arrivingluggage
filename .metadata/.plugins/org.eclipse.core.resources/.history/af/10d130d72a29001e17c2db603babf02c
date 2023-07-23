@@ -83,9 +83,9 @@
         <tbody>
           <tr th:each="truck : ${trucks}">
             <th scope="row">[[${truck.truckID}]]</th>
-             <td>[[${truck.getRegistrationNo()}]]</td>
-			<td>[[${truck.getOperatorName()}]]</td>
-           <td>[[${truck.getLocation()}]]</td>
+             <td>[[${truck.getRegistrationNo(}]]</td>
+			<td>[[${truck.getOperatorName(}]]</td>
+           <td>[[${truck.getLocation(}]]</td>
           
             <td>
      			  <!-- A link to edit a truck detail -->
