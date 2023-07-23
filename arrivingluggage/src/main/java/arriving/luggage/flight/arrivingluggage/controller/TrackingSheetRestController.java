@@ -62,15 +62,6 @@ public class TrackingSheetRestController
 		return trackingsheetRepository.save(trackingsheet);
 	}
 	
-	/*
-	@PostMapping()
-	public TrackingSheet insertTrackingSheet 
-	(@RequestBody TrackingSheet trackingsheet)
-	{		
-		return trackingsheetRepository.save(trackingsheet);
-	}
-	*/
-	
 	// Insert a sheet at checkpoint 1
 				@PostMapping("checkpoint1/save")
 				public TrackingSheet insertTrackingSheet1(@RequestBody TrackingSheet

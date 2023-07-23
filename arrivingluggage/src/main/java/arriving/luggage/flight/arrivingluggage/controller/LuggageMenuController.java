@@ -2,123 +2,89 @@ package arriving.luggage.flight.arrivingluggage.controller;
 
 import java.util.List;
 import java.util.Arrays;
-import java.util.Map;
-
-
-import org.springframework.http.HttpEntity;
-//import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
-
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
 import arriving.luggage.flight.arrivingluggage.model.Luggage;
-//import arriving.luggage.flight.arrivingluggage.model.Flight;
-//import arriving.luggage.flight.arrivingluggage.model.Passenger;
 
-
+/**
+ * The LuggageMenuController class handles the web application's views 
+ * and requests related to luggage management.
+ * It communicates with the Luggage RESTful API 
+ * to retrieve and display luggage information.
+ * 
+ * @author Auni Afeeqah
+ *
+ */
 @Controller
-public class LuggageMenuController 
-{
+public class LuggageMenuController {
+	
 	private String defaultURI = "http://localhost:8080/arriving/api/luggages";
 	
+	/**
+	 * Retrieves a list of all luggages and displays them on the "luggage" page.
+	 * 
+	 * @param model The model to attach the list of luggages.
+	 * @return The view name for the "luggage" page.
+	 */
 	@GetMapping("/luggage/list")
-	public String getLuggage(Model model)
-	{
-		//the URI to GET luggage
+	public String getLuggage(Model model) {
+		// The URI to GET luggage
 		String uri = "http://localhost:8080/arriving/api/luggages";
 		
-		// GEt a list order types from, the web services
+		// Get a list of luggages from the web services
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Luggage[]> response = restTemplate.getForEntity(uri,
-				Luggage[].class);
+		ResponseEntity<Luggage[]> response = 
+				restTemplate.getForEntity(uri, Luggage[].class);
 		
-		//parse JSON data to array of object
-		Luggage luggages[] = response.getBody();
+		// Parse JSON data to an array of objects
+		Luggage[] luggages = response.getBody();
 		
-		// parse an array to a list object
+		// Convert the array to a list
 		List<Luggage> luggageList = Arrays.asList(luggages);
 		
-		// Attach a list to model as attribute
-		
+		// Attach the list to the model as an attribute
 		model.addAttribute("luggages", luggageList);
 		
-		//Returning to HTML file
+		// Return the view name for the "luggage" page
 		return "luggage";
-		
 	}
 	
-	
-	
 	/**
-	 * This method gets an luggage
+	 * Retrieves a specific luggage by its ID 
+	 * and displays it on the "luggageinfo" page.
 	 * 
-	 * @param LuggagE
-	 * @param model
-	 * @return
+	 * @param LuggagE The ID of the luggage to retrieve.
+	 * @param model The model to attach the luggage data.
+	 * @return The view name for the "luggageinfo" page.
 	 */
 	@GetMapping("/luggage/{LuggagE}")
-	public String getLuggage (@PathVariable Integer LuggagE, Model model) {
-		
+	public String getLuggage(@PathVariable Integer LuggagE, Model model) {
 		String pageTitle = "New Luggage";
 		Luggage luggage = new Luggage();
 		
-		// This block get luggage to be updated
+		// This block gets luggage to be updated
 		if (LuggagE > 0) {
-
-			// Generate new URI and append LuggageId to it
+			// Generate a new URI and append LuggageId to it
 			String uri = defaultURI + "/" + LuggagE;
 			
-			// Get an order type from the web service
+			// Get a luggage from the web service
 			RestTemplate restTemplate = new RestTemplate();
 			luggage = restTemplate.getForObject(uri, Luggage.class);
 			
-			//Give a new title to the page
+			// Give a new title to the page
 			pageTitle = "Edit Luggage";
-			
-			
 		}
 		
-		/*RestTemplate restTemplateFlight = new RestTemplate();
-		ResponseEntity<Flight[]> responseFlight = 
-				restTemplateFlight.getForEntity("http://localhost:8080/luggagehandling/api/flights", Flight[].class);
-		
-		Flight flightArray[] = responseFlight.getBody();	
-		
-		// Parse an array to a list object
-		List<Flight> flightList = Arrays.asList(flightArray);
-		
-		
-		RestTemplate restTemplatePassenger = new RestTemplate();
-		ResponseEntity<Passenger[]> responsePassenger = 
-				restTemplatePassenger.getForEntity("http://localhost:8080/luggagehandling/api/passengers", Passenger[].class);
-		
-		Passenger passengerArray[] = responsePassenger.getBody();	
-		
-		// Parse an array to a list object
-		List<Passenger> passengerList = Arrays.asList(passengerArray);
-		
-		*/
-		
-		
-		// Attach value to pass to front end
-		
+		// Attach values to pass to the front end
 		model.addAttribute("luggages", luggage);
-		//model.addAttribute("flight", flightList);
-		//model.addAttribute("passenger", passengerList);
 		model.addAttribute("pageTitle", pageTitle);
 		
-		return "luggageinfo";
-			
+		return "luggageinfo";		
 	}
-	
-
-
 }

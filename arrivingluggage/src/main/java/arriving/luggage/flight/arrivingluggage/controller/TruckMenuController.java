@@ -2,27 +2,30 @@ package arriving.luggage.flight.arrivingluggage.controller;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.client.RestTemplate;
-
-
 import org.springframework.http.HttpEntity;
-//import org.springframework.http.HttpStatus;
-
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import arriving.luggage.flight.arrivingluggage.model.Truck;
 
-
+/**
+ * * The TruckMenuController class represents a controller 
+ * for managing truck-related operations.
+ * 
+ * It handles HTTP requests related to staff and communicates 
+ * with the TruckRepository to fetch truck details.
+ * The API endpoints defined in this controller follow the '/truck' base URL.
+ * 
+ * @author Auni Afeeqah
+ *
+ */
 @Controller
 public class TruckMenuController 
 {
@@ -137,27 +140,4 @@ private String defaultURI = "http://localhost:8080/arriving/api/trucks";
 		
 		return "truckinfo";
 	}
-	/*
-	/**
-	 * This method deletes a Truck
-	 * 
-	 * @param TruckId
-	 * @return
-	 */
-	/*
-	@RequestMapping("/truck/delete/{Truck}")
-	public String deleteTruck(@PathVariable Integer truck)
-	{
-		
-		// Generate new URI, similar to the mapping in TruckRESTController
-		String uri = defaultURI + "/{Truck}";
-		
-		// Send a DELETE request and attach the value of TruckId into URI
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete(uri, Map.of("truck", (truck)));
-		
-		return "redirect:/truck/list";
-		
-	}
-	*/
 }

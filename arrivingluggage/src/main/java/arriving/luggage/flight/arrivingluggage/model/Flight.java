@@ -13,128 +13,148 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 /**
- * This class is the Flight model representing
- * flight information.
+ * This class is the flight model representing flight information.
+ * 
+ * This class is mapped to a database table named "flight" using JPA annotations.
+ * It represents information about a flight, 
+ * including its unique ID, airlines, departure and arrival times,
+ * departure and arrival dates, flight number, and the associated airport.
  * 
  * @author Anis Sabrina
- *
+ * 
  */
 
+//Maps this class to a database table named "flight"
 @Entity
-@Table (name = "flight")
+@Table(name = "flight") 
 public class Flight {
-	
-	// Column representing the flight id
-	@Id
-	@GeneratedValue (strategy=GenerationType.IDENTITY)
-	// Column representing the flight id
-	@Column (name = "FlightID")
-	private int flightID;
-	
-	// Column representing the airlines
-	@Column (name = "FlightName")
-	private String airlines;
-	
-	@Column (name = "DepartingTime")
-	private Time departureTime;
-	
-	@Column (name = "ArrivingTime")
-	private Time arrivalTime;
-	
-	@Column (name = "DepartingDate")
-	private Date departureDate;
-	
-	@Column (name = "ArrivingDate")
-	private Date arrivalDate;
-	
-	// Column representing the flight number
-	@Column (name = "FlightNo")
-	private String flightNumber;
-	
-	@ManyToOne
-	@JoinColumn (name = "AirportID")
-	private Airport airport;
-	
-	public Flight() {
-		//default constructor
-	}
-	
-	public Flight(int flightID) {
-	    this.flightID = flightID;
-	}
-	
-	public int getFlightID() {
-		return flightID;
-	}
+    
+    // Column representing the flight id
+    @Id
+    // Specifies that the flightID will be generated automatically
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    // Column representing the flight id
+    @Column(name = "FlightID")
+    private int flightID;
+    
+    // Column representing the airlines
+    @Column(name = "FlightName")
+    private String airlines;
+    
+    // Column representing the flight departure time
+    @Column(name = "DepartingTime")
+    private Time departureTime;
+    
+    // Column representing the flight arrival time
+    @Column(name = "ArrivingTime")
+    private Time arrivalTime;
+    
+    // Column representing the flight departure date
+    @Column(name = "DepartingDate")
+    private Date departureDate;
+    
+    // Column representing the flight arrival date
+    @Column(name = "ArrivingDate")
+    private Date arrivalDate;
+    
+    // Column representing the flight number
+    @Column(name = "FlightNo")
+    private String flightNumber;
+    
+    // Column representing the airport id as a foreign key
+    @ManyToOne
+    @JoinColumn(name = "AirportID")
+    private Airport airport;
 
-	public String getFlightName() {
-		return airlines;
-	}
+    // Getter and Setter methods
 
-	public void setFlightName(String airlines) {
-		this.airlines = airlines;
-	}
+    // Default constructor
+    public Flight() {
+    }
 
-	public Time getDepartingTime() {
-		return departureTime;
-	}
+    // Constructor with flightID parameter
+    public Flight(int flightID) {
+        this.flightID = flightID;
+    }
 
-	public void setDepartingTime(Time departureTime) {
-		this.departureTime = departureTime;
-	}
+    // Get the flight ID
+    public int getFlightID() {
+        return flightID;
+    }
 
-	public Time getArrivingTime() {
-		return arrivalTime;
-	}
+    // Get the airlines
+    public String getFlightName() {
+        return airlines;
+    }
 
-	public void setArrivingTime(Time arrivalTime) {
-		this.arrivalTime = arrivalTime;
-	}
+    // Set the airlines
+    public void setFlightName(String airlines) {
+        this.airlines = airlines;
+    }
 
-	public Date getDepartingDate() {
-		return departureDate;
-	}
+    // Get the departure time
+    public Time getDepartingTime() {
+        return departureTime;
+    }
 
-	public void setDepartingDate(Date departureDate) {
-		this.departureDate = departureDate;
-	}
+    // Set the departure time
+    public void setDepartingTime(Time departureTime) {
+        this.departureTime = departureTime;
+    }
 
-	public Date getArrivalDate() {
-		return arrivalDate;
-	}
+    // Get the arrival time
+    public Time getArrivingTime() {
+        return arrivalTime;
+    }
 
-	public void setArrivalDate(Date arrivalDate) {
-		this.arrivalDate = arrivalDate;
-	}
-/*
-	public Time getArrivingDate() {
-		return arrivalDate;
-	}
+    // Set the arrival time
+    public void setArrivingTime(Time arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
 
-	public void setArrivingDate(Time arrivalDate) {
-		this.arrivalDate = arrivalDate;
-	}
-	*/
+    // Get the departure date
+    public Date getDepartingDate() {
+        return departureDate;
+    }
 
-	public String getFlightNo() {
-		return flightNumber;
-	}
+    // Set the departure date
+    public void setDepartingDate(Date departureDate) {
+        this.departureDate = departureDate;
+    }
 
-	public void setFlightNo(String flightNumber) {
-		this.flightNumber = flightNumber;
-	}
+    // Get the arrival date
+    public Date getArrivalDate() {
+        return arrivalDate;
+    }
 
-	public Airport getAirport() {
-		return airport;
-	}
+    // Set the arrival date
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
 
-	public void setAirport(Airport airport) {
-		this.airport = airport;
-	}
+    // Get the flight number
+    public String getFlightNo() {
+        return flightNumber;
+    }
 
-	public void setFlightID(int flightID) {
-		this.flightID = flightID;
-	}
+    // Set the flight number
+    public void setFlightNo(String flightNumber) {
+        this.flightNumber = flightNumber;
+    }
 
+    // Get the associated airport
+    public Airport getAirport() {
+        return airport;
+    }
+
+    // Set the associated airport
+    public void setAirport(Airport airport) {
+        this.airport = airport;
+    }
+
+    // Set the flight ID
+    public void setFlightID(int flightID) {
+        this.flightID = flightID;
+    }
+    
 }
-

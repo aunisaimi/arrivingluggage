@@ -8,65 +8,81 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
+ * This class is the Truck model representing truck information.
+ * 
+ * This class is mapped to a database table named "Truck" using JPA annotations.
+ * It represents information about a truck, including its unique ID, 
+ * registration number, operator name, and location.
  * 
  * @author Anis Sabrina
- *
+ * 
  */
 
+//Maps this class to a database table named "Truck"
 @Entity
-@Table(name="Truck")
-public class Truck 
-{
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column (name = "TruckID")
-	private int truckID;
-	
-	@Column (name = "RegistrationNo")
-	private String registrationNo;
-	
-	@Column (name = "OperatorName")
-	private String operatorName;
-	
-	
-	@Column (name = "Location")
-	private String location;
-	
-	
-	
-	public int getTruckID() {
-		return truckID;
-	}
+@Table(name = "Truck") 
+public class Truck {
+    
+    // Primary Key
+    @Id
+    // Specifies that the truckID will be generated automatically
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    // Column representing the truck id
+    @Column(name = "TruckID")
+    private int truckID;
+    
+    // Column representing the truck's registration number
+    @Column(name = "RegistrationNo")
+    private String registrationNo;
+    
+    // Column representing the truck's operator name
+    @Column(name = "OperatorName")
+    private String operatorName;
+    
+    // Column representing the truck's location
+    @Column(name = "Location")
+    private String location;
 
-	public void setTruckID(int truckID) {
-		this.truckID = truckID;
-	}
+    // Getter and Setter methods
 
-	public String getOperatorName() {
-		return operatorName;
-	}
+    // Get the truck ID
+    public int getTruckID() {
+        return truckID;
+    }
 
-	public void setOperatorName(String operatorName) {
-		this.operatorName = operatorName;
-	}
+    // Set the truck ID
+    public void setTruckID(int truckID) {
+        this.truckID = truckID;
+    }
 
-	public String getLocation() {
-		return location;
-	}
+    // Get the truck's operator name
+    public String getOperatorName() {
+        return operatorName;
+    }
 
-	public void setLocation(String location) {
-		this.location = location;
-	}
+    // Set the truck's operator name
+    public void setOperatorName(String operatorName) {
+        this.operatorName = operatorName;
+    }
 
-	public String getRegistrationNo() {
-		return registrationNo;
-	}
+    // Get the truck's location
+    public String getLocation() {
+        return location;
+    }
 
-	public void setRegistrationNo(String registrationNo) {
-		this.registrationNo = registrationNo;
-	}
+    // Set the truck's location
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
+    // Get the truck's registration number
+    public String getRegistrationNo() {
+        return registrationNo;
+    }
 
-	
-	
+    // Set the truck's registration number
+    public void setRegistrationNo(String registrationNo) {
+        this.registrationNo = registrationNo;
+    }
+    
 }
