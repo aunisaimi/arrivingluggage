@@ -30,8 +30,11 @@
 	</html>
 
     <div class="my-3">
-      <form th:action="@{/trackingsheet/checkpoint4/save}" method="post" enctype="multipart/form-data" th:object="${trackingsheet4}"
-        style="max-width: 550px; margin: 0 auto">
+      <form th:action="@{/trackingsheet/checkpoint4/save}" th:method="${trackingsheet4.trackingsheetID == null ? 'post' : 'put'}"
+    enctype="multipart/form-data" th:object="${trackingsheet4}" style="max-width: 550px; margin: 0 auto">
+    
+        <!-- Hidden input field to indicate the HTTP method -->
+    <input type="hidden" th:name="_method" th:value="${trackingsheet4.trackingsheetID == null ? 'post' : 'put'}" />
 
         <input type="hidden" th:field="*{trackingsheetID}" />
 

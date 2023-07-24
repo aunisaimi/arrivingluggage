@@ -120,14 +120,14 @@
 <tbody>
             <tr th:each="trackingsheet : ${trackingsheets}" th:if="${trackingsheet.luggage.passengerID.flightID.flightName == 'AirAsia'}">
                 <td th:text="${trackingsheet.getTrackingsheetID()}"></td>
-                <td th:text="${trackingsheet.luggage.getLuggageID()}"></td>
-                <td th:text="${trackingsheet.getStaffID()?.getStaffname()}"></td>
-                <td th:text="${trackingsheet.checkpoint.getCheckpointID()}"></td>
-                <td th:text="${trackingsheet.truck.getRegistrationNo()}"></td>
-                <td th:text="${trackingsheet.conveyorlane.getLaneNumber()}"></td>
-                <td th:text="${trackingsheet.getDateTime()}"></td>
-                <td th:text="${trackingsheet.luggage.passengerID.flightID.getFlightNo()}"></td>
-                <td th:text="${trackingsheet.getStatus()}"></td>
+				<td th:text="${trackingsheet.luggage.getLuggageID()}"></td>
+				<td th:text="${trackingsheet.getStaffID()?.getStaffname()}"></td>
+				<td th:text="${trackingsheet.checkpoint?.getCheckpointID()}"></td>
+				<td th:text="${trackingsheet.truck?.getRegistrationNo()}"></td>
+				<td th:text="${trackingsheet.conveyorlane?.getLaneNumber()}"></td>
+				<td th:text="${trackingsheet.getDateTime()}"></td>
+				<td th:text="${trackingsheet.luggage.passengerID.flightID?.getFlightNo()}"></td>
+				<td th:text="${trackingsheet.getStatus()}"></td>
             </tr>
         </tbody>
 </tbody>
@@ -167,14 +167,14 @@
 <tbody>
             <tr th:each="trackingsheet : ${trackingsheets}" th:if="${trackingsheet.luggage.passengerID.flightID.flightName == 'Malaysia Airlines'}">
                 <td th:text="${trackingsheet.getTrackingsheetID()}"></td>
-                <td th:text="${trackingsheet.luggage.getLuggageID()}"></td>
-                <td th:text="${trackingsheet.staffID.getStaffname()}"></td>
-                <td th:text="${trackingsheet.checkpoint.getCheckpointID()}"></td>
-                <td th:text="${trackingsheet.truck.getRegistrationNo()}"></td>
-                <td th:text="${trackingsheet.conveyorlane.getLaneNumber()}"></td>
-                <td th:text="${trackingsheet.getDateTime()}"></td>
-                <td th:text="${trackingsheet.luggage.passengerID.flightID.getFlightNo()}"></td>
-                <td th:text="${trackingsheet.getStatus()}"></td>
+				<td th:text="${trackingsheet.luggage.getLuggageID()}"></td>
+				<td th:text="${trackingsheet.getStaffID()?.getStaffname()}"></td>
+				<td th:text="${trackingsheet.checkpoint?.getCheckpointID()}"></td>
+				<td th:text="${trackingsheet.truck?.getRegistrationNo()}"></td>
+				<td th:text="${trackingsheet.conveyorlane?.getLaneNumber()}"></td>
+				<td th:text="${trackingsheet.getDateTime()}"></td>
+				<td th:text="${trackingsheet.luggage.passengerID.flightID?.getFlightNo()}"></td>
+				<td th:text="${trackingsheet.getStatus()}"></td>
             </tr>
         </tbody>
 </tbody>
@@ -214,14 +214,14 @@
 <tbody>
             <tr th:each="trackingsheet : ${trackingsheets}" th:if="${trackingsheet.luggage.passengerID.flightID.flightName == 'Malindo Air'}">
                 <td th:text="${trackingsheet.getTrackingsheetID()}"></td>
-                <td th:text="${trackingsheet.luggage.getLuggageID()}"></td>
-                <td th:text="${trackingsheet.staffID.getStaffname()}"></td>
-                <td th:text="${trackingsheet.checkpoint.getCheckpointID()}"></td>
-                <td th:text="${trackingsheet.truck.getRegistrationNo()}"></td>
-                <td th:text="${trackingsheet.conveyorlane.getLaneNumber()}"></td>
-                <td th:text="${trackingsheet.getDateTime()}"></td>
-                <td th:text="${trackingsheet.luggage.passengerID.flightID.getFlightNo()}"></td>
-                <td th:text="${trackingsheet.getStatus()}"></td>
+				<td th:text="${trackingsheet.luggage.getLuggageID()}"></td>
+				<td th:text="${trackingsheet.getStaffID()?.getStaffname()}"></td>
+				<td th:text="${trackingsheet.checkpoint?.getCheckpointID()}"></td>
+				<td th:text="${trackingsheet.truck?.getRegistrationNo()}"></td>
+				<td th:text="${trackingsheet.conveyorlane?.getLaneNumber()}"></td>
+				<td th:text="${trackingsheet.getDateTime()}"></td>
+				<td th:text="${trackingsheet.luggage.passengerID.flightID?.getFlightNo()}"></td>
+				<td th:text="${trackingsheet.getStatus()}"></td>
             </tr>
         </tbody>
 </tbody>

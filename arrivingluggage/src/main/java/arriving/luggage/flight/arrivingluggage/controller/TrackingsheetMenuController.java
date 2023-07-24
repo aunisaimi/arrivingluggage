@@ -539,8 +539,8 @@ private String defaultURI = "http://localhost:8080/arriving/api/trackingsheets";
 		
 		System.out.println(trackingsheetCheckpoint4Response);
 		
-		//return "redirect:/trackingsheet/checkpoint4/list";
-		return "redirect:/trackingsheet/list";
+		return "redirect:/trackingsheet/checkpoint4/list";
+		//return "redirect:/trackingsheet/list";
 	}
 	
 	/**
